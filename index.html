@@ -73,8 +73,10 @@
   th:first-child { z-index: 3; background: #161b22; }
   tr:nth-child(even) td:first-child { background: #12161d; }
   tr:nth-child(odd) td:first-child { background: #161b22; }
-  /* GREEN = DEMAND, RED = SUPPLY (feature #8) */
+  /* GREEN = DEMAND, RED = SUPPLY (feature #8) — name clickable (TradingView) */
   .sym { font-weight: 700; }
+  a.sym { text-decoration: none; cursor: pointer; }
+  a.sym:hover { text-decoration: underline; }
   .sym.demand { color: var(--green); }
   .sym.supply { color: var(--red); }
   .sym.eq { color: var(--amber); }
@@ -172,6 +174,7 @@
       <div class="strip">
         <button class="btn" onclick="downloadCSV(getSubset('dailyStocks'), 'daily_stocks')">⬇ CSV</button>
         <input type="text" id="fDailySearch" placeholder="🔍 symbol…" oninput="renderTfTables()" style="min-width:140px">
+        <button class="btn" onclick="clearFilters()" style="color:#ff8d85">✕</button>
         <span class="kv" id="dailycountlabel"></span>
       </div>
       <div class="tblwrap" id="dailyarea"></div>
@@ -187,6 +190,7 @@
       <div class="strip">
         <button class="btn" onclick="downloadCSV(getSubset('monthlyStocks'), 'monthly_stocks')">⬇ CSV</button>
         <input type="text" id="fMonthlySearch" placeholder="🔍 symbol…" oninput="renderTfTables()" style="min-width:140px">
+        <button class="btn" onclick="clearFilters()" style="color:#ff8d85">✕</button>
         <span class="kv" id="monthlycountlabel"></span>
       </div>
       <div class="tblwrap" id="monthlyarea"></div>
@@ -219,6 +223,7 @@
         </select>
         <input type="text" id="fSearch" placeholder="🔍 symbol / company…" oninput="renderAllTable()" style="min-width:160px">
         <button class="btn" onclick="downloadCSV(filteredAllRows(), 'all_zone_stocks')">⬇ CSV (filtered)</button>
+        <button class="btn" onclick="clearFilters()" style="color:#ff8d85">✕ Clear Filters</button>
         <span class="kv" id="zonecountlabel"></span>
       </div>
       <div class="tblwrap" id="zonearea"></div>
@@ -415,7 +420,8 @@ function applySector(rows) {
   return rows.filter(r => r.sector === SECTOR_FILTER);
 }
 function symCell(r) {
-  return '<td class="sym ' + typeClass(r.type) + '">' + r.sym + '</td>';
+  return '<td><a class="sym ' + typeClass(r.type) + '" href="' + TV + encodeURIComponent(r.sym) + '"' +
+    ' target="_blank" rel="noopener" title="Open ' + r.sym + ' chart in TradingView">' + r.sym + '</a></td>';
 }
 
 /* ================= RENDER ALL ================= */
@@ -565,6 +571,12 @@ function renderSectors(sectorZones) {
   document.getElementById("bdg-sectorcount").textContent = cards.length + " SECTORS";
   if (!cards.length) { el.innerHTML = '<div class="mut">no sector data</div>'; return; }
   let html = "";
+  const totalDem = cards.reduce((a, c) => a + (c.demCount || 0), 0);
+  const totalSup = cards.reduce((a, c) => a + (c.supCount || 0), 0);
+  html += '<div class="card" data-sec="" onclick="selectSectorAll()">' +
+    '<div class="nm">🌐 ALL SECTORS</div>' +
+    '<div class="st eq">' + (totalDem + totalSup) + ' ZONE STOCKS</div>' +
+    '<div class="sc">Demand ' + totalDem + ' / Supply ' + totalSup + ' — sab sectors ka combined view</div></div>';
   for (const c of cards) {
     const side = (c.side || c.status || "").includes("SUPPLY") ? "supply"
       : (c.side || c.status || "").includes("DEMAND") ? "demand" : "eq";
@@ -577,6 +589,28 @@ function renderSectors(sectorZones) {
   }
   el.innerHTML = html;
   updateCardSelection();
+}
+
+function clearFilters() {
+  SECTOR_FILTER = "";
+  document.getElementById("fType").value = "";
+  document.getElementById("fTf").value = "";
+  document.getElementById("fSearch").value = "";
+  document.getElementById("fDailySearch").value = "";
+  document.getElementById("fMonthlySearch").value = "";
+  const fd = document.getElementById("fDate");
+  if (fd) fd.value = "latest";
+  if (LIVE_DATA) { HISTORY_MODE = false; DATA = LIVE_DATA; }
+  renderAll();
+  toast("🧹 Sab filters clear — latest live scan dikh raha hai", "ok");
+}
+
+function selectSectorAll() {
+  SECTOR_FILTER = "";
+  renderTfTables();
+  renderAllTable();
+  updateCardSelection();
+  toast("🌐 ALL SECTORS — sab stocks dikh rahe hain", "ok");
 }
 
 function selectSector(id) {
@@ -592,7 +626,13 @@ function updateCardSelection() {
   const cards = document.querySelectorAll("#sectorcards .card");
   for (let i = 0; i < cards.length; i++) {
     const el = cards[i];
-    if (el.classList) el.classList.toggle("selected", !!SECTOR_FILTER && el.dataset.sec === SECTOR_FILTER);
+    if (!el.classList) continue;
+    if (el.dataset.sec === "" || el.dataset.sec === undefined) {
+      // ALL SECTORS card — highlight jab koi sector filter nahi
+      el.classList.toggle("selected", SECTOR_FILTER === "");
+    } else {
+      el.classList.toggle("selected", SECTOR_FILTER === el.dataset.sec);
+    }
   }
 }
 
