@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strict Pure Stocks — Complete Trading Guide Book (Mon–Fri)</title>
+<style>
+  :root {
+    --bg:#0e1117; --panel:#161b22; --panel2:#12161d; --line:#21262d;
+    --txt:#c9d1d9; --head:#e6edf3; --muted:#8b949e;
+    --green:#2ea043; --red:#f85149; --blue:#58a6ff; --amber:#d29922; --cyan:#39c5cf;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif; line-height:1.65; }
+  .wrap { max-width:980px; margin:0 auto; padding:26px 18px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; color:var(--head); }
+  h1 .acc { color:var(--cyan); }
+  h2 { font-size:20px; color:var(--head); margin:42px 0 10px; border-bottom:1px solid var(--line); padding-bottom:7px; }
+  h3 { font-size:15.5px; color:var(--head); margin:20px 0 6px; }
+  .sub { color:var(--muted); font-size:13px; }
+  table { border-collapse:collapse; width:100%; font-size:13px; margin:10px 0; }
+  th { background:var(--panel2); color:var(--head); text-align:left; padding:8px 10px;
+    border:1px solid var(--line); font-size:11.5px; white-space:nowrap; }
+  td { padding:7px 10px; border:1px solid var(--line); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--panel2); }
+  .g { color:var(--green); font-weight:600; } .r { color:var(--red); font-weight:600; }
+  .a { color:var(--amber); font-weight:600; } .b { color:var(--blue); font-weight:600; }
+  .box { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0; }
+  .box.green { border-left:4px solid var(--green); }
+  .box.red { border-left:4px solid var(--red); }
+  .box.amber { border-left:4px solid var(--amber); }
+  .box.blue { border-left:4px solid var(--blue); }
+  .box b { color:var(--head); }
+  .toc { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:18px 0; }
+  .toc a { color:var(--blue); text-decoration:none; display:block; padding:3px 0; }
+  .toc a:hover { text-decoration:underline; }
+  .check { background:var(--panel2); border:1px dashed var(--line); border-radius:10px; padding:14px 18px; margin:12px 0; }
+  .check h4 { margin:0 0 8px; color:var(--cyan); font-size:14px; }
+  .check li { margin:4px 0; font-size:13.5px; }
+  .pill { display:inline-block; background:#1f6feb22; color:var(--blue); border:1px solid #1f6feb55;
+    border-radius:20px; padding:2px 10px; font-size:11.5px; margin:0 4px 4px 0; }
+  .warn { color:var(--red); font-weight:600; }
+  .ok { color:var(--green); font-weight:600; }
+  footer { margin-top:44px; border-top:1px solid var(--line); padding-top:14px; color:var(--muted); font-size:12px; }
+  @media print {
+    body { background:#fff; color:#111; }
+    .box, .check, .toc, table th, table td, tr:nth-child(even) td { background:#fff !important; border-color:#bbb !important; }
+    .g { color:#0a7d33; } .r { color:#c01f1f; } .a { color:#9a6b00; } .b { color:#0b5fd0; }
+  }
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>📕 <span class="acc">Strict Pure Stocks</span> — Complete Trading Guide Book</h1>
+<div class="sub">Monday se Friday ka pura routine • Profit Table (P&L tracker) • Backtest-tested rules
+<span class="pill">GTF Strict v4</span><span class="pill">Swing: 5-din hold</span><span class="pill">Risk 1% per trade</span></div>
+
+<div class="toc">
+<b style="color:var(--head)">📚 Contents</b>
+<a href="#p1">Part 1 — System ka saar (2 minute me samjho)</a>
+<a href="#p2">Part 2 — Trading se pehle ka setup (ek baar karna hai)</a>
+<a href="#p3">Part 3 — Roz ka routine: Mon–Fri hour-by-hour</a>
+<a href="#p4">Part 4 — Trade kaise lena hai (entry → exit, live example)</a>
+<a href="#p5">Part 5 — Broker me orders kaise lagayein (GTT/AMO/SL-M)</a>
+<a href="#p6">Part 6 — PROFIT TABLE: P&L tracker kaise bharein</a>
+<a href="#p7">Part 7 — Paisa management (position size &amp; circuit breaker)</a>
+<a href="#p8">Part 8 — Psychology: 10 Golden Rules</a>
+<a href="#p9">Part 9 — Saturday Weekly Review (30 minute)</a>
+<a href="#p10">Part 10 — Common mistakes (backtest ne pakde hain)</a>
+<a href="#p11">Part 11 — Monthly review &amp; system upgrade</a>
+<a href="#p12">Part 12 — FAQ</a>
+<a href="#check">🖨 Print Card — Daily Checklist</a>
+</div>
+
+<!-- ================= PART 1 ================= -->
+<h2 id="p1">Part 1 — System ka saar (2 minute me samjho)</h2>
+<div class="box blue">
+<b>Kya karte ho:</b> Har trading din 15:45 IST pe dashboard NSE 500 ka scan karke
+<b>"STRICT TOP-3"</b> stocks deta hai jo fresh <b>GTF demand zone</b> pe baithe hain.
+Aap agle din <b>limit order</b> se zone me entry lete ho, strict SL ke saath, aur
+<b>max 5 din (1 week)</b> me T1/T2 target nikalte ho. Yeh 1-week swing trading hai.
+</div>
+<div class="box amber">
+<b>Backtest ke honest numbers (2.5 saal, 122 filled trades):</b>
+<table>
+<tr><th>Metric</th><th>Value</th><th>Matlab</th></tr>
+<tr><td>Win rate</td><td class="a">~42%</td><td>10 trades me ~4 jeetenge — <b>6 me SL hit hoga aur ye NORMAL hai</b></td></tr>
+<tr><td>Avg per trade</td><td class="g">+0.31R</td><td>Jeet 2R deti hai, haar sirf 1R leti hai → is balance se profit</td></tr>
+<tr><td>T1 hit</td><td class="g">41%</td><td>Target 1 pe exit = sabse common win</td></tr>
+<tr><td>Weekly average</td><td class="g">+0.78R</td><td>~2.5 trades/week — ₹1,000 risk pe ≈ ₹780/week avg</td></tr>
+<tr><td>Worst month dekha</td><td class="r">-6.6R</td><td>₹1,000 risk pe ≈ -₹6,600 — isliye risk 1% rakho</td></tr>
+</table>
+<b>Is system ka fayda SL discipline aur R-multiples me hai, stock-picking magic me nahi.</b>
+Jo is routine ko 100% follow karega, uske numbers is table jaisa rahenge. Jo rules todega, uska alag hisaab hoga.
+</div>
+
+<!-- ================= PART 2 ================= -->
+<h2 id="p2">Part 2 — Trading se pehle ka setup (ek baar karna hai)</h2>
+<div class="check">
+<h4>☑️ SETUP CHECKLIST</h4>
+<ul>
+<li><b>Dashboard:</b> GitHub Pages pe live (guide: <code>GitHub_Setup_Guide.md</code>). Password: <code>7004602</code>.</li>
+<li><b>Broker:</b> Zerodha / Upstox / Dhan / Angel One / Groww — koi bhi, bas 2 cheezein chahiye:
+  (1) <b>After-Market Order (AMO) ya GTT</b> — taaki raat ko order laga sako, aur
+  (2) <b>Stop-Loss Market (SL-M)</b> order type.</li>
+<li><b>Capital:</b> Kam se kam ₹50,000 (ideal ₹1,00,000). Yeh "risk capital" ho — kiraaya/EMI ka paisa kabhi nahi.</li>
+<li><b>Risk per trade:</b> Capital ka <b>1%</b> — ₹1,00,000 pe ₹1,000. Ye number jeb me likh lo.</li>
+<li><b>Files:</b> <code>Trade_Journal.xlsx</code> (Profit Table) download karke Google Sheets/Excel me khol lo.</li>
+<li><b>TradingView:</b> Free account — dashboard ke 📊 chart links wahin khulte hain.</li>
+<li><b>Time:</b> Roz sham ko ~30 minute + din me 3-4 baar 2 minute check. Full-time screen mat dekho.</li>
+</ul>
+</div>
+
+<!-- ================= PART 3 ================= -->
+<h2 id="p3">Part 3 — Roz ka routine: Mon–Fri hour-by-hour</h2>
+<div class="box green">
+<b>🕐 DAILY CORE ROUTINE (har trading din, same pattern):</b>
+<table>
+<tr><th>Time (IST)</th><th>Kaam</th><th>Time lagega</th></tr>
+<tr><td><b>15:45</b></td><td>Dashboard kholo (Ctrl+F5 refresh) → <b>STRICT TOP-3</b> dekho</td><td>2 min</td></tr>
+<tr><td><b>15:45–16:00</b></td><td>Picks note karo: Entry zone, SL, T1, T2, Combo, Sector</td><td>5 min</td></tr>
+<tr><td><b>Sham (17:00–20:00)</b></td><td>📊 TradingView pe chart verify karo + Qty calculate karo + <b>AMO/GTT order place karo (agle din ke liye)</b></td><td>15–20 min</td></tr>
+<tr><td><b>Agle din 9:15</b></td><td>Market open — orders active. Sirf fill check karo.</td><td>1 min</td></tr>
+<tr><td><b>Din me 3 baar</b></td><td>Open positions check karo: SL hit? T1 hit? (11:00, 13:30, 15:15)</td><td>3×2 min</td></tr>
+<tr><td><b>15:30 ke baad</b></td><td>Result journal me likho (Trade_Journal.xlsx) + 15:45 ki nayi picks dekho</td><td>5 min</td></tr>
+</table>
+</div>
+
+<h3>📅 Din-wise special notes</h3>
+<table>
+<tr><th>Din</th><th>Kya khaas hai</th></tr>
+<tr><td><b>MONDAY</b></td><td>• Friday ki picks ke orders aaj active honge (agar Friday sham place kiye the).<br>
+• <b>Weekend gap check:</b> agar stock SL ke <b>neeche</b> open ho → aaj entry mat lo, order cancel. (Gap-up open above zone ho to bhi chase mat karo — limit order apne aap fill hoga warna skip.)<br>
+• 15:45 pe Monday ki fresh picks aayengi (Tuesday entry ke liye).</td></tr>
+<tr><td><b>TUESDAY</b></td><td>• Monday picks ka entry window (Tue–Thu, 3 din).<br>
+• Purane unfilled orders ka count yaad rakho — 3 din poore = cancel.</td></tr>
+<tr><td><b>WEDNESDAY</b></td><td>• Mid-week = max activity: naye fills + purane positions ka monitor.<br>
+• Time-stop check: jo position pichhle Wednesday enter hui thi, aaj uska 5th din hai → SL/T1/T2 nahi laga to <b>aaj close pe exit (TIME)</b>.</td></tr>
+<tr><td><b>THURSDAY</b></td><td>• Weekly options expiry — index me noise ho sakta hai, stocks me koi rule change nahi.<br>
+• Monday picks ka aakhri entry din — sham tak fill nahi to cancel.</td></tr>
+<tr><td><b>FRIDAY</b></td><td>• 15:45 ki picks <b>Monday ke liye</b> hongi — weekend gap risk. <b>Optional rule:</b> comfort nahi hai to Friday picks skip karo (signals kam, neend achi).<br>
+• Time-stop: Monday entry wali positions ka 5th din aaj → close pe exit agar SL/T1/T2 nahi laga.<br>
+• Weekend me journal complete karo, Saturday review ke liye data ready rakho.</td></tr>
+</table>
+
+<div class="box amber">
+<b>Entry window ka rule (bahut zaroori):</b> Pick ke agle din se <b>3 trading din</b> tak entry zone ka wait karo.
+3 din me fill nahi hua → <b>order cancel, trade skip</b> (backtest me ~34% orders aise skip hote hain — normal).
+<b>Chase karna = SL-hit badhana.</b> Jo stock bhaag gaya, gaya — agle din naya scan aayega.
+</div>
+
+<!-- ================= PART 4 ================= -->
+<h2 id="p4">Part 4 — Trade kaise lena hai (entry → exit, live example)</h2>
+<div class="box blue">
+<b>Real example — dashboard ka actual strict pick M&MFIN:</b><br><br>
+Dashboard ne bataya:
+<table>
+<tr><th>Entry zone</th><th>SL</th><th>T1</th><th>T2</th><th>Risk/share</th></tr>
+<tr><td>₹387.83 – ₹388.80</td><td class="r">₹385.69</td><td class="g">₹395.02</td><td class="g">₹398.13</td><td>₹3.11</td></tr>
+</table>
+<b>Step 1 — Qty nikalo:</b> Risk ₹1,000 ÷ ₹3.11 = 321 shares<br>
+<b>Step 2 — Orders lagao:</b><br>
+&nbsp;&nbsp;• <b>Limit Buy:</b> 321 sh @ ₹388.80 (zone ka upar wala edge — entry range me fill hoga)<br>
+&nbsp;&nbsp;• <b>SL-M:</b> trigger ₹385.70, market sell 321 sh (GTT me dono ek saath set hota hai)<br>
+&nbsp;&nbsp;• <b>Targets:</b> GTT sell 160 sh @ ₹395.02 + GTT sell 161 sh @ ₹398.13 (ya manually manage karo)<br>
+<b>Step 3 — Manage:</b><br>
+&nbsp;&nbsp;• T1 touch → 160 sh sell (+₹996 profit), baaki 161 sh ka SL ₹388.80 (cost) pe le jao<br>
+&nbsp;&nbsp;• T2 touch → 161 sh sell (+₹1,503 profit) → total ≈ +₹2,500 (2.5R) ✅<br>
+&nbsp;&nbsp;• SL touch → -₹998 (-1R) — accept karo, journal likho, aage badho<br>
+&nbsp;&nbsp;• 5 din me kuch nahi → close pe exit (TIME), average -0.2R — bhi accept karo<br>
+<b>Step 4 — Result journal me likho (Profit Table me row bharo).</b>
+</div>
+
+<div class="box green">
+<b>Exit Rules — ek line me:</b>
+<ol style="margin:6px 0; padding-left:22px;">
+<li><b>SL pehle</b> — SL touch hua to trade khatam, koi bahana nahi.</li>
+<li><b>T1 pe aadha</b> — 50% position book, baaki ka SL cost pe (ab ye trade FREE hai).</li>
+<li><b>T2 pe baaki</b> — 50% book.</li>
+<li><b>5-din time stop</b> — SL/T1/T2 nahi laga to 5th din close pe exit, jo bhi price ho.</li>
+<li><b>3-din entry stop</b> — fill nahi hui to cancel.</li>
+</ol>
+</div>
+
+<!-- ================= PART 5 ================= -->
+<h2 id="p5">Part 5 — Broker me orders kaise lagayein (GTT/AMO/SL-M)</h2>
+<table>
+<tr><th>Broker</th><th>Sham ke liye</th><th>SL kaise</th></tr>
+<tr><td><b>Zerodha Kite</b></td><td><b>GTT</b> (Orders → GTT → New GTT) — trigger + limit dono set, 1 saal valid</td><td>GTT me sell trigger = SL-M jaisa kaam</td></tr>
+<tr><td><b>Upstox</b></td><td>AMO (After Market Order) 20:00 tak</td><td>SL-M order type</td></tr>
+<tr><td><b>Dhan</b></td><td>AMO + <b>GTT</b> support</td><td>SL-M / GTT</td></tr>
+<tr><td><b>Angel One</b></td><td>AMO (sham 9:00 tak)</td><td>SL-M order type</td></tr>
+<tr><td><b>Groww</b></td><td>AMO (agle din 9:00–9:08 execute)</td><td>SL-M order type</td></tr>
+</table>
+<div class="box amber">
+<b>Order placement ka exact flow (har sham):</b><br>
+1. Qty calculate karo (Risk ÷ risk-per-share).<br>
+2. <b>Buy Limit</b> @ entryHi (zone ka top) — raat me AMO/GTT se.<br>
+3. <b>Sell SL-M</b> @ SL se thoda neeche trigger (broker ke hisaab se).<br>
+4. Targets ya to GTT se rakho, ya din me manually manage karo (recommended — T1 ke baad SL adjust karna hai).<br>
+5. Morning 9:15 pe verify: order active hai? Price SL ke neeche open to nahi hua?<br>
+6. Open < SL → entry order cancel. Open > zone → limit apne aap fill hoga jab price wapas aayega (3 din window).
+</div>
+
+<!-- ================= PART 6 ================= -->
+<h2 id="p6">Part 6 — PROFIT TABLE: P&L tracker kaise bharein</h2>
+<div class="box green">
+<b>📊 <code>Trade_Journal.xlsx</code> me 4 sheets hain:</b>
+<table>
+<tr><th>Sheet</th><th>Kaam</th></tr>
+<tr><td><b>Trade Log</b></td><td>Asli Profit Table — 150 rows ready, formulas auto: Risk ₹, R, P&L ₹, Running total</td></tr>
+<tr><td><b>Example (dekho)</b></td><td>1 sample week — kaise bharna hai (5 trades, +2.94R)</td></tr>
+<tr><td><b>Rules &amp; Targets</b></td><td>15 Golden Rules + realistic targets + backtest numbers</td></tr>
+<tr><td><b>Weekly Review</b></td><td>Har Saturday ka 30-minute review format</td></tr>
+</table>
+<b>Har trade me bas ye 8 cheezein bharo:</b> Date, Symbol, Entry ₹, SL ₹, T1 ₹, T2 ₹, Qty, Exit ₹ (+ Result dropdown se SL/T1/T2/TIME chuno).
+<b>Baaki sab (Risk, R, P&L, Running) Excel khud nikal dega.</b>
+</div>
+<div class="box blue">
+<b>Sample week (Example sheet se — ₹1,000 risk/trade):</b>
+<table>
+<tr><th>Symbol</th><th>Entry</th><th>Result</th><th>R</th><th>P&L</th></tr>
+<tr><td>M&MFIN</td><td>₹388.80</td><td class="g">T1(50%) + SL@cost</td><td class="g">+1.58R</td><td class="g">+₹1,573</td></tr>
+<tr><td>JSWCEMENT</td><td>₹128.63</td><td class="g">T1 + T2</td><td class="g">+2.50R</td><td class="g">+₹2,499</td></tr>
+<tr><td>HDFCBANK</td><td>₹723.30</td><td class="r">SL</td><td class="r">-1.00R</td><td class="r">-₹1,007</td></tr>
+<tr><td>ELGIEQUIP</td><td>₹569.15</td><td class="a">TIME (5 din)</td><td class="a">-0.14R</td><td class="a">-₹143</td></tr>
+<tr><td>POLYCAB</td><td>—</td><td class="b">NO FILL</td><td>—</td><td>₹0</td></tr>
+<tr><td colspan="3" style="text-align:right"><b>Week total</b></td><td class="g"><b>+2.94R</b></td><td class="g"><b>≈ +₹2,922</b></td></tr>
+</table>
+⚠️ Har week aisa nahi hota — average +0.78R/week hai. SL wale din journal me wahi likho jo likha hai:
+<b>"-1R, system normal"</b> — aur aage badho.
+</div>
+
+<!-- ================= PART 7 ================= -->
+<h2 id="p7">Part 7 — Paisa management (position size & circuit breaker)</h2>
+<table>
+<tr><th>Capital</th><th>Risk/trade (1%)</th><th>Weekly avg (+0.78R)</th><th>Worst month (-6.6R)</th></tr>
+<tr><td>₹50,000</td><td>₹500</td><td>≈ ₹390/week</td><td class="r">≈ -₹3,300</td></tr>
+<tr><td>₹1,00,000</td><td>₹1,000</td><td>≈ ₹780/week</td><td class="r">≈ -₹6,600</td></tr>
+<tr><td>₹2,00,000</td><td>₹2,000</td><td>≈ ₹1,560/week</td><td class="r">≈ -₹13,200</td></tr>
+</table>
+<div class="box red">
+<b>🚦 CIRCUIT BREAKER (capital bachane ka niyam):</b>
+<ul style="margin:6px 0; padding-left:22px;">
+<li><b>Max 2 open positions</b> ek saath (2R risk se zyada kabhi nahi).</li>
+<li><b>Lagataar 3 SL</b> → 2 trading din poora band. (Market mood badal gaya — system us waqt match nahi kar raha.)</li>
+<li><b>Lagataar 4 SL</b> → poori week band, Saturday review me reason dhundho.</li>
+<li><b>Mahina -5R pe</b> → agle mahine risk aadha (0.5%) kar do. Mahina +5R pe wapas 1%.</li>
+<li>Position sizing kabhi 1% se upar mat badhao — <b>chaahe kitna bhi confident feel ho.</b> Backtest me -6.6R wale months aate hain; 2% risk pe wo -13% capital hota.</li>
+</ul>
+</div>
+
+<!-- ================= PART 8 ================= -->
+<h2 id="p8">Part 8 — Psychology: 10 Golden Rules</h2>
+<div class="check">
+<h4>🧠 DISCIPLINE RULES (ye system ka asli engine hai)</h4>
+<ol>
+<li><b>NO PICKS = WAIT.</b> Khali din normal hai (~2 picks/week average). Bina signal trade karna = guaranteed loss ka raasta.</li>
+<li><b>Sirf dashboard ke STRICT picks.</b> Man se RELIANCE lena, news se TATASTEEL lena — sab banned. Dashboard ne 2.5 saal ka data dekhke filter banaya hai, aapne nahi.</li>
+<li><b>SL kabhi wide mat karo.</b> "Thoda neeche rakh deta hoon" wale ne hi -81R drawdown banaya tha. SL = system ka engine.</li>
+<li><b>Chase mat karo.</b> Stock zone chhod ke upar chala gaya? Skip. Limit order hi entry hai. (IN-zone chase: backtest me win 19%.)</li>
+<li><b>SL ke baad revenge mat lo.</b> -1R = deal ka hissa. Journal likho, close karo, agle din ka scan dekho.</li>
+<li><b>P&L din me 20 baar mat dekho.</b> Orders lage hain, rules set hain. Screen staring se SL nahi rukta, sirf dimaag kharab hota hai.</li>
+<li><b>Har trade SAME din likho</b> journal me — nhi to 2 hafte baad aapko pata hi nahi chalega kya galat hua.</li>
+<li><b>Expectation sahi rakho:</b> +0.31R avg, 42% win — yaani roz ka paisa nahi, mahine ka paisa. Get-rich nahi, steady edge.</li>
+<li><b>Dusre se compare mat karo.</b> Aapke numbers backtest baseline se compare hone chahiye (Part 11), Telegram group se nahi.</li>
+<li><b>System pe bharosa = rules pe bharosa.</b> Agar aapne 20 trades ke baad bhi rules nahi tode aur loss me ho — tab system review karo. Rules todke loss = system ki galti nahi, aapki.</li>
+</ol>
+</div>
+
+<!-- ================= PART 9 ================= -->
+<h2 id="p9">Part 9 — Saturday Weekly Review (30 minute)</h2>
+<div class="box green">
+<b>🗓 Har Saturday, chai ke saath, 30 minute — ye 4 kaam:</b>
+<ol style="margin:6px 0; padding-left:22px;">
+<li><b>Journal kholo</b> → Weekly Review sheet bharo: kitne signals, kitne trades, win %, total R, total P&L.</li>
+<li><b>Baseline se compare karo:</b>
+<table style="margin:8px 0;">
+<tr><th>Metric</th><th>Healthy range</th><th>Range se bahar = problem</th></tr>
+<tr><td>Win %</td><td>35–50%</td><td>&lt;30% → kuch chase/IN-zone le rahe ho</td></tr>
+<tr><td>Avg R</td><td>&gt; +0.15R</td><td>Negative → SL widen ho rahe hain ya exits late</td></tr>
+<tr><td>SL-hit %</td><td>55–65%</td><td>&gt;75% → high-volume ya excluded sectors le rahe ho</td></tr>
+<tr><td>Fill rate</td><td>60–70%</td><td>&lt;40% → market orders se chase kar rahe ho</td></tr>
+<tr><td>Circuit breaker</td><td>Follow hua</td><td>3-SL streak pe bhi trade kiya = sabse badi galti</td></tr>
+</table></li>
+<li><b>Apne 5 sabse bade winners aur losers ke charts kholo</b> — kya common tha? (Winner: fresh zone + whitelist sector. Loser: aksar excluded sector ya chased entry.)</li>
+<li><b>Agle week ka plan likho</b> — 1 line: "Ise week X improve karunga." (Sirf 1 cheez, 10 nahi.)</li>
+</ol>
+</div>
+
+<!-- ================= PART 10 ================= -->
+<h2 id="p10">Part 10 — Common mistakes (backtest ne pakde hain)</h2>
+<table>
+<tr><th>Mistake</th><th>Backtest ka saboot</th></tr>
+<tr><td class="r">IN-zone (BUY READY) stocks ko priority dena / chase karna</td><td>Win sirf <b>19%</b>, SL hit <b>74%</b> — price zone ke andar = aksar zone break ho raha hai</td></tr>
+<tr><td class="r">High-volume spike (2x+) stocks lena</td><td>SL hit <b>84%</b> — volume spike aksar climax hota hai</td></tr>
+<tr><td class="r">Excluded sectors trade karna</td><td>PSUBANK -0.46R, CONSUMPTION -0.63R, PVTBANK -0.53R, CPSE -0.17R, REALTY -0.11R, METAL -0.11R — sab negative</td></tr>
+<tr><td class="r">Non-SUPER (HIGH/SOLID) picks lena</td><td>HIGH +0.09R, SOLID <b>-0.30R</b> — sirf SUPER (11+) hi kaam karta hai</td></tr>
+<tr><td class="r">SL wide karna / SL skip karna</td><td>Ek chhoota hua SL aksar -3R se -5R le jaata hai — 5 jeet ka profit kha jaata hai</td></tr>
+<tr><td class="r">Overtrading (har din trade dhundhna)</td><td>No-signal din pe liya trade backtest me system ka hissa hi nahi hai — wo aapka apna nuksan hai</td></tr>
+<tr><td class="r">Full position T1 pe nahi nikalna, greed me T2 ka wait</td><td>T1 hit rate 41% vs T2 18% — T1 pe aadha book karna hi behtar math hai</td></tr>
+</table>
+
+<!-- ================= PART 11 ================= -->
+<h2 id="p11">Part 11 — Monthly review & system upgrade</h2>
+<div class="box blue">
+<b>Har mahine ke aakhri Saturday — 1 ghanta:</b>
+<ol style="margin:6px 0; padding-left:22px;">
+<li>Mahine ka total R nikalo. Baseline: <b>+2.5R se +3.5R average</b> (10 trades × 0.31R).</li>
+<li><b>20-30 trades complete hone ke baad</b> hi koi conclusion lo — 10 trades me kuch bhi ho sakta hai.</li>
+<li>Agar 30 trades me avgR < 0 aur aapne rules nahi tode → mujhe (ya data analyst ko) stats dikhao —
+  ho sakta hai market regime badli ho, filter tweak karna pade (ye system self-upgrading hai kyunki pura
+  backtest engine saath hai).</li>
+<li><b>Capital scaling rule:</b> 3 mahine consistently positive (monthly avgR > +1.5R) → tabhi capital/risk badhao.
+  Pehle process prove karo, phir size.</li>
+<li>Naye filters tabhi add karo jab wo <b>same backtest engine pe test</b> hue hon —
+  "sunne me acha lag raha hai" koi filter nahi hota (Part 10 ka table yaad rakho).</li>
+</ol>
+</div>
+
+<!-- ================= PART 12 ================= -->
+<h2 id="p12">Part 12 — FAQ</h2>
+<table>
+<tr><th>Sawaal</th><th>Jawab</th></tr>
+<tr><td>Dashboard 15:45 ke baad kyun update hota hai?</td><td>NSE close 15:30 ke baad scan hota hai — taaki zones "EOD confirmed" hon. Entry hamesha <b>agle din</b>.</td></tr>
+<tr><td>Kisi din picks hi nahi aayi?</td><td>Normal. Strict filter ka kaam hai. WAIT = position. Backtest me ~2 picks/week average aati hain.</td></tr>
+<tr><td>Entry 3 din me fill nahi hui?</td><td>Order cancel. ~34% signals aise skip hote hain. Agla signal lo.</td></tr>
+<tr><td>SL lagataar hit ho rahe hain (2-3 baar)?</td><td>58% SL-hit normal hai, lekin 3 in a row = circuit breaker lagao (Part 7).</td></tr>
+<tr><td>Position T2 ke baad aur chadha to?</td><td>Koi regret nahi. T2 ke baad ka move aapka nahi tha — system ne apna kaam kiya (+3R). "Aur hota to" sochna = agla trade bigadna.</td></tr>
+<tr><td>Gap-down open SL ke neeche?</td><td>Order cancel (aaj entry nahi). SL-M jo active hai wo apna kaam karega agar position thi. Ye gap-risk 1% risk rule hi handle karta hai.</td></tr>
+<tr><td>Ek din me 2 picks aayi, dono lu?</td><td>Haan — dono alag alag 1% risk. Max 2 open positions. Teesri aa jaye to pehli wali band hone ka wait karo.</td></tr>
+<tr><td>Friday ki pick lena chahiye?</td><td>Optional. Weekend gap pasand nahi to skip karo — system iske bina bhi chalta hai.</td></tr>
+<tr><td>Is system se monthly kitna banega?</td><td>₹1,00,000 capital pe realistic average <b>≈ ₹2,500–3,500/month</b> (guarantee nahi). Yahan se zyada chahiye to rules todne padenge — aur wo loss ka raasta hai.</td></tr>
+</table>
+
+<!-- ================= CHECKLIST CARD ================= -->
+<h2 id="check">🖨 Print Card — Daily Checklist (print karke desk pe)</h2>
+<div class="check">
+<h4>📋 DAILY TRADING CHECKLIST</h4>
+<ul>
+<li>☐ <b>15:45</b> Dashboard (Ctrl+F5) → STRICT TOP-3 note karo</li>
+<li>☐ Pick = DEMAND + SUPER(11+) + FRESH + whitelist sector? (sab 4 hone chahiye)</li>
+<li>☐ NO PICKS? → Journal me "WAIT" likho, dashboard band, kaam khatam ✅</li>
+<li>☐ Qty = ₹________ (risk 1%) ÷ (Entry − SL) = ________ shares</li>
+<li>☐ Sham: LIMIT buy @ entryHi + SL-M @ SL (AMO/GTT)</li>
+<li>☐ Morning: open < SL? → entry cancel ⚠️</li>
+<li>☐ Entry fill → journal me date/price/qty likho</li>
+<li>☐ T1 → 50% sell + SL cost pe | T2 → baaki sell</li>
+<li>☐ SL hit → journal "-1R normal" — NO revenge trade</li>
+<li>☐ 3 din no fill → cancel | 5 din no SL/T1/T2 → close exit</li>
+<li>☐ 3 SL in a row → 2 din band 🚦</li>
+<li>☐ Saturday: Weekly Review sheet + agle week ka 1-line plan</li>
+</ul>
+</div>
+
+<footer>
+<b>Files:</b> <code>Trade_Journal.xlsx</code> (Profit Table) • <code>GTF_Top3_Backtest_Report.html</code> (backtest) •
+<code>GTF_Dashboard_Filter_Upgrade.html</code> (filter evidence) • <code>GitHub_Setup_Guide.md</code> (setup)<br>
+⚠️ Educational guide — investment advice nahi. Past performance ≠ future guarantee. Trading me capital loss ka risk hota hai — sirf wahi paisa lagao jo aap afford kar sakte ho khone ke liye.
+</footer>
+
+</div></body>
+</html>
