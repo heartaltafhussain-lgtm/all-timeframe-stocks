@@ -1,0 +1,56 @@
+name: All Timeframe Stocks — NSE 500 Scan
+
+on:
+  schedule:
+    # Monday-Friday 10:15 UTC = 3:45 PM IST (after NSE close)
+    - cron: "15 10 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-strict-scanner:
+    runs-on: ubuntu-latest
+    env:
+      GTF_PASSWORD: "7004602"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run All Timeframe Scanner (v5.0)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 all_timeframe_scanner.py
+
+      - name: Commit live JSON + CSV + history back to repo (GitHub Pages feed)
+        run: |
+          git config --global user.name "All Timeframe Stocks Bot"
+          git config --global user.email "all-timeframe-stocks@github-actions.local"
+          git add gtf_live_data.json nifty500_universe.csv NIFTY500_GTF_Dashboard.csv NIFTY500_GTF_Dashboard.xlsx history/
+          git commit -m "⏱ All Timeframe scan [$(date +'%Y-%m-%d')]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload scan artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-timeframe-stocks-scan
+          path: |
+            gtf_live_data.json
+            NIFTY500_GTF_Dashboard.csv
+            NIFTY500_GTF_Dashboard.xlsx
+          retention-days: 30
