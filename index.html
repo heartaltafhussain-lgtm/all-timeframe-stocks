@@ -309,8 +309,18 @@ async function loadData(force) {
 
 async function loadHistoryIndex() {
   try {
-    const r = await fetch("history/all.json", { cache: "no-store" });
-    if (r.ok) HISTORY_ALL = await r.json(); else HISTORY_ALL = null;
+    let r = await fetch("history/all.json", { cache: "no-store" });
+    if (!r.ok) {
+      // fallback: purani seed kabhi-kabhi root me hoti hai (upload mistake)
+      const r2 = await fetch("all.json", { cache: "no-store" });
+      if (r2.ok) {
+        HISTORY_ALL = await r2.json();
+      } else {
+        HISTORY_ALL = null;
+      }
+    } else {
+      HISTORY_ALL = await r.json();
+    }
   } catch (e) { HISTORY_ALL = null; }
   if (HISTORY_ALL && HISTORY_ALL.scans) {
     __firstTop3Map = {};

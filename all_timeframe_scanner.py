@@ -866,6 +866,19 @@ def update_history(payload):
                     hist = json.load(fh)
             except Exception:
                 hist = {"updated": "", "dates": [], "scans": {}}
+        elif os.path.exists(os.path.join(os.path.dirname(hist_path), "..", "all.json")):
+            # SELF-HEAL: purani seed root me hai (upload mistake) -> wahi se shuru karo,
+            # agli scan history/all.json me sahi jagah ban jayegi
+            legacy = os.path.join(os.path.dirname(hist_path), "..", "all.json")
+            try:
+                with open(legacy, "r", encoding="utf-8") as fh:
+                    legacy_hist = json.load(fh)
+                if isinstance(legacy_hist, dict) and "scans" in legacy_hist:
+                    hist = legacy_hist
+                    log(f"[✓] History self-heal: root all.json se seed liya "
+                        f"({len(hist.get('scans', {}))} scans)")
+            except Exception as exc:
+                log(f"[!] Legacy history load failed: {exc}")
         d = payload.get("date")
         if not d:
             return
