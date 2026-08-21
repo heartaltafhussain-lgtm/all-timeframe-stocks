@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe</title>
+<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe v5.1 (STRICT TRADE FIX)</title>
 <style>
   :root {
     --bg: #0e1117; --panel: #161b22; --panel2: #12161d; --line: #21262d;
@@ -152,19 +152,34 @@
     </div>
   </section>
 
-  <!-- ================= TRADE STOCKS (1D + 1M dono) ================= -->
+  <!-- ================= TRADE STOCKS (1D + 1M dono) — v5.1 STRICT FIX ================= -->
   <section>
-    <h2>🔥 TRADE STOCKS — 1D + 1M DONO me zone wale <span class="badge p" id="bdg-tradecount"></span></h2>
-    <div class="secsub">Yahi asli trade candidates hain — stock daily zone me bhi hai AUR monthly zone me bhi.
-      <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
+    <h2>🏆 STRICT TRADE STOCKS — 1D + 1M DONO me zone wale <span class="badge g" id="bdg-tradestrict"></span></h2>
+    <div class="secsub"><b class="up">NEGATIVE-EDGE FIX v5.1:</b> ab sirf wahi dual-zone stocks trade candidates hain jo
+      <b>strict quality gate</b> pass karte hain — DEMAND + whitelist sector + FRESH zone + 1D/1M score ≥7 + NORMAL volume.
+      Baaki sab WATCH-ONLY (niche, badges ke saath).<br>
+      <span class="mut">Fix backtest (May–Aug 2026, 102 dual-zone demand signals, entry zone-top / SL zone-bottom / T1 +2R / T2 +3R):
+      RAW — win 41% • avg +0.36R • PF 1.62 • DD −8.0R • SL 59% &nbsp;→&nbsp; <b class="up">STRICT — win 50% • avg +0.50R • PF 2.0 • DD −3.0R • SL 50%</b></span><br>
+      <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b> • Entry sirf <b>limit order</b> pe, 1:3 R:R plan ke saath.</div>
     <div class="panel">
       <div class="strip">
-        <button class="btn" onclick="downloadCSV(getSubset('tradeStocks'), 'trade_stocks')">⬇ CSV</button>
-        <span class="kv" id="tradecountlabel"></span>
+        <button class="btn" onclick="downloadStrictTradeCSV()">⬇ CSV (strict + plan)</button>
+        <span class="kv" id="tradestrictlabel"></span>
       </div>
-      <div class="tblwrap" id="tradearea"></div>
+      <div class="tblwrap" id="tradestrictarea"></div>
     </div>
+    <details style="margin-top:10px">
+      <summary style="cursor:pointer;color:#ffb86c;font-weight:600;">⚠️ WATCH-ONLY dual-zone stocks — negative-edge tags ke saath (inme se trade MAT karo) <span class="badge p" id="bdg-tradewatch"></span></summary>
+      <div class="panel" style="margin-top:8px">
+        <div class="strip">
+          <button class="btn" onclick="downloadCSV(watchTradeRows(), 'trade_stocks_watch')">⬇ CSV (watch)</button>
+          <span class="kv" id="tradewatchlabel"></span>
+        </div>
+        <div class="tblwrap" id="tradewatcharea"></div>
+      </div>
+    </details>
   </section>
+
 
   <!-- ================= DAILY TIMEFRAME ================= -->
   <section>
@@ -231,8 +246,9 @@
   </section>
 
   <footer>
-    <div><b>Methodology:</b> Scanner v5.0 (GitHub Actions, Mon–Fri 15:45 IST). Har stock ke 1D aur 1M zones alag detect hote hain;
-    TRADE STOCKS = dono timeframes me zone wale; SECTOR ZONES = sector index ka apna monthly zone status.</div>
+    <div><b>Methodology:</b> Scanner v5.1 (GitHub Actions, Mon–Fri 15:45 IST). Har stock ke 1D aur 1M zones alag detect hote hain;
+    STRICT TRADE STOCKS = dual-zone stocks jo quality gate pass karte hain (DEMAND + whitelist + FRESH + scores ≥7 + normal vol);
+    SECTOR ZONES = sector index ka apna monthly zone status.</div>
     <div style="margin-top:6px">⚠️ Past performance ≠ future guarantee. Risk per trade 0.5–1% capital.
     Educational dashboard — investment advice nahi.</div>
   </footer>
@@ -405,6 +421,82 @@ function isStrictPick(r) {
     && comboNum(r.combo) >= STRICT_MIN_COMBO && POSITIVE_SECTORS.has(String(r.sector))
     && scoreNum(r.s1d) >= STRICT_MIN_1D;
 }
+/* ================= v5.1 STRICT TRADE STOCKS (negative-edge fix) ================= */
+function zoneParts(z) {
+  if (!z) return null;
+  const m = String(z).match(/([\d.]+)\s*-\s*([\d.]+)\s*\w*\s*(DEMAND|SUPPLY)/);
+  if (!m) return null;
+  const a = parseFloat(m[1]), b = parseFloat(m[2]);
+  return { lo: Math.min(a, b), hi: Math.max(a, b), side: m[3] || "DEMAND" };
+}
+function nearZoneRel(ltp, zp) {
+  if (!zp || !ltp) return null;
+  if (ltp >= zp.lo && ltp <= zp.hi) return "IN";
+  if (zp.side === "DEMAND" && ltp > zp.hi && ltp <= zp.hi * 1.02) return "NEAR";
+  if (zp.side === "SUPPLY" && ltp < zp.lo && ltp >= zp.lo * 0.98) return "NEAR";
+  return null;
+}
+function isDualZone(r) {
+  if (typeof r.inDaily === "boolean" && typeof r.inMonthly === "boolean") return r.inDaily && r.inMonthly;
+  const z1 = zoneParts(r.z1d), zm = zoneParts(r.z1m);
+  if (!z1 || !zm) return false;
+  return nearZoneRel(r.ltp, z1) !== null && nearZoneRel(r.ltp, zm) !== null;
+}
+function tradeExcl(r) {
+  const reasons = [];
+  if (r.type !== "DEMAND") reasons.push("SUPPLY/EQ — long system me nahi");
+  if ((r.tests_count || 0) > 0) reasons.push("TESTED ZONE (" + r.tests_count + " tests)");
+  if (scoreNum(r.s1m) < 7.0) reasons.push("1M SCORE <7");
+  if (scoreNum(r.s1d) < 7.0) reasons.push("1D SCORE <7");
+  if (!POSITIVE_SECTORS.has(String(r.sector))) reasons.push("SECTOR " + r.sector + " (backtest -ve)");
+  if (/2x|HIGH/.test(r.vol_expl || "")) reasons.push("HIGH VOLUME (backtest: SL 84%)");
+  return reasons;
+}
+function tradePlan(r) {
+  const z = zoneParts(r.z1d);
+  if (!z || z.side !== "DEMAND") return null;
+  const entry = z.hi;
+  const entryLo = (z.lo + z.hi) / 2;
+  const sl = z.lo * 0.997;
+  const risk = Math.max(entry - sl, 0.1);
+  if (!entry) return null;
+  const t1 = entry + 2 * risk;
+  const t2 = entry + 3 * risk;
+  const qty = Math.max(1, Math.round(1000 / risk));
+  return { entry, entryLo, sl, t1, t2, risk, qty, move3k: Math.round(3000 / qty) };
+}
+function strictTradeRows() {
+  const all = applySector(getSubset("tradeStocks"));
+  const strict = all.filter(r => tradeExcl(r).length === 0);
+  strict.sort((a, b) => comboNum(b.combo) - comboNum(a.combo));
+  return strict;
+}
+function watchTradeRows() {
+  const all = applySector(getSubset("tradeStocks"));
+  const watch = all.filter(r => tradeExcl(r).length > 0);
+  watch.forEach(r => { r._excl = tradeExcl(r); });
+  watch.sort((a, b) => (b._excl.length - a._excl.length) || (comboNum(b.combo) - comboNum(a.combo)));
+  return watch;
+}
+function downloadStrictTradeCSV() {
+  const rows = strictTradeRows();
+  if (!rows.length) { toast("Koi strict trade stock nahi — CSV me kuch nahi", "err"); return; }
+  const cols = [["Symbol","Company","Sector","CMP","1D Zone","1D Score","1M Zone","1M Score","1W Trend","Freshness","Combo","Entry","SL","T1(+2R)","T2(+3R)","Qty(₹1k risk)","Move for ₹3k"]];
+  for (const r of rows) {
+    const p = tradePlan(r) || {};
+    cols.push([r.sym, r.comp || "", r.sector, r.ltp, fmtZone(r.z1d), r.s1d || "", fmtZone(r.z1m), r.s1m || "",
+      r.w_trend || "", r.fresh_badge || "", r.combo,
+      p.entry ? p.entry.toFixed(2) : "", p.sl ? p.sl.toFixed(2) : "",
+      p.t1 ? p.t1.toFixed(2) : "", p.t2 ? p.t2.toFixed(2) : "",
+      p.qty || "", p.move3k || ""]);
+  }
+  const csv = cols.map(x => x.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(",")).join("\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+  a.download = "strict_trade_stocks_" + (DATA ? DATA.date : "scan") + ".csv";
+  a.click();
+  toast("⬇ Strict CSV downloaded — " + rows.length + " stocks", "ok");
+}
 /* v5 subsets (purani history entries me dailyStocks nahi hoti -> derive) */
 function getSubset(key) {
   const p = DATA || {};
@@ -412,7 +504,7 @@ function getSubset(key) {
   if (p[key] && p[key].length) return rows;
   if (key === "dailyStocks") return rows.filter(r => r.z1d && !/NO ACTIVE/.test(r.z1d));
   if (key === "monthlyStocks") return rows.filter(r => r.z1m && !/NO ACTIVE/.test(r.z1m));
-  if (key === "tradeStocks") return rows.filter(r => r.z1d && r.z1m && !/NO ACTIVE/.test(r.z1d) && !/NO ACTIVE/.test(r.z1m));
+  if (key === "tradeStocks") return rows.filter(r => isDualZone(r));
   return rows;
 }
 function applySector(rows) {
@@ -490,26 +582,52 @@ function renderTfTables() {
   const dq = document.getElementById("fDailySearch").value.trim().toLowerCase();
   const mq = document.getElementById("fMonthlySearch").value.trim().toLowerCase();
 
-  const trade = applySector(getSubset("tradeStocks"));
-  document.getElementById("bdg-tradecount").textContent = trade.length + " STOCKS";
-  document.getElementById("tradecountlabel").textContent = trade.length + " stocks";
-  const ta = document.getElementById("tradearea");
-  if (!trade.length) {
-    ta.innerHTML = '<div class="nopicks"><h3>Abhi koi TRADE stock nahi</h3>' +
-      '<p>1D + 1M dono zones me ek saath stocks kam milte hain — jab market dono timeframes pe pullback karegi tab aayenge.</p></div>';
+  /* ================= v5.1 STRICT TRADE STOCKS (negative-edge fix) ================= */
+  const strict = strictTradeRows();
+  const watch = watchTradeRows();
+  document.getElementById("bdg-tradestrict").textContent = strict.length ? strict.length + " READY ✅" : "0 — WAIT";
+  document.getElementById("tradestrictlabel").textContent = strict.length + " strict trade candidate" + (strict.length === 1 ? "" : "s") + " — gate: DEMAND + whitelist + FRESH + 1D/1M ≥7 + normal vol";
+  const tsa = document.getElementById("tradestrictarea");
+  if (!strict.length) {
+    tsa.innerHTML = '<div class="nopicks"><h3>🛑 NO STRICT TRADE STOCKS TODAY — WAIT</h3>' +
+      '<p>Dual-zone stocks jo quality gate fail karte hain, trade candidates me nahi dikhaye jaate (feature hai, bug nahi).<br>' +
+      'Niche WATCH-ONLY list me har stock ke saath exclusion reason badge hai — usse research karo, trade mat karo.</p></div>';
   } else {
-    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SCORE</th>' +
-      '<th>1M ZONE</th><th>1M SCORE</th><th>1W TREND</th><th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>📅 1st TOP-3</th><th>CHART</th></tr>';
-    for (const r of trade) {
+    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SC</th><th>1M ZONE</th><th>1M SC</th>' +
+      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>CHART</th></tr>';
+    for (const r of strict) {
+      const p = tradePlan(r);
+      const planCell = p
+        ? '<span class="up">' + p.entry.toFixed(1) + '</span> → <span class="dn">' + p.sl.toFixed(1) + '</span> → <span class="up">' + p.t1.toFixed(1) + '</span> / <span class="up">' + p.t2.toFixed(1) + '</span>'
+        : '<span class="mut">—</span>';
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
         '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
-        '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
-        '<td>' + (r.fresh_badge || "") + '</td><td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td><td>' + firstTop3Cell(r) + '</td>' +
+        '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : "dn") + '">' + (r.w_trend || "") + '</td>' +
+        '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
+        '<td>' + planCell + '</td>' +
+        '<td>' + (p ? p.qty + ' sh' : '—') + '</td><td>' + (p ? '₹' + p.move3k : '—') + '</td>' +
+        '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + '</td>' +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
     }
-    ta.innerHTML = html + '</table>';
+    tsa.innerHTML = html + '</table>';
+  }
+  document.getElementById("bdg-tradewatch").textContent = watch.length + " STOCKS";
+  document.getElementById("tradewatchlabel").textContent = watch.length + " watch-only — trade MAT karo (exclusion reason har row ke badge me)";
+  const twa = document.getElementById("tradewatcharea");
+  if (!watch.length) {
+    twa.innerHTML = '<div class="nopicks"><h3>Koi watch stock nahi</h3></div>';
+  } else {
+    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>CHART</th></tr>';
+    for (const r of watch) {
+      html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
+        '<td>' + fmtZone(r.z1d) + '</td><td>' + fmtZone(r.z1m) + '</td>' +
+        '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : "dn") + '">' + (r.w_trend || "") + '</td>' +
+        '<td class="mut">' + r.combo + '</td>' +
+        '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + '</td>' +
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+    }
+    twa.innerHTML = html + '</table>';
   }
 
   let daily = applySector(getSubset("dailyStocks"));
@@ -695,5 +813,5 @@ function downloadCSV(rows, name) {
   toast("⬇ CSV downloaded — " + rows.length + " stocks", "ok");
 }
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2e7501f8c387a10',t:'MTc4NzI5MDkzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

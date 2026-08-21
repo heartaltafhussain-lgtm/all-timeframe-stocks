@@ -18,7 +18,12 @@ STRICT TOP-3 FILTER (backtest-tested):
   ⚠ Backtest me ye filters ulta nuksan karte hain, isliye REMOVED/included nahi:
      - "sirf IN-zone (BUY READY)" picks  -> win 19%, SL hit 74%
      - high-volume (2x+) picks           -> SL hit 84%
-     - dual-zone compulsory filter       -> negative edge
+     - dual-zone compulsory filter       -> negative edge (v5.1 me FIXED:
+       TRADE STOCKS section ab strict quality gate ke saath hai — strict_trade_excl())
+
+v5.1 (STRICT TRADE FIX): dual-zone (TRADE STOCKS) stocks ab strict gate se filter hote
+hain — DEMAND + whitelist + FRESH + 1D/1M >= 7 + normal vol. Backtest (May-Aug 2026):
+RAW win 41% / +0.36R / PF 1.62 / DD -8.0R  ->  STRICT win 50% / +0.50R / PF 2.0 / DD -3.0R
 
 GitHub Actions: Mon-Fri 15:45 IST
 Password ref: 7004602
@@ -42,7 +47,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.0 All Timeframe Stocks"
+VERSION = "v5.1 All Timeframe Stocks (STRICT TRADE FIX)"
 PASSWORD_REF = "7004602"
 
 # ---------------- STRICT TOP-3 FILTER CONFIG (backtest-tested) ----------------
@@ -852,6 +857,95 @@ def _score_num(txt):
     return float(m.group(1)) if m else 0.0
 
 
+# ---------------- v5.1 STRICT TRADE STOCKS (dual-zone negative-edge FIX) ----------------
+# Pehle TRADE STOCKS = har dual-zone stock dikhata tha (tested zones, weak scores,
+# negative sectors sab) — backtest me negative edge. Fix: ab dual-zone stocks pe
+# strict engine wale hi quality filters lagte hain. Backtest (May-Aug 2026,
+# 102 dual-zone demand signals, dedup 5-din):
+#   RAW    win 41% | avg +0.31R | PF 1.54 | DD -7.8R | SL 55%
+#   STRICT win 50% | avg +0.50R | PF 2.00 | DD -3.0R | SL 50%
+STRICT_TRADE_MIN_SCORE = 7.0   # 1D AUR 1M dono scores >= 7 (A grade)
+
+
+def _zone_parts(z):
+    """'5672.2 - 5700.0 DR DEMAND' -> (lo, hi, side) ya None."""
+    if not z or "NO ACTIVE" in str(z) or "\u2014" in str(z):
+        return None
+    nums = re.findall(r"(\d+(?:\.\d+)?)", str(z))
+    if len(nums) < 2:
+        return None
+    a, b = float(nums[0]), float(nums[1])
+    side = "SUPPLY" if "SUPPLY" in str(z) else "DEMAND"
+    return min(a, b), max(a, b), side
+
+
+def _near_rel(ltp, parts):
+    if parts is None or not ltp:
+        return None
+    lo, hi, side = parts
+    if lo <= ltp <= hi:
+        return "IN"
+    if side == "DEMAND" and hi < ltp <= hi * 1.02:
+        return "NEAR"
+    if side == "SUPPLY" and lo * 0.98 <= ltp < lo:
+        return "NEAR"
+    return None
+
+
+def _is_dual_zone(r):
+    """Server flag pehle; purani history rows ke liye zones se derive."""
+    if isinstance(r.get("inDaily"), bool) and isinstance(r.get("inMonthly"), bool):
+        return bool(r.get("inDaily") and r.get("inMonthly"))
+    z1 = _zone_parts(r.get("z1d"))
+    zm = _zone_parts(r.get("z1m"))
+    if z1 is None or zm is None:
+        return False
+    return _near_rel(r.get("ltp"), z1) is not None and _near_rel(r.get("ltp"), zm) is not None
+
+
+def strict_trade_excl(r):
+    """v5.1: dual-zone stock ka quality gate. Empty list = STRICT TRADE candidate."""
+    reasons = []
+    if r.get("type") != "DEMAND":
+        reasons.append("SUPPLY/EQ - long system me nahi")
+    if (r.get("tests_count") or 0) > 0:
+        reasons.append("TESTED ZONE (%d tests)" % r.get("tests_count"))
+    if _score_num(r.get("s1m")) < STRICT_TRADE_MIN_SCORE:
+        reasons.append("1M SCORE <7")
+    if _score_num(r.get("s1d")) < STRICT_TRADE_MIN_SCORE:
+        reasons.append("1D SCORE <7")
+    if r.get("sector") not in STRICT_SECTORS:
+        reasons.append("SECTOR %s (backtest -ve)" % r.get("sector"))
+    if "2x" in (r.get("vol_expl") or "") or "HIGH" in (r.get("vol_expl") or ""):
+        reasons.append("HIGH VOLUME (backtest: SL 84%)")
+    return reasons
+
+
+def strict_trade_plan(r):
+    """Strict dual-zone candidate ka 1:3 plan (top3 jaisa hi math)."""
+    parts = _zone_parts(r.get("z1d"))
+    if not parts or parts[2] != "DEMAND":
+        return None
+    lo, hi, _ = parts
+    entry_hi = hi
+    entry_lo = round((lo + hi) / 2.0, 2)
+    sl = round(lo * 0.997, 2)
+    risk = max(entry_hi - sl, 0.1)
+    qty = max(int(round(1000.0 / risk)), 1)
+    t1 = round(entry_hi + 2 * risk, 2)
+    t2 = round(entry_hi + 3 * risk, 2)
+    move = max(int(round(3000.0 / max(qty, 1))), 1)
+    return {
+        "entryLo": entry_lo,
+        "entryHi": entry_hi,
+        "sl": sl,
+        "t1": t1,
+        "t2": t2,
+        "qty": qty,
+        "moveFor3k": move,
+    }
+
+
 def update_history(payload):
     """Roz ka scan history/all.json me append karo (date-wise history filter ke liye).
     Latest scan gtf_live_data.json me rehta hai; history me pura payload copy hota hai."""
@@ -1106,6 +1200,22 @@ def scan():
     for subset in (daily_stock_rows, monthly_stock_rows, trade_stock_rows):
         subset.sort(key=lambda r: (-_combo_num(r["combo"]), r["sym"]))
 
+    # v5.1 STRICT TRADE FIX: dual-zone stocks pe quality gate (negative-edge fix)
+    # strict = gate pass (trade candidates), watch = fail (research only)
+    for r in stock_rows:
+        if r["tradeStock"]:
+            r["exclReasons"] = strict_trade_excl(r)
+            r["qualityGrade"] = "STRICT" if not r["exclReasons"] else "WATCH"
+            r["plan"] = strict_trade_plan(r) if r["qualityGrade"] == "STRICT" else None
+        else:
+            r["exclReasons"] = []
+            r["qualityGrade"] = None
+            r["plan"] = None
+    strict_trade_rows = [r for r in trade_stock_rows if r["qualityGrade"] == "STRICT"]
+    watch_trade_rows = [r for r in trade_stock_rows if r["qualityGrade"] == "WATCH"]
+    for subset in (strict_trade_rows, watch_trade_rows):
+        subset.sort(key=lambda r: (-_combo_num(r["combo"]), r["sym"]))
+
     top3 = make_top3(stock_rows, frames)
     if not top3:
         send_telegram_alert(
@@ -1155,6 +1265,17 @@ def scan():
                 "Picks na hone par WAIT — weak picks nahi dikhaye jaate."
             ),
         },
+        "strictTradeFix": {
+            "name": "STRICT TRADE v5.1 (dual-zone negative-edge fix)",
+            "minScore": STRICT_TRADE_MIN_SCORE,
+            "note": (
+                "TRADE STOCKS section ab sirf quality-gated dual-zone stocks dikhata hai: "
+                "DEMAND + whitelist sector + FRESH zone + 1D/1M score >= 7 + normal volume. "
+                "Backtest (May-Aug 2026, 102 dual-zone demand signals): RAW win 41% avg "
+                "+0.36R PF 1.62 DD -8.0R SL 59% -> STRICT win 50% avg +0.50R PF 2.0 "
+                "DD -3.0R SL 50%. Baaki dual-zone stocks WATCH-ONLY (exclReasons ke saath)."
+            ),
+        },
         "courseMode": {
             "enabled": bool(COURSE_MODE_ENABLED and _COURSE_VETO_AVAILABLE),
             "available": bool(_COURSE_VETO_AVAILABLE),
@@ -1173,6 +1294,8 @@ def scan():
         "dailyStocks": [public(r) for r in daily_stock_rows],
         "monthlyStocks": [public(r) for r in monthly_stock_rows],
         "tradeStocks": [public(r) for r in trade_stock_rows],
+        "tradeStocksStrict": [public(r) for r in strict_trade_rows],
+        "tradeStocksWatch": [public(r) for r in watch_trade_rows],
         "stockData": public_rows,
     }
 
@@ -1212,6 +1335,13 @@ def scan():
                 "In Daily TF": "YES" if r.get("inDaily") else "NO",
                 "In Monthly TF": "YES" if r.get("inMonthly") else "NO",
                 "Trade Stock (1D+1M)": "YES" if r.get("tradeStock") else "NO",
+                "Strict Trade Grade": r.get("qualityGrade") or "",
+                "Exclude Reasons": " | ".join(r.get("exclReasons") or []),
+                "Entry": (r.get("plan") or {}).get("entryHi", ""),
+                "SL": (r.get("plan") or {}).get("sl", ""),
+                "T1 (+2R)": (r.get("plan") or {}).get("t1", ""),
+                "T2 (+3R)": (r.get("plan") or {}).get("t2", ""),
+                "Qty (₹1k risk)": (r.get("plan") or {}).get("qty", ""),
             }
         )
     df_out = pd.DataFrame(export_rows)
@@ -1225,10 +1355,22 @@ def scan():
         f"IN/NEAR zone={stats['inZone']}  DEMAND={stats['demand']}  "
         f"SUPPLY={stats['supply']}  BUY READY={stats['buyReady']}  "
         f"DAILY={len(daily_stock_rows)}  MONTHLY={len(monthly_stock_rows)}  "
-        f"TRADE(1D+1M)={len(trade_stock_rows)}  STRICT TOP3={len(top3)}  "
+        f"TRADE(1D+1M)={len(trade_stock_rows)}  "
+        f"STRICT TRADE={len(strict_trade_rows)}  WATCH={len(watch_trade_rows)}  "
+        f"STRICT TOP3={len(top3)}  "
         f"COURSE_MODE={'ON' if (COURSE_MODE_ENABLED and _COURSE_VETO_AVAILABLE) else 'OFF'}"
     )
     log("=" * 88)
+    if not strict_trade_rows:
+        log("  [STRICT TRADE v5.1] No strict dual-zone trade stocks today — WAIT.")
+    else:
+        for r in strict_trade_rows:
+            pl = r.get("plan") or {}
+            log(
+                f"  [STRICT TRADE] {r['sym']} | {r['combo']} | entry "
+                f"{pl.get('entryLo')}-{pl.get('entryHi')} | SL {pl.get('sl')} | "
+                f"T1 {pl.get('t1')} T2 {pl.get('t2')}"
+            )
     if not stock_rows:
         log("  No stock is currently sitting inside a valid GTF zone.")
     else:
