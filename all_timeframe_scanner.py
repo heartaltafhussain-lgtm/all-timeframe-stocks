@@ -59,7 +59,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.2 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH FIX)"
+VERSION = "v5.2.1 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH + POPUP DATA FOR ALL)"
 PASSWORD_REF = "7004602"
 
 # ---------------- v5.2 NO-VANISH WATCH BAND ----------------
@@ -795,6 +795,25 @@ def download_batches(tickers):
             continue
         for tkr in batch:
             df = extract_ohlcv(raw, tkr)
+            if df is None:
+                # v5.2.1: batch me chhoot gaye (rate-limit drop) — individually retry
+                try:
+                    time.sleep(0.25)
+                    solo = yf.download(
+                        tickers=tkr, period=OHLC_PERIOD, interval="1d",
+                        group_by="ticker", auto_adjust=True, progress=False, timeout=30,
+                    )
+                    df = extract_ohlcv(solo, tkr)
+                except Exception:
+                    df = None
+                if df is None:
+                    # v8 chart API fallback — batch endpoint se zyada reliable
+                    try:
+                        time.sleep(0.5)
+                        h = yf.Ticker(tkr).history(period=OHLC_PERIOD, auto_adjust=True, timeout=30)
+                        df = extract_ohlcv(h, tkr)
+                    except Exception:
+                        df = None
             if df is not None:
                 frames[tkr] = df
         time.sleep(0.4)
@@ -1153,7 +1172,10 @@ def update_history(payload):
         d = payload.get("date")
         if not d:
             return
-        hist.setdefault("scans", {})[d] = payload
+        # v5.2.1: analysisBySym history me store NAHI karte (file bloat rokne ke liye) —
+        # popup ko ye sirf LIVE gtf_live_data.json se chahiye
+        hist_entry = {k: v for k, v in payload.items() if k != "analysisBySym"}
+        hist.setdefault("scans", {})[d] = hist_entry
         dates = [x for x in hist.get("dates", []) if x != d]
         dates.append(d)
         dates.sort(reverse=True)
@@ -1192,6 +1214,61 @@ def load_first_top3_dates():
         return {}
 
 
+INSTI_DATA_URL = "https://raw.githubusercontent.com/heartaltafhussain-lgtm/insti-tracker/main/insti_live_data.json"
+
+
+def load_extra_symbols(universe_syms):
+    """v5.2.1: NIFTY-500 ke BAHAR ke insti-active stocks bhi track karo.
+    Bulk/block deals chhote caps me hote hain jo Nifty500 index me nahi hote —
+    unka GTF zone analysis bhi popup me dikhna chahiye.
+    Sources (priority): 1) sibling insti-tracker repo file  2) raw GitHub URL
+    3) local extra_symbols.csv backup."""
+    syms = set()
+    candidates = []
+    sibling = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "..", "insti-tracker", "insti_live_data.json")
+    try:
+        if os.path.exists(sibling):
+            with open(sibling, encoding="utf-8") as fh:
+                candidates.append(("sibling insti repo", json.load(fh)))
+    except Exception:
+        pass
+    try:
+        req = urllib.request.Request(INSTI_DATA_URL, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            candidates.append(("github raw", json.loads(resp.read().decode("utf-8"))))
+    except Exception:
+        pass
+    for src_name, j in candidates:
+        try:
+            for r in j.get("accumulation", []) or []:
+                syms.add((r.get("sym") or "").strip().upper())
+            for k in ("weeklyTop5", "fortnightlyTop5", "monthlyTop5"):
+                for r in (j.get(k) or {}).get("rows", []) or []:
+                    syms.add((r.get("sym") or "").strip().upper())
+            for r in (j.get("triplePositive") or {}).get("rows", []) or []:
+                syms.add((r.get("sym") or "").strip().upper())
+            for d in j.get("dealsToday", []) or []:
+                syms.add((d.get("sym") or "").strip().upper())
+        except Exception:
+            continue
+        if syms:
+            log(f"[*] Extra symbols source: {src_name} ({len(syms)} syms)")
+            break
+    csv_extra = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_symbols.csv")
+    try:
+        if os.path.exists(csv_extra):
+            with open(csv_extra, encoding="utf-8") as fh:
+                for row in csv.reader(fh):
+                    if row and row[0].strip() and row[0].strip().upper() != "SYMBOL":
+                        syms.add(row[0].strip().upper())
+    except Exception:
+        pass
+    extras = sorted(s for s in syms if s and s not in universe_syms)
+    log(f"[*] Extra scan symbols (NIFTY500 ke bahar): {len(extras)}")
+    return extras
+
+
 def scan():
     now = today_ist()
     today_str = now.strftime("%Y-%m-%d")
@@ -1209,7 +1286,13 @@ def scan():
         w.writerows(universe)
 
     meta = {r["symbol"]: r for r in universe}
-    tickers = [yahoo_symbol(r["symbol"]) for r in universe]
+    # v5.2.1: insti-active extra symbols (Nifty500 ke bahar) — sirf popup data ke liye,
+    # ye dashboard tables me nahi aayenge
+    extra_syms = load_extra_symbols(set(meta.keys()))
+    extra_set = set(extra_syms)
+    for es in extra_syms:
+        meta[es] = {"symbol": es, "company": es, "industry": "", "series": "EQ", "isin": ""}
+    tickers = [yahoo_symbol(r["symbol"]) for r in universe] + [yahoo_symbol(e) for e in extra_syms]
     log(f"[*] Fetching 3Y daily OHLC for {len(tickers)} Yahoo symbols...")
     frames = download_batches(tickers)
     log(f"[*] OHLC received for {len(frames)} / {len(tickers)} symbols")
@@ -1238,7 +1321,9 @@ def scan():
 
     scanned = 0
     failed = 0
+    extra_scanned = 0
     stock_rows = []
+    analysis_by_sym = {}
 
     for nse_sym, info in meta.items():
         ysym = yahoo_symbol(nse_sym)
@@ -1246,7 +1331,10 @@ def scan():
         if df is None:
             failed += 1
             continue
-        scanned += 1
+        if nse_sym in extra_set:
+            extra_scanned += 1
+        else:
+            scanned += 1
         ltp = float(df["Close"].iloc[-1])
         if not math.isfinite(ltp) or ltp <= 0:
             failed += 1
@@ -1266,6 +1354,49 @@ def scan():
         rel_m_ok = rel_m in ("IN", "NEAR")
         watch_d = rel_d == "WATCH"
         watch_m = rel_m == "WATCH"
+
+        # v5.2.1: HAR scanned stock ka analysis save (insti popup ke liye) —
+        # AWAY stocks aur Nifty500 ke bahar wale extras bhi cover
+        try:
+            w_tr_all = weekly_trend(wdf)
+            w_up_all = "UP" in w_tr_all
+            a_l1d, a_n1d, a_zl1d = support_ladder(ltp, daily_d, month_d, w_up_all, len(df) - 1)
+            a_l1m, a_n1m, a_zl1m = support_ladder(ltp, month_d, None, w_up_all, (len(mdf) - 1) if mdf is not None else None)
+            if rel_d_ok or rel_m_ok:
+                rel_all = "IN" if (rel_d == "IN" or rel_m == "IN") else "NEAR"
+            elif watch_d or watch_m:
+                rel_all = "WATCH"
+            else:
+                rel_all = "AWAY"
+            sig_all = {
+                "AWAY": "AWAY — koi active zone 8% band me nahi",
+                "WATCH": "PULLBACK WATCH (AWAY — retest ka wait)",
+            }.get(rel_all, "ZONE KE PAAS")
+            analysis_by_sym[nse_sym] = {
+                "sym": nse_sym,
+                "comp": info.get("company") or nse_sym,
+                "sector": map_sector(nse_sym, info.get("company"), info.get("industry")),
+                "ltp": round(ltp, 2),
+                "rel": rel_all,
+                "sig": sig_all,
+                "z1d": fmt_zone(z1d or (daily_d[-1] if daily_d else None) or (daily_s[-1] if daily_s else None)),
+                "z1m": fmt_zone(z1m or (month_d[-1] if month_d else None) or (month_s[-1] if month_s else None)),
+                "analysis": {
+                    "d1": {"last": a_l1d, "next": a_n1d, "zones": a_zl1d},
+                    "m1": {"last": a_l1m, "next": a_n1m, "zones": a_zl1m},
+                },
+            }
+        except Exception as _ana_exc:
+            analysis_by_sym[nse_sym] = {
+                "sym": nse_sym, "comp": info.get("company") or nse_sym, "sector": "—",
+                "ltp": round(ltp, 2), "rel": "AWAY", "sig": "ANALYSIS DATA KAM",
+                "z1d": "—", "z1m": "—",
+                "analysis": {"d1": {"last": None, "next": None, "zones": []},
+                             "m1": {"last": None, "next": None, "zones": []}},
+            }
+        if nse_sym in extra_set:
+            continue
+
         if not rel_d_ok and not rel_m_ok and not watch_d and not watch_m:
             continue
 
@@ -1374,14 +1505,8 @@ def scan():
                 "industry": info.get("industry") or "",
             }
         )
-        # v5.2: full support ladder + strength score (Full Analysis popup ke liye)
-        w_up = "UP" in w_tr
-        l1d, n1d, zl1d = support_ladder(ltp, daily_d, month_d, w_up, len(df) - 1)
-        l1m, n1m, zl1m = support_ladder(ltp, month_d, None, w_up, (len(mdf) - 1) if mdf is not None else None)
-        stock_rows[-1]["analysis"] = {
-            "d1": {"last": l1d, "next": n1d, "zones": zl1d},
-            "m1": {"last": l1m, "next": n1m, "zones": zl1m},
-        }
+        # v5.2.1: analysis upar hi ban chuka (analysis_by_sym) — wahi reuse
+        stock_rows[-1]["analysis"] = analysis_by_sym[nse_sym]["analysis"]
 
     # sort: BUY READY first, then combo
     rank = {"BUY READY": 0, "APPROACHING DEMAND": 1, "WAIT FOR PULLBACK": 2, "NEAR SUPPLY": 3, "SUPPLY TEST": 4, "PULLBACK WATCH (AWAY — retest ka wait)": 5}
@@ -1435,6 +1560,8 @@ def scan():
         "supply": sum(1 for r in stock_rows if r["type"] == "SUPPLY"),
         "equilibrium": sum(1 for r in stock_rows if r["type"] == "EQUILIBRIUM"),
         "buyReady": sum(1 for r in stock_rows if r["sig"] == "BUY READY"),
+        "extraScanned": extra_scanned,
+        "analysisTracked": len(analysis_by_sym),
     }
 
     # strip helper keys before JSON
@@ -1491,6 +1618,7 @@ def scan():
         "tradeStocksStrict": [public(r) for r in strict_trade_rows],
         "tradeStocksWatch": [public(r) for r in watch_trade_rows],
         "stockData": public_rows,
+        "analysisBySym": analysis_by_sym,
     }
 
     # date-wise history pehle update karo (firstTop3Date ke liye aaj ka din bhi map me chahiye)
