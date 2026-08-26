@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe v5.1 (STRICT TRADE FIX)</title>
+<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe v5.2 (TV-ZONE ALIGN + ANALYSIS POPUP)</title>
 <style>
   :root {
     --bg: #0e1117; --panel: #161b22; --panel2: #12161d; --line: #21262d;
@@ -116,6 +116,37 @@
   footer { margin-top: 34px; color: var(--muted); font-size: 12px;
     border-top: 1px solid var(--line); padding-top: 14px; }
   @media (max-width: 700px) { header h1 { font-size: 18px; } }
+
+  /* ================= v5.2 FULL ANALYSIS POPUP ================= */
+  .anabtn { background: var(--panel2); color: var(--cyan); border: 1px solid var(--line);
+    border-radius: 6px; padding: 3px 8px; cursor: pointer; font-size: 13px; }
+  .anabtn:hover { border-color: var(--cyan); background: #39c5cf22; }
+  #anaModal { position: fixed; inset: 0; background: rgba(5,8,12,.82); z-index: 1200;
+    display: none; align-items: flex-start; justify-content: center; padding: 40px 14px; overflow-y: auto; }
+  #anaModal .mbox { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    max-width: 700px; width: 100%; padding: 20px 22px; }
+  #anaModal .mhead { display: flex; align-items: flex-start; gap: 10px;
+    border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 12px; }
+  #anaModal .mtitle { flex: 1; }
+  #anaModal h3 { margin: 0; font-size: 19px; color: var(--head); }
+  #anaModal .msub { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  #anaModal .mclose { background: var(--panel2); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 14px; }
+  #anaModal .mclose:hover { border-color: var(--red); color: var(--red); }
+  .zgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 640px) { .zgrid { grid-template-columns: 1fr; } }
+  .zcard { background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .zhead { font-size: 11px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 6px; }
+  .zrange { font-size: 15.5px; font-weight: 700; color: var(--head); margin-bottom: 6px; }
+  .zmeta { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 8px; }
+  .zstrength { display: flex; align-items: center; gap: 8px; margin: 4px 0 8px; }
+  .bigsc { font-size: 17px; color: var(--head); }
+  .pbars { display: flex; flex-direction: column; gap: 4px; }
+  .pbar { display: flex; align-items: center; gap: 8px; font-size: 11.5px; }
+  .plabel { width: 118px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ptrack { flex: 1; height: 7px; background: #0a0d12; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+  .pfill { display: block; height: 100%; background: linear-gradient(90deg, #1f6feb, #39c5cf); border-radius: 4px; }
+  .pval { width: 26px; text-align: right; color: var(--txt); }
 </style>
 </head>
 <body>
@@ -184,7 +215,7 @@
   <!-- ================= DAILY TIMEFRAME ================= -->
   <section>
     <h2>📅 DAILY (1D) TIMEFRAME STOCKS <span class="badge b" id="bdg-dailycount"></span></h2>
-    <div class="secsub">Sirf daily chart ke zone (1D execution) ke IN/NEAR stocks. <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
+    <div class="secsub">Sirf daily chart ke zone (1D execution) ke IN/NEAR + PULLBACK WATCH (8% band) stocks. <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
     <div class="panel">
       <div class="strip">
         <button class="btn" onclick="downloadCSV(getSubset('dailyStocks'), 'daily_stocks')">⬇ CSV</button>
@@ -199,7 +230,7 @@
   <!-- ================= MONTHLY TIMEFRAME ================= -->
   <section>
     <h2>🗓 MONTHLY (1M) TIMEFRAME STOCKS <span class="badge b" id="bdg-monthlycount"></span></h2>
-    <div class="secsub">Sirf monthly chart ke zone (1M support) ke IN/NEAR stocks — sabse powerful zones (Ep 5).
+    <div class="secsub">Sirf monthly chart ke zone (1M support) ke IN/NEAR + PULLBACK WATCH stocks — sabse powerful zones (Ep 5).
       <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
     <div class="panel">
       <div class="strip">
@@ -223,7 +254,7 @@
   <!-- ================= ALL ZONE STOCKS ================= -->
   <section>
     <h2>📡 ALL ZONE STOCKS <span class="badge b" id="bdg-zonecount"></span></h2>
-    <div class="secsub" id="zonesub">Sab stocks jo kisi bhi timeframe ke zone ke IN/NEAR hain.</div>
+    <div class="secsub" id="zonesub">Sab stocks jo kisi bhi timeframe ke zone ke IN/NEAR ya PULLBACK WATCH band me hain.</div>
     <div class="panel">
       <div class="strip">
         <select id="fDate" onchange="onDateChange()" title="Date-wise history filter">
@@ -255,6 +286,23 @@
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- ================= v5.2 FULL ANALYSIS POPUP ================= -->
+<div id="anaModal" onclick="if(event.target===this)closeAnalysis()">
+  <div class="mbox">
+    <div class="mhead">
+      <div class="mtitle">
+        <h3 id="anaTitle"></h3>
+        <div class="msub" id="anaSub"></div>
+      </div>
+      <button class="mclose" onclick="closeAnalysis()">✕ Close</button>
+    </div>
+    <div id="anaBody"></div>
+    <div class="plan-note" style="margin-top:10px">📌 <b>LAST / CURRENT support</b> = price ke sabse paas wala active demand zone (uske andar ya just neeche). <b>NEXT</b> = agar current zone toote to uska agla support.
+    <br>💪 <b>Strength score (10)</b> = Freshness/Retests 25% + Base candles 15% + Departure strength 20% + Volume 15% + Zone age 10% + Higher-TF confluence 15%.
+    Educational tool — investment advice nahi.</div>
+  </div>
+</div>
 
 <script>
 /* ================= CONFIG ================= */
@@ -402,8 +450,103 @@ function typeClass(t) {
 function relBadge(rel) {
   if (rel === "IN") return '<span class="badge a">IN ZONE</span>';
   if (rel === "NEAR") return '<span class="badge b">NEAR</span>';
+  if (rel === "WATCH") return '<span class="badge p">PULLBACK WATCH</span>';
   return "";
 }
+
+/* ================= v5.2 FULL ANALYSIS POPUP ================= */
+function analysisBtn(r) {
+  return '<td><button class="anabtn" data-sym="' + r.sym + '" onclick="openAnalysis(this)" title="Full analysis — ' + r.sym + '">🔍</button></td>';
+}
+function findStockRow(sym) {
+  const d = DATA || {};
+  const keys = ["stockData", "dailyStocks", "monthlyStocks", "tradeStocks", "tradeStocksStrict", "tradeStocksWatch"];
+  for (const k of keys) {
+    const rows = d[k] || [];
+    for (const r of rows) if (r.sym === sym) return r;
+  }
+  for (const r of (d.top3 || [])) if (r.sym === sym) return r;
+  return null;
+}
+function strengthVerdictBadge(v, total) {
+  if (total == null) return '<span class="badge p">—</span>';
+  if (v === "STRONG") return '<span class="badge g">💪 STRONG</span>';
+  if (v === "MEDIUM") return '<span class="badge a">⚡ MEDIUM</span>';
+  return '<span class="badge r">⚠️ WEAK</span>';
+}
+function zoneCard(tf, z, sub) {
+  const lbl = tf === "1M" ? "🗓 MONTHLY" : "📅 DAILY";
+  if (!z) {
+    return '<div class="zcard"><div class="zhead">' + lbl + ' — ' + sub + '</div>' +
+      '<div class="mut" style="padding:6px 0">— koi active zone nahi —</div></div>';
+  }
+  const st = z.strength || {};
+  const parts = st.parts || {};
+  const rows = [
+    ["Freshness / Retests", parts.freshness], ["Base candles", parts.base],
+    ["Departure strength", parts.departure], ["Volume confirm", parts.volume],
+    ["Zone age", parts.age], ["Higher-TF confluence", parts.htf]
+  ];
+  const bars = rows.filter(x => x[1] !== undefined && x[1] !== null).map(x =>
+    '<div class="pbar"><span class="plabel">' + x[0] + '</span>' +
+    '<span class="ptrack"><span class="pfill" style="width:' + (x[1] * 10) + '%"></span></span>' +
+    '<b class="pval">' + x[1] + '</b></div>').join("");
+  const stOK = st.total !== undefined && st.total !== null;
+  return '<div class="zcard">' +
+    '<div class="zhead">' + lbl + ' — ' + sub + '</div>' +
+    '<div class="zrange">₹' + z.lo + ' – ₹' + z.hi + ' <span class="badge b">' + (z.pat || "") + '</span></div>' +
+    '<div class="zmeta">Existing zone score: <b style="color:var(--txt)">' + (z.score != null ? z.score + " " + (z.grade || "") : "—") + '</b>' +
+      (z.birth_score != null ? ' <span class="mut">(zone bante waqt: ' + z.birth_score + ' ' + (z.birth_grade || "") + ')</span>' : '') + '<br>' +
+      'Tests: <b style="color:var(--txt)">' + (z.tests || 0) + '</b> ' + (z.tests === 0 ? '<span class="up">(FRESH)</span>' : '') +
+      (z.born ? ' • Born: <b style="color:var(--txt)">' + z.born + '</b>' : '') +
+      (z.n_base != null ? ' • Base candles: <b style="color:var(--txt)">' + z.n_base + '</b>' : '') +
+      (z.legout != null ? ' • Leg-out: <b style="color:var(--txt)">' + z.legout + 'x ATR</b>' : '') +
+      (z.vol_ratio != null ? ' • Birth vol: <b style="color:var(--txt)">' + z.vol_ratio + 'x avg</b>' : '') +
+    '</div>' +
+    '<div class="zstrength">' + strengthVerdictBadge(st.verdict, stOK ? st.total : null) +
+      ' <b class="bigsc">' + (stOK ? st.total + '/10' : '—') + '</b> <span class="mut">calculated strength</span></div>' +
+    (bars ? '<div class="pbars">' + bars + '</div>' : '<div class="mut" style="font-size:11.5px">Strength data is purani entry ke liye nahi hai</div>') +
+    '</div>';
+}
+function openAnalysis(btn) {
+  const sym = btn.getAttribute("data-sym");
+  const r = findStockRow(sym);
+  if (!r) { toast("❌ " + sym + " ka analysis data nahi mila", "err"); return; }
+  let a = r.analysis || null;
+  let d1last, d1next, m1last, m1next, legacyNote = "";
+  if (a) {
+    d1last = a.d1 ? a.d1.last : null; d1next = a.d1 ? a.d1.next : null;
+    m1last = a.m1 ? a.m1.last : null; m1next = a.m1 ? a.m1.next : null;
+  } else {
+    legacyNote = '<div class="plan-note" style="margin-top:10px">⚠️ Purani history entry — full strength data nahi hai, sirf zone + existing score dikhe hain.</div>';
+    const z1 = zoneParts(r.z1d), zm = zoneParts(r.z1m);
+    d1last = z1 ? { lo: z1.lo, hi: z1.hi, pat: z1.side === "SUPPLY" ? "1D SUPPLY" : "1D DEMAND",
+      score: scoreNum(r.s1d), grade: (String(r.s1d || "").split(" ")[1] || ""), tests: r.tests_count } : null;
+    m1last = zm ? { lo: zm.lo, hi: zm.hi, pat: zm.side === "SUPPLY" ? "1M SUPPLY" : "1M DEMAND",
+      score: scoreNum(r.s1m), grade: (String(r.s1m || "").split(" ")[1] || "") } : null;
+    d1next = null; m1next = null;
+  }
+  document.getElementById("anaBody").innerHTML =
+    '<div class="zgrid">' +
+    zoneCard("1D", d1last, "LAST / current support zone") +
+    zoneCard("1D", d1next, "NEXT upcoming support (neeche)") +
+    zoneCard("1M", m1last, "LAST / current monthly support") +
+    zoneCard("1M", m1next, "NEXT upcoming monthly support") +
+    '</div>' + legacyNote;
+  document.getElementById("anaTitle").innerHTML =
+    '<span class="sym ' + typeClass(r.type) + '">' + r.sym + '</span> — Full Analysis';
+  document.getElementById("anaSub").textContent =
+    (r.comp || "") + " • " + (r.sector || "") + " • CMP ₹" + r.ltp +
+    " • " + (r.sig || "") + " • " + (r.combo || "") + " • scan " + (DATA ? DATA.date : "?");
+  const curTxt = "Table wale current zones — 1D: " + ((r.z1d || "").replace(/\s+/g, " ").trim() || "—") +
+    "  |  1M: " + ((r.z1m || "").replace(/\s+/g, " ").trim() || "—") +
+    "  |  Position: " + (r.rel || "—");
+  document.getElementById("anaBody").insertAdjacentHTML("afterbegin",
+    '<div class="plan-note" style="margin-bottom:12px">' + curTxt + '</div>');
+  document.getElementById("anaModal").style.display = "flex";
+}
+function closeAnalysis() { document.getElementById("anaModal").style.display = "none"; }
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAnalysis(); });
 function firstTop3Of(item) {
   const v = item && item.firstTop3Date;
   if (v) return v;
@@ -556,7 +699,7 @@ function renderTop3(top3) {
   }
   let html = '<table><tr><th>PICK &amp; SECTOR</th><th>CMP &amp; COMBO</th><th>📅 FIRST IN TOP-3</th>' +
     '<th>1D EXEC ZONE</th><th>1M SUPPORT</th><th>ENTRY (limit)</th><th>SL</th><th>T1</th><th>T2</th>' +
-    '<th>QTY (₹1,000 risk)</th><th>CHART</th></tr>';
+    '<th>QTY (₹1,000 risk)</th><th>CHART</th><th>🔍</th></tr>';
   for (const p of top3) {
     html += '<tr>' + symCell(p) +
       '<td><span class="mut">' + (p.sector || "") + ' ' + (p.secBonus || "") + '</span><br>₹' + p.ltp +
@@ -567,7 +710,7 @@ function renderTop3(top3) {
       '<td>₹' + p.entryLo + ' – ₹' + p.entryHi + '</td>' +
       '<td class="dn">₹' + p.sl + '</td><td class="up">₹' + p.t1 + '</td><td class="up">₹' + p.t2 + '</td>' +
       '<td>' + p.qty + ' sh</td>' +
-      '<td><a href="' + TV + encodeURIComponent(p.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+      '<td><a href="' + TV + encodeURIComponent(p.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(p) + '</tr>';
     let cTxt = "";
     if (p.course && p.course.hasZone) {
       cTxt = ' • 📖 Course: <b>' + p.course.verdict + '</b> (base=' + p.course.nBase + ', score=' + p.course.score + ')';
@@ -594,7 +737,7 @@ function renderTfTables() {
       'Niche WATCH-ONLY list me har stock ke saath exclusion reason badge hai — usse research karo, trade mat karo.</p></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SC</th><th>1M ZONE</th><th>1M SC</th>' +
-      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>CHART</th></tr>';
+      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of strict) {
       const p = tradePlan(r);
       const planCell = p
@@ -608,7 +751,7 @@ function renderTfTables() {
         '<td>' + planCell + '</td>' +
         '<td>' + (p ? p.qty + ' sh' : '—') + '</td><td>' + (p ? '₹' + p.move3k : '—') + '</td>' +
         '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + '</td>' +
-        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     tsa.innerHTML = html + '</table>';
   }
@@ -618,14 +761,14 @@ function renderTfTables() {
   if (!watch.length) {
     twa.innerHTML = '<div class="nopicks"><h3>Koi watch stock nahi</h3></div>';
   } else {
-    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>CHART</th></tr>';
+    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of watch) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + fmtZone(r.z1m) + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : "dn") + '">' + (r.w_trend || "") + '</td>' +
         '<td class="mut">' + r.combo + '</td>' +
         '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + '</td>' +
-        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     twa.innerHTML = html + '</table>';
   }
@@ -639,7 +782,7 @@ function renderTfTables() {
     da.innerHTML = '<div class="nopicks"><h3>Koi 1D zone stock nahi</h3></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of daily) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
@@ -647,7 +790,7 @@ function renderTfTables() {
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
         '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
-        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     da.innerHTML = html + '</table>';
   }
@@ -661,7 +804,7 @@ function renderTfTables() {
     ma.innerHTML = '<div class="nopicks"><h3>Koi 1M zone stock nahi</h3></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1M ZONE</th><th>1M SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of monthly) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
@@ -669,7 +812,7 @@ function renderTfTables() {
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
         '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
-        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     ma.innerHTML = html + '</table>';
   }
@@ -775,7 +918,7 @@ function renderAllTable() {
   document.getElementById("bdg-zonecount").textContent = rows.length + " STOCKS";
   document.getElementById("zonecountlabel").textContent = rows.length + " / " + total + " rows";
   document.getElementById("zonesub").textContent =
-    "Sab stocks jo kisi bhi timeframe ke zone ke IN/NEAR hain — scan " + (DATA ? DATA.date : "?") +
+    "Sab stocks jo kisi bhi timeframe ke zone ke IN/NEAR ya PULLBACK WATCH (8%) band me hain — scan " + (DATA ? DATA.date : "?") +
     (HISTORY_MODE ? " (HISTORY)" : "") + ". Green = DEMAND, Red = SUPPLY.";
   const area = document.getElementById("zonearea");
   if (!rows.length) {
@@ -784,7 +927,7 @@ function renderAllTable() {
   }
   let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th>' +
     '<th>1D ZONE</th><th>1D SCORE</th><th>1M ZONE</th><th>1M SCORE</th><th>1W TREND</th>' +
-    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>CHART</th></tr>';
+    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
   for (const r of rows) {
     html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
       '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
@@ -792,7 +935,7 @@ function renderAllTable() {
       '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
       '<td>' + (r.fresh_badge || "") + '</td><td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
       '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
-      '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td></tr>';
+      '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
   }
   area.innerHTML = html + '</table>';
 }

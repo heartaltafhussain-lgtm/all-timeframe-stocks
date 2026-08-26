@@ -21,6 +21,18 @@ STRICT TOP-3 FILTER (backtest-tested):
      - dual-zone compulsory filter       -> negative edge (v5.1 me FIXED:
        TRADE STOCKS section ab strict quality gate ke saath hai — strict_trade_excl())
 
+v5.2 (TV-ZONE ALIGN + NO-VANISH FIX — Aug 2026):
+  BUG-1 FIX (FACT missing): zone ab impulse (leg-out) candle ke FULL RANGE [Low-High]
+     pe banta hai — bilkul TradingView "GTF Demand Supply Pro v4.0" ki tarah.
+     Pehle drop-candle ke prox/dist se patla sliver banta tha (FACT: 738-749),
+     jabki TV wahi zone 765-797 pe dikhata tha -> price "IN zone" hone ke bawajood
+     scanner "AWAY" bol ke stock poore dashboard se hata deta tha.
+  BUG-2 FIX (vanishing stocks): pehle sirf IN/NEAR (2%) wale stocks dikhte the.
+     Ab WATCH band (8%) ke andar active zone wala stock "PULLBACK WATCH" ke saath
+     list me rehta hai — signal dene wala stock aise kabhi gayab nahi hoga.
+  + Har stock ka full zone ladder (last + next 1D/1M support) aur NEW strength
+    score (freshness/base/departure/volume/age/HTF) popup ke liye JSON me.
+
 v5.1 (STRICT TRADE FIX): dual-zone (TRADE STOCKS) stocks ab strict gate se filter hote
 hain — DEMAND + whitelist + FRESH + 1D/1M >= 7 + normal vol. Backtest (May-Aug 2026):
 RAW win 41% / +0.36R / PF 1.62 / DD -8.0R  ->  STRICT win 50% / +0.50R / PF 2.0 / DD -3.0R
@@ -47,8 +59,13 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.1 All Timeframe Stocks (STRICT TRADE FIX)"
+VERSION = "v5.2 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH FIX)"
 PASSWORD_REF = "7004602"
+
+# ---------------- v5.2 NO-VANISH WATCH BAND ----------------
+# IN/NEAR (2%) ke bahar magar active zone ke itne paas wala stock poore dashboard
+# se GAYAB na ho — "PULLBACK WATCH" flag ke saath list me rehta hai.
+WATCH_PCT = 0.08        # 8% doori tak watch (1D aur 1M dono ke liye)
 
 # ---------------- STRICT TOP-3 FILTER CONFIG (backtest-tested) ----------------
 STRICT_MIN_COMBO = 11.0        # sirf SUPER combo picks
@@ -366,11 +383,13 @@ def calc_score(tests, body, atr, is_no_base, has_gap, aligned_ema, body_pct):
 
 def detect_active_zones(df, impulse_body_pct=55.0):
     """
-    Indicator 3.15 strict 1-bar turn:
+    Indicator 3.15 strict 1-bar turn + v5.2 TV zone align:
       Demand = previous red impulsive + current green impulsive + close > prev close
       Supply = previous green impulsive + current red impulsive + close < prev close
-    Prox/Dist = below-wick-to-lower-body / above-wick-to-higher-body
-    keepInvalid = False
+    v5.2: Zone = impulse (leg-out) candle ka FULL range [Low-High] — bilkul
+    TradingView "GTF Demand Supply Pro v4.0" boxes jaisa (FACT 1-Apr: 765-797 ✓).
+    Birth metadata (n_base, legout xATR, vol_ratio, born_date) bhi capture hota hai
+    — popup ke strength score ke liye.
     """
     if df is None or len(df) < ATR_LEN + 5:
         return [], []
@@ -378,12 +397,36 @@ def detect_active_zones(df, impulse_body_pct=55.0):
     h = df["High"].to_numpy(float)
     l = df["Low"].to_numpy(float)
     c = df["Close"].to_numpy(float)
+    vol = df["Volume"].to_numpy(float) if "Volume" in df.columns else None
     atr = wilder_atr(h, l, c)
     ema20 = ema(c, 20)
     start = max(len(df) - LOOKBACK_BARS, ATR_LEN + 1)
 
     demands = []
     supplies = []
+
+    def n_base_candles(i, a):
+        """Leg-out se pehle kitni base (chhoti body) candles thi (cap 12)."""
+        n = 0
+        j = i - 2  # i-1 impulse drop/rally candle hai, usse pehle base
+        while j >= 0 and n < 12:
+            b = abs(c[j] - o[j])
+            aj = atr[j] if np.isfinite(atr[j]) and atr[j] > 0 else a
+            if b < aj * 0.35:
+                n += 1
+                j -= 1
+            else:
+                break
+        return n
+
+    def vol_ratio_at(i):
+        if vol is None or i >= len(vol) or not np.isfinite(vol[i]) or vol[i] <= 0:
+            return None
+        win = vol[max(0, i - 20):i]
+        avg = np.nanmean(win) if len(win) else np.nan
+        if not np.isfinite(avg) or avg <= 0:
+            return None
+        return round(float(vol[i] / avg), 2)
 
     def overlap(zones, prox, dist):
         for z in zones:
@@ -418,8 +461,10 @@ def detect_active_zones(df, impulse_body_pct=55.0):
         )
 
         if impulse_ok and is_red1 and is_green0 and c[i] > c[i - 1]:
-            prox = float(min(c[i - 1], o[i]))
-            dist = float(min(l[i - 1], l[i]))
+            # v5.2 TV-ALIGN: zone = impulse (leg-out) candle ka FULL range [Low-High]
+            # (TradingView GTF Demand Supply Pro jaisa — e.g. FACT 1-Apr-26: 765-797)
+            prox = float(h[i])
+            dist = float(l[i])
             height = prox - dist
             if a * MIN_ZONE_ATR <= height <= a * MAX_ZONE_ATR and not overlap(demands, prox, dist):
                 score, grade = calc_score(0, body, a, True, has_gap_up, aligned_up, body_pct)
@@ -430,18 +475,25 @@ def detect_active_zones(df, impulse_body_pct=55.0):
                         "prox": round(prox, 2),
                         "dist": round(dist, 2),
                         "born": i,
+                        "born_date": str(df.index[i].date()),
                         "tests": 0,
                         "score": score,
                         "grade": grade,
+                        "birth_score": score,
+                        "birth_grade": grade,
                         "body_pct": round(body_pct, 1),
+                        "n_base": n_base_candles(i, a),
+                        "legout": round(body / a, 2),
+                        "vol_ratio": vol_ratio_at(i),
                     }
                 )
                 if len(demands) > MAX_ZONES:
                     demands.pop(0)
 
         if impulse_ok and is_green1 and is_red0 and c[i] < c[i - 1]:
-            prox = float(max(c[i - 1], o[i]))
-            dist = float(max(h[i - 1], h[i]))
+            # v5.2 TV-ALIGN: supply zone = impulse (drop) candle ka FULL range [Low-High]
+            prox = float(l[i])
+            dist = float(h[i])
             height = dist - prox
             if a * MIN_ZONE_ATR <= height <= a * MAX_ZONE_ATR and not overlap(supplies, prox, dist):
                 score, grade = calc_score(0, body, a, True, has_gap_dn, aligned_dn, body_pct)
@@ -452,10 +504,16 @@ def detect_active_zones(df, impulse_body_pct=55.0):
                         "prox": round(prox, 2),
                         "dist": round(dist, 2),
                         "born": i,
+                        "born_date": str(df.index[i].date()),
                         "tests": 0,
                         "score": score,
                         "grade": grade,
+                        "birth_score": score,
+                        "birth_grade": grade,
                         "body_pct": round(body_pct, 1),
+                        "n_base": n_base_candles(i, a),
+                        "legout": round(body / a, 2),
+                        "vol_ratio": vol_ratio_at(i),
                     }
                 )
                 if len(supplies) > MAX_ZONES:
@@ -592,6 +650,125 @@ def pick_best_side(ltp, demands, supplies):
     candidates.sort(key=lambda t: (0 if t[1] == "IN" else 1, -t[0]["score"], t[2]))
     z, rel, dist_pct = candidates[0]
     return z, rel, dist_pct
+
+
+# ---------------- v5.2 NO-VANISH WATCH + ANALYSIS HELPERS ----------------
+def watch_relation(ltp, zone):
+    """IN/NEAR se AWAY magar WATCH_PCT (8%) ke andar active zone -> PULLBACK WATCH."""
+    if not zone:
+        return False
+    rel, _ = zone_relation(ltp, zone)
+    if rel in ("IN", "NEAR"):
+        return False
+    lo, hi = sorted((zone["dist"], zone["prox"]))
+    if zone["side"] == "DEMAND":
+        gap = (ltp - hi) / hi if ltp > hi else (lo - ltp) / lo
+    else:
+        gap = (lo - ltp) / lo if ltp < lo else (ltp - hi) / hi
+    return 0 <= gap <= WATCH_PCT
+
+
+def best_active_zone(ltp, demands, supplies):
+    """v5.2: IN/NEAR pehle (pick_best_side); warna sabse PAAS wala active zone
+    (WATCH band check ke liye) — warna 8% ke andar wale stocks miss ho jaate the."""
+    z, rel, _ = pick_best_side(ltp, demands, supplies)
+    if z is not None:
+        return z, rel
+    best, best_gap = None, 1e9
+    for zz in list(demands[-3:]) + list(supplies[-3:]):
+        lo, hi = sorted((zz["dist"], zz["prox"]))
+        if zz["side"] == "DEMAND":
+            g = (ltp - hi) / hi if ltp > hi else (lo - ltp) / lo
+        else:
+            g = (lo - ltp) / lo if ltp < lo else (ltp - hi) / hi
+        if 0 <= g < best_gap:
+            best, best_gap = zz, g
+    if best is None:
+        return None, "NONE"
+    return best, ("WATCH" if best_gap <= WATCH_PCT else "AWAY")
+
+
+def zone_public(ltp, z, htf_demands=None, w_trend_up=False, age_bars=None):
+    """Popup ke liye zone ka public dict — existing grade + NEW strength score (dono)."""
+    lo, hi = sorted((z["dist"], z["prox"]))
+    tests = int(z.get("tests", 0))
+    n_base = z.get("n_base")
+    legout = z.get("legout")
+    vol_ratio = z.get("vol_ratio")
+
+    parts = {}
+    # 1) freshness / retests (25%)
+    parts["freshness"] = 10.0 if tests == 0 else 7.0 if tests == 1 else 4.0 if tests == 2 else 2.0
+    # 2) base candles (15%) — course Ep5/6: >5 base = garbage
+    parts["base"] = (10.0 if n_base <= 2 else 8.0 if n_base <= 5 else 3.0) if n_base is not None else 6.0
+    # 3) departure strength (20%) — leg-out body xATR
+    parts["departure"] = (10.0 if legout >= 1.5 else 8.0 if legout >= 1.0 else 6.0 if legout >= 0.6 else 4.0) if legout is not None else 6.0
+    # 4) volume confirmation (15%)
+    parts["volume"] = (10.0 if vol_ratio >= 2.5 else 8.0 if vol_ratio >= 1.8 else 6.0 if vol_ratio >= 1.2 else 4.0 if vol_ratio >= 0.8 else 3.0) if vol_ratio is not None else 5.0
+    # 5) zone age (10%) — fresh zone > purana zone
+    if age_bars is None:
+        parts_age = 6.0
+    else:
+        parts_age = 10.0 if age_bars <= 5 else 7.0 if age_bars <= 15 else 4.0 if age_bars <= 40 else 2.0
+    # 6) HTF confluence (15%)
+    htf = 3.0
+    if htf_demands:
+        for m in htf_demands:
+            mlo, mhi = sorted((m["dist"], m["prox"]))
+            if mlo <= hi * 1.05 and mhi >= lo * 0.95:
+                htf = 10.0
+                break
+        else:
+            htf = 6.0 if w_trend_up else 3.0
+    elif w_trend_up:
+        htf = 6.0
+    parts["htf"] = htf
+
+    weights = {"freshness": 0.25, "base": 0.15, "departure": 0.20, "volume": 0.15, "age": 0.10, "htf": 0.15}
+    parts["age"] = parts_age
+    total = round(sum(parts[k] * weights[k] for k in weights), 1)
+    verdict = "STRONG" if total >= 7.5 else "MEDIUM" if total >= 5.5 else "WEAK"
+
+    return {
+        "lo": lo,
+        "hi": hi,
+        "pat": z.get("pat", ""),
+        "score": z.get("score"),
+        "grade": z.get("grade", ""),
+        "birth_score": z.get("birth_score"),
+        "birth_grade": z.get("birth_grade", ""),
+        "tests": tests,
+        "born": z.get("born_date"),
+        "n_base": n_base,
+        "legout": legout,
+        "vol_ratio": vol_ratio,
+        "strength": {
+            "total": total,
+            "verdict": verdict,
+            "parts": {k: round(v, 1) for k, v in parts.items()},
+        },
+    }
+
+
+def support_ladder(ltp, demands, htf_demands=None, w_trend_up=False, last_idx=None):
+    """Support ladder (sirf DEMAND zones): last = current/nearest support
+    (price ke sabse paas wala at/below), next = uske neeche wala upcoming support."""
+    zs = sorted(demands, key=lambda z: -max(z["dist"], z["prox"]))  # highest first
+    pubs = [
+        zone_public(ltp, z, htf_demands, w_trend_up,
+                    (last_idx - z["born"]) if (last_idx is not None and isinstance(z.get("born"), int)) else None)
+        for z in zs
+    ]
+    cur = None
+    for idx, z in enumerate(zs):
+        if max(z["dist"], z["prox"]) <= ltp * 1.001:
+            cur = idx
+            break
+    if cur is None and zs:
+        cur = 0  # price sabhi zones ke neeche (rare) — highest zone hi "last"
+    last = pubs[cur] if cur is not None else None
+    nxt = pubs[cur + 1] if cur is not None and cur + 1 < len(pubs) else None
+    return last, nxt, pubs[:4]
 
 
 def download_batches(tickers):
@@ -1082,26 +1259,33 @@ def scan():
         month_d, month_s = detect_active_zones(mdf, impulse_body_pct=50.0) if mdf is not None else ([], [])
         week_d, week_s = detect_active_zones(wdf, impulse_body_pct=55.0) if wdf is not None else ([], [])
 
-        z1d, rel_d, _ = pick_best_side(ltp, daily_d, daily_s)
-        z1m, rel_m, _ = pick_best_side(ltp, month_d, month_s)
-
-        # stock qualifies only if TODAY price is IN/NEAR a valid 1D or 1M zone
-        if (rel_d not in ("IN", "NEAR")) and (rel_m not in ("IN", "NEAR")):
+        # v5.2: IN/NEAR zone ya WATCH band (8%) ke andar active zone — dono me stock dikhega
+        z1d, rel_d = best_active_zone(ltp, daily_d, daily_s)
+        z1m, rel_m = best_active_zone(ltp, month_d, month_s)
+        rel_d_ok = rel_d in ("IN", "NEAR")
+        rel_m_ok = rel_m in ("IN", "NEAR")
+        watch_d = rel_d == "WATCH"
+        watch_m = rel_m == "WATCH"
+        if not rel_d_ok and not rel_m_ok and not watch_d and not watch_m:
             continue
 
         # decide displayed type from the tighter / more relevant zone
         chosen = None
         chosen_rel = "NONE"
-        if rel_d in ("IN", "NEAR") and rel_m in ("IN", "NEAR"):
+        if rel_d_ok and rel_m_ok:
             if z1d["side"] == z1m["side"]:
                 chosen, chosen_rel = z1d, rel_d
             else:
                 # conflict — equilibrium / wait
                 chosen, chosen_rel = (z1d if rel_d == "IN" else z1m), "CONFLICT"
-        elif rel_d in ("IN", "NEAR"):
+        elif rel_d_ok:
             chosen, chosen_rel = z1d, rel_d
-        else:
+        elif rel_m_ok:
             chosen, chosen_rel = z1m, rel_m
+        elif watch_d:
+            chosen, chosen_rel = z1d, "WATCH"
+        else:
+            chosen, chosen_rel = z1m, "WATCH"
 
         if chosen_rel == "CONFLICT":
             zone_type = "EQUILIBRIUM"
@@ -1143,6 +1327,8 @@ def scan():
             sig = "NEAR SUPPLY"
         else:
             sig = "WAIT FOR PULLBACK"
+        if chosen_rel == "WATCH":
+            sig = "PULLBACK WATCH (AWAY — retest ka wait)"
 
         if combo >= 11:
             combo_txt = f"{combo:.1f} / 10 SUPER COMBO"
@@ -1180,17 +1366,25 @@ def scan():
                 "secBonus": sec_bonus,
                 "combo": combo_txt,
                 "sig": sig,
-                "inDaily": rel_d in ("IN", "NEAR"),
-                "inMonthly": rel_m in ("IN", "NEAR"),
+                "inDaily": rel_d_ok or watch_d,
+                "inMonthly": rel_m_ok or watch_m,
                 "tradeStock": (rel_d in ("IN", "NEAR")) and (rel_m in ("IN", "NEAR")),
                 "watch": True,
                 "rel": chosen_rel,
                 "industry": info.get("industry") or "",
             }
         )
+        # v5.2: full support ladder + strength score (Full Analysis popup ke liye)
+        w_up = "UP" in w_tr
+        l1d, n1d, zl1d = support_ladder(ltp, daily_d, month_d, w_up, len(df) - 1)
+        l1m, n1m, zl1m = support_ladder(ltp, month_d, None, w_up, (len(mdf) - 1) if mdf is not None else None)
+        stock_rows[-1]["analysis"] = {
+            "d1": {"last": l1d, "next": n1d, "zones": zl1d},
+            "m1": {"last": l1m, "next": n1m, "zones": zl1m},
+        }
 
     # sort: BUY READY first, then combo
-    rank = {"BUY READY": 0, "APPROACHING DEMAND": 1, "WAIT FOR PULLBACK": 2, "NEAR SUPPLY": 3, "SUPPLY TEST": 4}
+    rank = {"BUY READY": 0, "APPROACHING DEMAND": 1, "WAIT FOR PULLBACK": 2, "NEAR SUPPLY": 3, "SUPPLY TEST": 4, "PULLBACK WATCH (AWAY — retest ka wait)": 5}
     stock_rows.sort(key=lambda r: (rank.get(r["sig"], 9), -_combo_num(r["combo"]), r["sym"]))
 
     # v5.0: timeframe subsets (DAILY / MONTHLY / TRADE = dono me same stock)
