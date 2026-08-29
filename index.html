@@ -117,6 +117,8 @@
     border-top: 1px solid var(--line); padding-top: 14px; }
   @media (max-width: 700px) { header h1 { font-size: 18px; } }
 
+  td.gcol { text-align: center; }
+
   /* ===== v5.3 sortable headers ===== */
   th.srt { cursor: pointer; user-select: none; white-space: nowrap; }
   th.srt::after { content: " ⇅"; opacity: .4; font-size: 9px; }
@@ -524,7 +526,7 @@ function gradeBadge(r) {
   else if (r.rel === "WATCH") { g = "C"; cls = "b"; tip = "WATCH — zone se door"; }
   else if ((r.sig || "").indexOf("BUY READY") >= 0 && (r.tests_count || 0) <= 1) { g = "B"; cls = "b"; tip = "BUY READY, fresh"; }
   else if ((r.sig || "").indexOf("BUY READY") >= 0) { g = "C"; cls = "b"; tip = "BUY READY, tested zone"; }
-  return '<span class="badge ' + cls + '" title="' + tip + '">' + g + '</span>';
+  return '<td class="gcol"><span class="badge ' + cls + '" title="' + tip + '">' + g + '</span></td>';
 }
 let SWING_SET = new Set();
 function analysisBtn(r) {
