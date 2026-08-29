@@ -768,7 +768,7 @@ function renderSwing() {
     if (r.z1m && r.z1m.indexOf("NO ACTIVE") < 0 && r.z1m.indexOf("—") < 0) why.push("1M zone");
     if (sw.room >= 7) why.push(sw.room + "% room");
     why.push((sw.verdict || "") + " " + (sw.score || ""));
-    html += '<tr>' + symCell(r.sym) + nameCell(r.sym, r.comp || "") +
+    html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td>' +
       '<td>' + r.ltp + '</td>' +
       '<td class="mut">' + ((sw.pat || '') + ' ' + (sw.zlo || '') + ' - ' + (sw.zhi || '') || r.z1d) + '</td>' +
       '<td><b>' + entry + '</b></td>' +
