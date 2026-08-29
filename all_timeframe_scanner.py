@@ -59,7 +59,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.3 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH + SWING 4-5D)"
+VERSION = "v5.6 All Timeframe Stocks (GTF BOOK STRICT: TREND VETO + AUTHENTICITY + HTF CONFLICT + RISK TIERS)"
 PASSWORD_REF = "7004602"
 
 # ---------------- v5.2 NO-VANISH WATCH BAND ----------------
@@ -688,6 +688,123 @@ def best_active_zone(ltp, demands, supplies):
     return best, ("WATCH" if best_gap <= WATCH_PCT else "AWAY")
 
 
+def attach_gtf_scores(zones, df):
+    """v5.5 — 'Trading in the Zone' (GTF book) ke exact TRADE SCORE rules:
+       Departure /3: gap se nikla=3, strong exciting legout=2, normal=1
+       Freshness /3: fresh=3, 1 test=2, 2+ tests=1
+       Base candles /3: 1-3 base=3, 4-5 base=2, 5+=1
+       Book decision (PDF EXACT): 8+ -> Set & Forget (Type 1) | 5-7 -> Confirmation (Type 2/3) | <5 -> NO TRADE
+       p33 CREDIBILITY: purane same-side zone ki reaction se bana zone = NON-AUTHENTIC (good closing to hi chalta hai)"""
+    try:
+        o = df["Open"].values
+        h = df["High"].values
+        l = df["Low"].values
+        c = df["Close"].values
+    except Exception:
+        o = h = l = c = None
+    for z in zones or []:
+        try:
+            i = int(z.get("born", -1))
+            if o is not None and 0 < i < len(o) and np.isfinite(o[i]) and np.isfinite(h[i - 1]) and float(o[i]) > float(h[i - 1]):
+                dep = 3  # gap se nikla (book: highest departure)
+            else:
+                lg = z.get("legout") or 0
+                dep = 2 if lg >= 1.2 else (1 if lg >= 0.6 else 0)
+            t = int(z.get("tests", 0))
+            fresh = 3 if t == 0 else (2 if t == 1 else 1)
+            nb = z.get("n_base")
+            base = 2 if nb is None else (3 if nb <= 3 else (2 if nb <= 5 else 1))
+            score = dep + fresh + base
+            # p33 CREDIBILITY: leg jis purane zone ke andar se utha = uski reaction (non-authentic)
+            auth = 1
+            try:
+                if l is not None and 0 < i < len(l):
+                    nb_i = int(nb) if nb is not None else 0
+                    lo_win = float(np.min(l[max(0, i - nb_i):i + 1]))
+                    for z2 in zones or []:
+                        if z2 is z:
+                            continue
+                        try:
+                            b2 = int(z2.get("born", -1))
+                            if b2 < 0 or b2 > i - nb_i - 1:
+                                continue
+                            lo2 = min(float(z2["prox"]), float(z2["dist"]))
+                            hi2 = max(float(z2["prox"]), float(z2["dist"]))
+                            if lo2 * 0.999 <= lo_win <= hi2 * 1.001:
+                                gc = None
+                                j = i - nb_i - 1
+                                if c is not None and 0 <= j < len(c) and 0 <= i < len(c):
+                                    dem = str(z.get("side", "")) == "DEMAND"
+                                    gc = (float(c[i]) > float(h[j])) if dem else (float(c[i]) < float(l[j]))
+                                auth = 2 if gc in (None, True) else 0  # 2 = reaction par good closing OK
+                                break
+                        except Exception:
+                            continue
+            except Exception:
+                auth = 1
+            et = ("SET & FORGET (Type 1)" if score >= 8 else
+                  "CONFIRMATION (Type 2/3)" if score >= 5 else
+                  "BOOK: NO TRADE (<5)")
+            ets = ("S&F" if score >= 8 else "CONF" if score >= 5 else "SKIP")
+            if auth == 0:
+                et, ets = "NON-AUTHENTIC — SKIP (book p33)", "SKIP"
+            z["gtf"] = {
+                "score": score, "dep": dep, "fresh": fresh, "base": base,
+                "auth": auth, "et": et, "ets": ets,
+            }
+        except Exception:
+            z["gtf"] = {"score": 0, "dep": 0, "fresh": 0, "base": 0, "et": "—", "ets": "—"}
+
+
+def curve_location(ltp, demands, supplies):
+    """v5.5 — book ka LOCATION/curve rule: fresh demand proximal se fresh supply proximal
+    ke beech CMP kahan hai. Neeche = BUY side, beech = trend follow, upar = SELL side."""
+    fd, fs = None, None
+    for z in demands or []:
+        try:
+            if int(z.get("tests", 99)) == 0:
+                hi_e = max(float(z["prox"]), float(z["dist"]))
+                if hi_e <= ltp * 1.002 and (fd is None or hi_e > fd):
+                    fd = hi_e
+        except Exception:
+            continue
+    for z in supplies or []:
+        try:
+            if int(z.get("tests", 99)) == 0:
+                lo_e = min(float(z["prox"]), float(z["dist"]))
+                if lo_e >= ltp * 0.998 and (fs is None or lo_e < fs):
+                    fs = lo_e
+        except Exception:
+            continue
+    if fd is not None and fs is not None and fs > fd:
+        pct = (ltp - fd) / (fs - fd) * 100.0
+        side = "LOW (BUY side)" if pct < 33.3 else ("MID (trend follow)" if pct < 66.7 else "HIGH (SELL side)")
+        return f"{side} • curve pe {pct:.0f}%"
+    if fd is not None:
+        return "LOW (BUY side) • upar fresh supply nahi"
+    if fs is not None:
+        return "HIGH (SELL side) • neeche fresh demand nahi"
+    return "NO FRESH ZONES — equilibrium (book: trend follow)"
+
+
+def sma50_trend(df, ltp):
+    """v5.5 — book ka 50 SMA trend rule (7-candle clock, simplified):
+       UP -> demand buy OK | DOWN -> demand buy DANGEROUS (book caution) | SIDEWAYS -> ignore/avoid."""
+    try:
+        sma = df["Close"].rolling(50).mean()
+        if len(df) >= 58 and np.isfinite(sma.iloc[-1]) and np.isfinite(sma.iloc[-8]):
+            slope_up = float(sma.iloc[-1]) >= float(sma.iloc[-8])
+            above = ltp >= float(sma.iloc[-1])
+            if slope_up and above:
+                return "UP"
+            if (not slope_up) and (not above):
+                return "DOWN"
+            return "SIDEWAYS"
+    except Exception:
+        pass
+    return None
+
+
 def zone_public(ltp, z, htf_demands=None, w_trend_up=False, age_bars=None):
     """Popup ke liye zone ka public dict — existing grade + NEW strength score (dono)."""
     lo, hi = sorted((z["dist"], z["prox"]))
@@ -737,6 +854,7 @@ def zone_public(ltp, z, htf_demands=None, w_trend_up=False, age_bars=None):
         "grade": z.get("grade", ""),
         "birth_score": z.get("birth_score"),
         "birth_grade": z.get("birth_grade", ""),
+        "gtf": z.get("gtf"),
         "tests": tests,
         "born": z.get("born_date"),
         "n_base": n_base,
@@ -1347,6 +1465,16 @@ def scan():
         month_d, month_s = detect_active_zones(mdf, impulse_body_pct=50.0) if mdf is not None else ([], [])
         week_d, week_s = detect_active_zones(wdf, impulse_body_pct=55.0) if wdf is not None else ([], [])
 
+        # v5.5: GTF book TRADE SCORE har zone pe (departure/freshness/base)
+        attach_gtf_scores(daily_d, df)
+        attach_gtf_scores(daily_s, df)
+        attach_gtf_scores(month_d, mdf if mdf is not None else df)
+        attach_gtf_scores(month_s, mdf if mdf is not None else df)
+        attach_gtf_scores(week_d, wdf if wdf is not None else df)
+        attach_gtf_scores(week_s, wdf if wdf is not None else df)
+        loc_txt = curve_location(ltp, daily_d, daily_s)
+        t50 = sma50_trend(df, ltp)
+
         # v5.2: IN/NEAR zone ya WATCH band (8%) ke andar active zone — dono me stock dikhega
         z1d, rel_d = best_active_zone(ltp, daily_d, daily_s)
         z1m, rel_m = best_active_zone(ltp, month_d, month_s)
@@ -1503,18 +1631,53 @@ def scan():
                 "watch": True,
                 "rel": chosen_rel,
                 "industry": info.get("industry") or "",
+                "tsc": ((z1d or {}).get("gtf") or {}).get("score"),
+                "et": ((z1d or {}).get("gtf") or {}).get("ets"),
+                "loc": loc_txt,
+                "t50warn": (zone_type == "DEMAND" and t50 == "DOWN"),
             }
         )
         # v5.2.1: analysis upar hi ban chuka (analysis_by_sym) — wahi reuse
         stock_rows[-1]["analysis"] = analysis_by_sym[nse_sym]["analysis"]
 
-        # v5.3: SWING 4-5 DIN filter — swing holding ke liye quality gate
+        # v5.4: SWING 4-5 DIN — "TOP se DOWN → MONTHLY demand ke paas RUKA → 1D fresh buy setup"
         try:
-            a_d1 = analysis_by_sym[nse_sym]["analysis"]["d1"]["last"] or {}
-            st_tot = (a_d1.get("strength") or {}).get("total")
-            m1_last = analysis_by_sym[nse_sym]["analysis"]["m1"]["last"]
-            zone_top = max(float(chosen["prox"]), float(chosen["dist"])) if chosen else ltp
-            room = 15.0  # upar khali maidan % (supply tak)
+            # (1) MONTHLY demand zone ke paas (IN ya 3% band me)
+            m_zone, m_gap, m_lo, m_hi = None, None, None, None
+            best_gap = 999.0
+            for zm in (month_d or []):
+                if zm.get("side") != "DEMAND":
+                    continue
+                glo = min(float(zm["prox"]), float(zm["dist"]))
+                ghi = max(float(zm["prox"]), float(zm["dist"]))
+                if ltp >= glo * 0.97 and ltp <= ghi * 1.03:
+                    gap = 0.0 if ltp <= ghi else (ltp - ghi) / ghi * 100.0
+                    if gap < best_gap:
+                        best_gap, m_zone, m_gap, m_lo, m_hi = gap, zm, gap, glo, ghi
+            # (2) TOP se drawdown (1-year high se kitna neeche)
+            lookback = df.tail(250)
+            hi250 = float(lookback["High"].max()) if len(lookback) else ltp
+            drawdown = (hi250 - ltp) / hi250 * 100.0 if hi250 > 0 else 0.0
+            # (3) 1D pe FRESH DR demand buy setup — quality = GTF BOOK TRADE SCORE (v5.5)
+            # book: score < 6 = NO TRADE; 6-7.9 = confirmation entry; 8+ = set & forget
+            d_zone, d_qual = None, 0.0
+            for zd in (daily_d or []):
+                if str(zd.get("pat", "")).startswith("DR") and int(zd.get("tests", 0)) <= 2:
+                    glo = min(float(zd["prox"]), float(zd["dist"]))
+                    ghi = max(float(zd["prox"]), float(zd["dist"]))
+                    if ltp <= ghi * 1.08:
+                        qual = float((zd.get("gtf") or {}).get("score", 0))
+                        if qual >= 6.0 and qual > d_qual:
+                            d_zone, d_qual = zd, qual
+            # (4) RUK GAYA — last 5 daily candles ne 1D zone ka bottom hold kiya
+            stall = False
+            if d_zone is not None and len(df) >= 6:
+                d_lo = min(float(d_zone["prox"]), float(d_zone["dist"]))
+                last5 = df.tail(5)
+                if float(last5["Low"].min()) >= d_lo * 0.99 and float(df["Close"].iloc[-1]) >= d_lo:
+                    stall = True
+            # (5) upar room (supply tak khali maidan)
+            room = 15.0
             for zc in (list(daily_s) + list(month_s) + list(week_s or [])):
                 if zc.get("side") == "SUPPLY":
                     zlo = min(float(zc["prox"]), float(zc["dist"]))
@@ -1522,25 +1685,50 @@ def scan():
                         room = min(room, (zlo - ltp) / ltp * 100.0)
             notes = []
             ok = True
-            if chosen is None or chosen.get("side") != "DEMAND":
-                ok = False; notes.append("DEMAND zone nahi")
             if ltp < 30:
                 ok = False; notes.append("penny <30")
-            if chosen_rel not in ("IN", "NEAR"):
-                ok = False; notes.append("zone IN/NEAR nahi")
-            if tests >= 2:
-                ok = False; notes.append(f"{tests} tests")
-            if "UP" not in w_tr:
-                ok = False; notes.append("1W DOWN")
-            if st_tot is None or st_tot < 6.5:
-                ok = False; notes.append(f"strength {st_tot}")
-            if ltp > zone_top * 1.03:
-                ok = False; notes.append("extended >3%")
-            fresh = 10.0 if tests == 0 else 6.0
-            wtr = 10.0 if "UP" in w_tr else 0.0
-            m1c = 10.0 if m1_last else 4.0
+            if m_zone is None:
+                ok = False; notes.append("monthly demand paas nahi")
+            if drawdown < 10.0:
+                ok = False; notes.append(f"correction sirf {drawdown:.0f}%")
+            if drawdown > 60.0:
+                ok = False; notes.append("60%+ crash (dead)")
+            if d_zone is None:
+                ok = False; notes.append("1D fresh DR setup nahi")
+            if not stall:
+                ok = False; notes.append("zone hold nahi hua")
+            if room < 5.0:
+                ok = False; notes.append(f"room sirf {room:.0f}%")
+            # v5.6 BOOK GATES (PDF): trend veto + authenticity + HTF supply conflict
+            if d_zone is not None and t50 == "DOWN":
+                ok = False; notes.append("book: 50SMA DOWN — counter-trend demand AVOID")
+            authv = (d_zone.get("gtf") or {}).get("auth", 1) if d_zone is not None else 1
+            if d_zone is not None and authv == 0:
+                ok = False; notes.append("book: NON-AUTHENTIC zone (p33 reaction) — skip")
+            if d_zone is not None:
+                _glo = min(float(d_zone["prox"]), float(d_zone["dist"]))
+                _ghi = max(float(d_zone["prox"]), float(d_zone["dist"]))
+                _t1 = _ghi + 2.0 * (_ghi - _glo * 0.997)
+                htf_hit = None
+                for zc in (list(week_s or []) + list(month_s)):
+                    if zc.get("side") == "SUPPLY":
+                        slo = min(float(zc["prox"]), float(zc["dist"]))
+                        shi = max(float(zc["prox"]), float(zc["dist"]))
+                        if slo < _t1 and shi > _ghi and (htf_hit is None or slo < htf_hit[0]):
+                            htf_hit = (slo, shi)
+                if htf_hit is not None:
+                    ok = False; notes.append(f"book: HTF supply {htf_hit[0]:.1f} T1 ({_t1:.1f}) se pehle — SL likely")
+            # SCORE v5.5: monthly .25 + drawdown .15 + GTF BOOK SCORE .30 + stall .10 + room .10 + 50SMA .10
+            m_prox = 10.0 if (m_zone is not None and ltp <= m_hi) else (8.0 if (m_gap or 99) <= 1.0 else 6.0)
+            if drawdown >= 20.0 and drawdown <= 40.0: dd_s = 10.0
+            elif drawdown >= 15.0: dd_s = 8.0
+            elif drawdown >= 10.0: dd_s = 6.0
+            else: dd_s = 3.0
+            gtf_c = (d_qual / 9.0) * 10.0
+            stl = 10.0 if stall else 0.0
             roomc = max(0.0, min(10.0, room / 0.9))
-            sw_score = round(0.40 * (st_tot or 0) + 0.25 * fresh + 0.15 * wtr + 0.10 * m1c + 0.10 * roomc, 1)
+            t50c = 10.0 if t50 == "UP" else (5.0 if t50 in ("SIDEWAYS", None) else 0.0)
+            sw_score = round(0.25 * m_prox + 0.15 * dd_s + 0.30 * gtf_c + 0.10 * stl + 0.10 * roomc + 0.10 * t50c, 1)
             if ok and sw_score >= 8.0:
                 verdict = "A+"
             elif ok and sw_score >= 7.0:
@@ -1555,12 +1743,19 @@ def scan():
                 "ok": bool(ok and verdict != "—"),
                 "score": sw_score, "verdict": verdict,
                 "room": round(room, 1), "notes": notes,
-                "zlo": min(float(chosen["prox"]), float(chosen["dist"])) if chosen else None,
-                "zhi": zone_top if chosen else None,
-                "pat": (chosen.get("pat") if chosen else "") or "",
+                "zlo": min(float(d_zone["prox"]), float(d_zone["dist"])) if d_zone else None,
+                "zhi": max(float(d_zone["prox"]), float(d_zone["dist"])) if d_zone else None,
+                "pat": (d_zone.get("pat") if d_zone else "") or "",
+                "mlo": m_lo, "mhi": m_hi,
+                "mpat": (m_zone.get("pat") if m_zone else "") or "",
+                "dd": round(drawdown, 1),
+                "gtf": d_qual, "et": ((d_zone.get("gtf") or {}).get("et") if d_zone else ""),
+                "t50": t50, "authn": authv,
             }
         except Exception:
-            stock_rows[-1]["swing"] = {"ok": False, "score": 0.0, "verdict": "—", "room": 0.0, "notes": ["data kam"]}
+            stock_rows[-1]["swing"] = {"ok": False, "score": 0.0, "verdict": "—", "room": 0.0,
+                                        "notes": ["data kam"], "mlo": None, "mhi": None, "mpat": "", "dd": 0.0,
+                                        "gtf": 0, "et": "", "t50": t50}
 
     # sort: BUY READY first, then combo
     rank = {"BUY READY": 0, "APPROACHING DEMAND": 1, "WAIT FOR PULLBACK": 2, "NEAR SUPPLY": 3, "SUPPLY TEST": 4, "PULLBACK WATCH (AWAY — retest ka wait)": 5}
@@ -1593,6 +1788,18 @@ def scan():
     swing_rows = [r for r in stock_rows if r.get("swing", {}).get("ok")]
     swing_rows.sort(key=lambda r: (-r["swing"]["score"], r["sym"]))
     swing_rows = swing_rows[:6]
+    # v5.6: quality setups jo book-filters (trend/auth/HTF) ki wajah se AVOID hue — UI footnote
+    swing_avoid = []
+    for r in stock_rows:
+        swx = r.get("swing") or {}
+        bn = [n for n in (swx.get("notes") or []) if str(n).startswith("book:")]
+        other = [n for n in (swx.get("notes") or []) if not str(n).startswith("book:") and not str(n).startswith("score")]
+        if bn and not other and swx.get("gtf") and swx.get("zhi"):
+            swing_avoid.append({"sym": r["sym"], "comp": r.get("comp", ""), "ltp": r.get("ltp"),
+                                "gtf": swx.get("gtf"), "score": swx.get("score"), "t50": swx.get("t50"),
+                                "why": "; ".join(bn)})
+    swing_avoid.sort(key=lambda x: (-(x.get("gtf") or 0), x["sym"]))
+    swing_avoid = swing_avoid[:8]
 
     top3 = make_top3(stock_rows, frames)
     if not top3:
@@ -1678,6 +1885,7 @@ def scan():
         "tradeStocksWatch": [public(r) for r in watch_trade_rows],
         "stockData": public_rows,
         "swingPicks": [public(r) for r in swing_rows],
+        "swingAvoid": swing_avoid,
         "analysisBySym": analysis_by_sym,
     }
 
