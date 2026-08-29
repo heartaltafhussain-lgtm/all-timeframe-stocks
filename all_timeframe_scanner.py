@@ -59,7 +59,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.2.1 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH + POPUP DATA FOR ALL)"
+VERSION = "v5.3 All Timeframe Stocks (TV-ZONE ALIGN + NO-VANISH + SWING 4-5D)"
 PASSWORD_REF = "7004602"
 
 # ---------------- v5.2 NO-VANISH WATCH BAND ----------------
@@ -1508,6 +1508,60 @@ def scan():
         # v5.2.1: analysis upar hi ban chuka (analysis_by_sym) — wahi reuse
         stock_rows[-1]["analysis"] = analysis_by_sym[nse_sym]["analysis"]
 
+        # v5.3: SWING 4-5 DIN filter — swing holding ke liye quality gate
+        try:
+            a_d1 = analysis_by_sym[nse_sym]["analysis"]["d1"]["last"] or {}
+            st_tot = (a_d1.get("strength") or {}).get("total")
+            m1_last = analysis_by_sym[nse_sym]["analysis"]["m1"]["last"]
+            zone_top = max(float(chosen["prox"]), float(chosen["dist"])) if chosen else ltp
+            room = 15.0  # upar khali maidan % (supply tak)
+            for zc in (list(daily_s) + list(month_s) + list(week_s or [])):
+                if zc.get("side") == "SUPPLY":
+                    zlo = min(float(zc["prox"]), float(zc["dist"]))
+                    if zlo > ltp:
+                        room = min(room, (zlo - ltp) / ltp * 100.0)
+            notes = []
+            ok = True
+            if chosen is None or chosen.get("side") != "DEMAND":
+                ok = False; notes.append("DEMAND zone nahi")
+            if ltp < 30:
+                ok = False; notes.append("penny <30")
+            if chosen_rel not in ("IN", "NEAR"):
+                ok = False; notes.append("zone IN/NEAR nahi")
+            if tests >= 2:
+                ok = False; notes.append(f"{tests} tests")
+            if "UP" not in w_tr:
+                ok = False; notes.append("1W DOWN")
+            if st_tot is None or st_tot < 6.5:
+                ok = False; notes.append(f"strength {st_tot}")
+            if ltp > zone_top * 1.03:
+                ok = False; notes.append("extended >3%")
+            fresh = 10.0 if tests == 0 else 6.0
+            wtr = 10.0 if "UP" in w_tr else 0.0
+            m1c = 10.0 if m1_last else 4.0
+            roomc = max(0.0, min(10.0, room / 0.9))
+            sw_score = round(0.40 * (st_tot or 0) + 0.25 * fresh + 0.15 * wtr + 0.10 * m1c + 0.10 * roomc, 1)
+            if ok and sw_score >= 8.0:
+                verdict = "A+"
+            elif ok and sw_score >= 7.0:
+                verdict = "A"
+            elif ok and sw_score >= 6.0:
+                verdict = "B"
+            else:
+                verdict = "—"
+                if ok:
+                    notes.append(f"score {sw_score}")
+            stock_rows[-1]["swing"] = {
+                "ok": bool(ok and verdict != "—"),
+                "score": sw_score, "verdict": verdict,
+                "room": round(room, 1), "notes": notes,
+                "zlo": min(float(chosen["prox"]), float(chosen["dist"])) if chosen else None,
+                "zhi": zone_top if chosen else None,
+                "pat": (chosen.get("pat") if chosen else "") or "",
+            }
+        except Exception:
+            stock_rows[-1]["swing"] = {"ok": False, "score": 0.0, "verdict": "—", "room": 0.0, "notes": ["data kam"]}
+
     # sort: BUY READY first, then combo
     rank = {"BUY READY": 0, "APPROACHING DEMAND": 1, "WAIT FOR PULLBACK": 2, "NEAR SUPPLY": 3, "SUPPLY TEST": 4, "PULLBACK WATCH (AWAY — retest ka wait)": 5}
     stock_rows.sort(key=lambda r: (rank.get(r["sig"], 9), -_combo_num(r["combo"]), r["sym"]))
@@ -1534,6 +1588,11 @@ def scan():
     watch_trade_rows = [r for r in trade_stock_rows if r["qualityGrade"] == "WATCH"]
     for subset in (strict_trade_rows, watch_trade_rows):
         subset.sort(key=lambda r: (-_combo_num(r["combo"]), r["sym"]))
+
+    # v5.3: SWING 4-5 DIN picks (max 6, swing score se)
+    swing_rows = [r for r in stock_rows if r.get("swing", {}).get("ok")]
+    swing_rows.sort(key=lambda r: (-r["swing"]["score"], r["sym"]))
+    swing_rows = swing_rows[:6]
 
     top3 = make_top3(stock_rows, frames)
     if not top3:
@@ -1618,6 +1677,7 @@ def scan():
         "tradeStocksStrict": [public(r) for r in strict_trade_rows],
         "tradeStocksWatch": [public(r) for r in watch_trade_rows],
         "stockData": public_rows,
+        "swingPicks": [public(r) for r in swing_rows],
         "analysisBySym": analysis_by_sym,
     }
 

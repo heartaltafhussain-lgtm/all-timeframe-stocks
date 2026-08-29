@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe v5.2 (TV-ZONE ALIGN + ANALYSIS POPUP)</title>
+<title>All Timeframe Stocks — NSE 500 GTF Multi-Timeframe v5.3 (TV-ZONE + POPUP + SWING 4-5D)</title>
 <style>
   :root {
     --bg: #0e1117; --panel: #161b22; --panel2: #12161d; --line: #21262d;
@@ -117,6 +117,13 @@
     border-top: 1px solid var(--line); padding-top: 14px; }
   @media (max-width: 700px) { header h1 { font-size: 18px; } }
 
+  /* ===== v5.3 sortable headers ===== */
+  th.srt { cursor: pointer; user-select: none; white-space: nowrap; }
+  th.srt::after { content: " ⇅"; opacity: .4; font-size: 9px; }
+  th.srt.asc::after { content: " ▲"; opacity: 1; color: var(--green); }
+  th.srt.desc::after { content: " ▼"; opacity: 1; color: var(--red); }
+  th.srt:hover { color: var(--txt); }
+
   /* ================= v5.2 FULL ANALYSIS POPUP ================= */
   .anabtn { background: var(--panel2); color: var(--cyan); border: 1px solid var(--line);
     border-radius: 6px; padding: 3px 8px; cursor: pointer; font-size: 13px; }
@@ -173,6 +180,16 @@
     <button class="btn" id="btnRefresh" onclick="loadData(true)">🔄 Refresh</button>
     <button class="btn" onclick="lockScreen()">🔒 Lock</button>
   </header>
+
+  <!-- ================= v5.3 SWING 4-5 DIN ================= -->
+  <section>
+    <h2>🎯 SWING PICKS — 4-5 DIN HOLD <span class="badge g" id="swingcount"></span></h2>
+    <div class="secsub">4-5 din hold ke liye best: FRESH zone (≤1 test) + <b>1W UP</b> trend + strength 6.5+ + upar <b>7%+ khali maidan</b> (supply nahi).
+      <b>Hold rules:</b> T1 pe SL→entry (trade FREE) • <b>5 trading din me T1 nahi → exit</b> (time-stop) • daily close zone bottom ke neeche → exit • supply zone pe profit-book.</div>
+    <div class="panel">
+      <div class="tblwrap" id="swingarea"></div>
+    </div>
+  </section>
 
   <!-- ================= STRICT TOP-3 ================= -->
   <section>
@@ -455,8 +472,64 @@ function relBadge(rel) {
 }
 
 /* ================= v5.2 FULL ANALYSIS POPUP ================= */
+/* ================= v5.3 SORT ENGINE (har column A-Z / Z-A) ================= */
+function enableTableSort(tb) {
+  if (tb.dataset.srt) return;
+  tb.dataset.srt = "1";
+  const heads = tb.querySelectorAll("tr:first-child th");
+  heads.forEach(function (th, i) {
+    th.classList.add("srt");
+    th.title = "Sort: click = A-Z, dobara = Z-A";
+    th.addEventListener("click", function () {
+      const rows = Array.from(tb.querySelectorAll("tr")).slice(1)
+        .filter(function (tr) { return !tr.querySelector("td[colspan]"); });
+      const dir = th.classList.contains("asc") ? -1 : 1;
+      heads.forEach(function (h) { h.classList.remove("asc", "desc"); });
+      th.classList.add(dir === 1 ? "asc" : "desc");
+      const val = function (tr) {
+        const td = tr.children[i];
+        if (!td) return "";
+        const t = td.textContent.trim().replace(/[₹,%★]/g, "").replace(/,/g, "");
+        const n = parseFloat(t);
+        return isNaN(n) ? td.textContent.trim().toLowerCase() : n;
+      };
+      rows.sort(function (a, b) {
+        const va = val(a), vb = val(b);
+        if (typeof va === "number" && typeof vb === "number") return (va - vb) * dir;
+        return String(va).localeCompare(String(vb)) * dir;
+      });
+      rows.forEach(function (tr) { tb.appendChild(tr); });
+    });
+  });
+}
+new MutationObserver(function (muts) {
+  muts.forEach(function (m) {
+    m.addedNodes.forEach(function (n) {
+      if (n.nodeType !== 1) return;
+      if (n.tagName === "TABLE") enableTableSort(n);
+      else if (n.querySelectorAll) n.querySelectorAll("table").forEach(enableTableSort);
+    });
+  });
+}).observe(document.body, { childList: true, subtree: true });
+
+/* ================= v5.3 GRADE column ================= */
+function gradeBadge(r) {
+  let g = "—", cls = "p", tip = "koi grade nahi";
+  const sw = r.swing || {};
+  if (sw.verdict && sw.verdict !== "—") {
+    g = sw.verdict;
+    cls = sw.verdict === "A+" ? "g" : (sw.verdict === "A" ? "a" : "b");
+    tip = "SWING 4-5D grade (score " + sw.score + ")";
+  } else if (r.qualityGrade === "STRICT") { g = "S"; cls = "g"; tip = "STRICT backtest-approved"; }
+  else if (r.rel === "WATCH") { g = "C"; cls = "b"; tip = "WATCH — zone se door"; }
+  else if ((r.sig || "").indexOf("BUY READY") >= 0 && (r.tests_count || 0) <= 1) { g = "B"; cls = "b"; tip = "BUY READY, fresh"; }
+  else if ((r.sig || "").indexOf("BUY READY") >= 0) { g = "C"; cls = "b"; tip = "BUY READY, tested zone"; }
+  return '<span class="badge ' + cls + '" title="' + tip + '">' + g + '</span>';
+}
+let SWING_SET = new Set();
 function analysisBtn(r) {
-  return '<td><button class="anabtn" data-sym="' + r.sym + '" onclick="openAnalysis(this)" title="Full analysis — ' + r.sym + '">🔍</button></td>';
+  const sw = (SWING_SET && SWING_SET.has(r.sym)) ? ' 🎯' : '';
+  return '<td><button class="anabtn" data-sym="' + r.sym + '" onclick="openAnalysis(this)" title="Full analysis — ' + r.sym + '">🔍' + sw + '</button></td>';
 }
 function findStockRow(sym) {
   const d = DATA || {};
@@ -660,11 +733,64 @@ function symCell(r) {
 }
 
 /* ================= RENDER ALL ================= */
+function zoneNums(ztxt) {
+  const m = /([\d.]+)\s*-\s*([\d.]+)/.exec(ztxt || "");
+  return m ? { lo: parseFloat(m[1]), hi: parseFloat(m[2]) } : null;
+}
+function renderSwing() {
+  const d = DATA || {};
+  const rows = d.swingPicks || [];
+  SWING_SET = new Set(rows.map(function (r) { return r.sym; }));
+  const area = document.getElementById("swingarea");
+  if (!area) return;
+  document.getElementById("swingcount").textContent = rows.length ? (rows.length + " PICKS") : "NO PICK";
+  if (!rows.length) {
+    area.innerHTML = '<div class="nopicks"><h3>Aaj koi 4-5 din ka swing pick nahi</h3><p>Filter: IN/NEAR + FRESH (≤1 test) + 1W UP + strength 6.5+ + upar 7%+ room. Aaj ke market me sab pass nahi hote — patience.</p></div>';
+    return;
+  }
+  let html = '<table><tr><th class="stk">SYMBOL</th><th>COMPANY</th><th>LTP</th>' +
+    '<th>1D ZONE</th><th>ENTRY ↑</th><th>SL</th><th>T1 (+2R)</th><th>T2 (+3R)</th>' +
+    '<th>QTY ₹1k</th><th>GRADE</th><th>SWING SCORE</th><th>UPAR ROOM</th><th>KYUN PASS</th><th>🔍</th></tr>';
+  rows.forEach(function (r) {
+    const sw = r.swing || {};
+    const zn = (sw.zhi && sw.zlo) ? { lo: sw.zlo, hi: sw.zhi } : zoneNums(r.z1d);
+    let entry = "", sl = "", t1 = "", t2 = "", qty = "";
+    if (zn) {
+      entry = zn.hi; sl = Math.round(zn.lo * 0.997 * 100) / 100;
+      const R = entry - sl;
+      t1 = Math.round((entry + 2 * R) * 100) / 100; t2 = Math.round((entry + 3 * R) * 100) / 100;
+      qty = Math.max(1, Math.round(1000 / R));
+    }
+    const vCls = sw.verdict === "A+" ? "g" : (sw.verdict === "A" ? "a" : "b");
+    const why = [];
+    if ((r.tests_count || 0) === 0) why.push("FRESH");
+    if ((r.w_trend || "").indexOf("UP") >= 0) why.push("1W UP");
+    if (r.z1m && r.z1m.indexOf("NO ACTIVE") < 0 && r.z1m.indexOf("—") < 0) why.push("1M zone");
+    if (sw.room >= 7) why.push(sw.room + "% room");
+    why.push((sw.verdict || "") + " " + (sw.score || ""));
+    html += '<tr>' + symCell(r.sym) + nameCell(r.sym, r.comp || "") +
+      '<td>' + r.ltp + '</td>' +
+      '<td class="mut">' + ((sw.pat || '') + ' ' + (sw.zlo || '') + ' - ' + (sw.zhi || '') || r.z1d) + '</td>' +
+      '<td><b>' + entry + '</b></td>' +
+      '<td style="color:var(--red)">' + sl + '</td>' +
+      '<td>' + t1 + '</td>' +
+      '<td>' + t2 + '</td>' +
+      '<td>' + qty + '</td>' +
+      '<td><span class="badge ' + vCls + '">' + (sw.verdict || "—") + '</span></td>' +
+      '<td><span class="badge ' + vCls + '">' + (sw.score || "") + '</span></td>' +
+      '<td>' + (sw.room || "—") + '%</td>' +
+      '<td class="mut" style="font-size:11px">' + why.join(" • ") + '</td>' +
+      analysisBtn(r) + '</tr>';
+  });
+  area.innerHTML = html + '</table>';
+}
+
 function renderAll() {
   const d = DATA;
   document.getElementById("hdr-sub").textContent =
     "NSE 500 • MULTI-TIMEFRAME SCAN • " + (d.date || "?") + (usingEmbedded ? " • ⚠ EMBEDDED DEMO" : "");
   renderDateline(d);
+  renderSwing();
   renderTop3(d.top3 || []);
   renderTfTables();
   renderSectors(d.sectorZones || []);
@@ -699,7 +825,7 @@ function renderTop3(top3) {
   }
   let html = '<table><tr><th>PICK &amp; SECTOR</th><th>CMP &amp; COMBO</th><th>📅 FIRST IN TOP-3</th>' +
     '<th>1D EXEC ZONE</th><th>1M SUPPORT</th><th>ENTRY (limit)</th><th>SL</th><th>T1</th><th>T2</th>' +
-    '<th>QTY (₹1,000 risk)</th><th>CHART</th><th>🔍</th></tr>';
+    '<th>QTY (₹1,000 risk)</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
   for (const p of top3) {
     html += '<tr>' + symCell(p) +
       '<td><span class="mut">' + (p.sector || "") + ' ' + (p.secBonus || "") + '</span><br>₹' + p.ltp +
@@ -709,7 +835,7 @@ function renderTop3(top3) {
       '<td>' + fmtZone(p.z1m) + '<br><span class="mut">' + (p.s1m || "") + '</span></td>' +
       '<td>₹' + p.entryLo + ' – ₹' + p.entryHi + '</td>' +
       '<td class="dn">₹' + p.sl + '</td><td class="up">₹' + p.t1 + '</td><td class="up">₹' + p.t2 + '</td>' +
-      '<td>' + p.qty + ' sh</td>' +
+      '<td>' + p.qty + ' sh</td>' + gradeBadge(p) +
       '<td><a href="' + TV + encodeURIComponent(p.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(p) + '</tr>';
     let cTxt = "";
     if (p.course && p.course.hasZone) {
@@ -737,7 +863,7 @@ function renderTfTables() {
       'Niche WATCH-ONLY list me har stock ke saath exclusion reason badge hai — usse research karo, trade mat karo.</p></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SC</th><th>1M ZONE</th><th>1M SC</th>' +
-      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of strict) {
       const p = tradePlan(r);
       const planCell = p
@@ -750,7 +876,7 @@ function renderTfTables() {
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
         '<td>' + planCell + '</td>' +
         '<td>' + (p ? p.qty + ' sh' : '—') + '</td><td>' + (p ? '₹' + p.move3k : '—') + '</td>' +
-        '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + '</td>' +
+        '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + '</td>' + gradeBadge(r) +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     tsa.innerHTML = html + '</table>';
@@ -761,13 +887,13 @@ function renderTfTables() {
   if (!watch.length) {
     twa.innerHTML = '<div class="nopicks"><h3>Koi watch stock nahi</h3></div>';
   } else {
-    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>CHART</th><th>🔍</th></tr>';
+    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of watch) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + fmtZone(r.z1m) + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : "dn") + '">' + (r.w_trend || "") + '</td>' +
         '<td class="mut">' + r.combo + '</td>' +
-        '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + '</td>' +
+        '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + '</td>' + gradeBadge(r) +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     twa.innerHTML = html + '</table>';
@@ -782,14 +908,14 @@ function renderTfTables() {
     da.innerHTML = '<div class="nopicks"><h3>Koi 1D zone stock nahi</h3></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of daily) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + gradeBadge(r) +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     da.innerHTML = html + '</table>';
@@ -804,14 +930,14 @@ function renderTfTables() {
     ma.innerHTML = '<div class="nopicks"><h3>Koi 1M zone stock nahi</h3></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1M ZONE</th><th>1M SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of monthly) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + gradeBadge(r) +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     ma.innerHTML = html + '</table>';
@@ -927,14 +1053,14 @@ function renderAllTable() {
   }
   let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th>' +
     '<th>1D ZONE</th><th>1D SCORE</th><th>1M ZONE</th><th>1M SCORE</th><th>1W TREND</th>' +
-    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>CHART</th><th>🔍</th></tr>';
+    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
   for (const r of rows) {
     html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
       '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
       '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
       '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
       '<td>' + (r.fresh_badge || "") + '</td><td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-      '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' +
+      '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + gradeBadge(r) +
       '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
   }
   area.innerHTML = html + '</table>';
