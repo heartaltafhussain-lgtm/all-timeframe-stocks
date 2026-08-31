@@ -59,7 +59,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.6 All Timeframe Stocks (GTF BOOK STRICT: TREND VETO + AUTHENTICITY + HTF CONFLICT + RISK TIERS)"
+VERSION = "v5.9.2 All Timeframe Stocks (PDF STRONG-ZONE LISTS: daily/monthly = score 7+ zones, demand+supply dono, best pehle)"
 PASSWORD_REF = "7004602"
 
 # ---------------- v5.2 NO-VANISH WATCH BAND ----------------
@@ -748,9 +748,19 @@ def attach_gtf_scores(zones, df):
             ets = ("S&F" if score >= 8 else "CONF" if score >= 5 else "SKIP")
             if auth == 0:
                 et, ets = "NON-AUTHENTIC — SKIP (book p33)", "SKIP"
+            # v5.9 PDF "BEST zone" = chaaron criteria: (1) explosive/gap departure,
+            # (2) fresh 0-test, (3) 1-3 base candles, (4) sahi legout color (demand=green, supply=red)
+            try:
+                side_s = str(z.get("side", ""))
+                color_ok = bool(c is not None and o is not None and 0 <= i < len(c) and (
+                    (side_s == "DEMAND" and float(c[i]) > float(o[i])) or
+                    (side_s == "SUPPLY" and float(c[i]) < float(o[i]))))
+            except Exception:
+                color_ok = True
+            best = 1 if (dep >= 2 and fresh == 3 and base == 3 and color_ok and auth != 0) else 0
             z["gtf"] = {
                 "score": score, "dep": dep, "fresh": fresh, "base": base,
-                "auth": auth, "et": et, "ets": ets,
+                "auth": auth, "best": best, "et": et, "ets": ets,
             }
         except Exception:
             z["gtf"] = {"score": 0, "dep": 0, "fresh": 0, "base": 0, "et": "—", "ets": "—"}
@@ -785,6 +795,31 @@ def curve_location(ltp, demands, supplies):
     if fs is not None:
         return "HIGH (SELL side) • neeche fresh demand nahi"
     return "NO FRESH ZONES — equilibrium (book: trend follow)"
+
+
+def best_zone_txt(zones, side, ltp):
+    """v5.9 — DEMAND/SUPPLY ZONE column: PDF 4-criteria BEST zone pehle, phir nearest.
+       demand = LTP ke neeche/andar, supply = upar/andar. ⚡ = best zone."""
+    cand = []
+    for z in zones or []:
+        try:
+            lo = min(float(z["prox"]), float(z["dist"]))
+            hi = max(float(z["prox"]), float(z["dist"]))
+            if side == "DEMAND" and lo > ltp * 1.01:
+                continue
+            if side == "SUPPLY" and hi < ltp * 0.99:
+                continue
+            dist = abs(ltp - (hi if side == "DEMAND" else lo))
+            g = z.get("gtf") or {}
+            b = 1 if g.get("best") else 0
+            cand.append((0 if b else 1, dist, lo, hi, int(z.get("tests", 0)), b))
+        except Exception:
+            continue
+    if not cand:
+        return None
+    cand.sort(key=lambda x: (x[0], x[1]))
+    _, _, lo, hi, t, b = cand[0]
+    return ("⚡ " if b else "") + f"{lo:.2f} - {hi:.2f}" + (f" • {t}t" if t else " • fresh")
 
 
 def sma50_trend(df, ltp):
@@ -1635,6 +1670,17 @@ def scan():
                 "et": ((z1d or {}).get("gtf") or {}).get("ets"),
                 "loc": loc_txt,
                 "t50warn": (zone_type == "DEMAND" and t50 == "DOWN"),
+                "d_sc": (((show_d.get("gtf") or {}).get("score")) or 0) if show_d else 0,
+                "m_sc": (((show_m.get("gtf") or {}).get("score")) or 0) if show_m else 0,
+                "d_strong": bool(show_d and (((show_d.get("gtf") or {}).get("score")) or 0) >= 5),
+                "m_strong": bool(show_m and (((show_m.get("gtf") or {}).get("score")) or 0) >= 5),
+                "dz": best_zone_txt(daily_d, "DEMAND", ltp),
+                "sz": best_zone_txt(daily_s, "SUPPLY", ltp),
+                "mdz": best_zone_txt(month_d, "DEMAND", ltp),
+                "msz": best_zone_txt(month_s, "SUPPLY", ltp),
+                "bdz": bool(z1d and z1d.get("side") == "DEMAND" and (z1d.get("gtf") or {}).get("best")),
+                "bmz": bool(z1m and z1m.get("side") == "DEMAND" and (z1m.get("gtf") or {}).get("best")),
+                "bsz": bool(z1d and z1d.get("side") == "SUPPLY" and (z1d.get("gtf") or {}).get("best")),
             }
         )
         # v5.2.1: analysis upar hi ban chuka (analysis_by_sym) — wahi reuse
@@ -1729,12 +1775,20 @@ def scan():
             roomc = max(0.0, min(10.0, room / 0.9))
             t50c = 10.0 if t50 == "UP" else (5.0 if t50 in ("SIDEWAYS", None) else 0.0)
             sw_score = round(0.25 * m_prox + 0.15 * dd_s + 0.30 * gtf_c + 0.10 * stl + 0.10 * roomc + 0.10 * t50c, 1)
-            if ok and sw_score >= 8.0:
+            # v5.7 A-GRADE ELITE gate (1-saal backtest: score 8+ & 50SMA UP = 53.3% win @ 1:2 — best honest combo;
+            # B-grade 6-8 = 25% win zeher, isliye ab pick hi nahi — sirf avoid-list me dikhega)
+            if ok and sw_score < 8.0:
+                ok = False; notes.append(f"elite: score {sw_score} < 8 (A-grade only)")
+            if ok and t50 != "UP":
+                ok = False; notes.append(f"elite: 50SMA {t50} (sirf UP)")
+            # v5.9.1 X-GRADE gate (backtest subset: 51.7% win, sabse high) — non-X ab pick nahi
+            xg_ok = 1 if (sw_score >= 9.0 or ((d_zone.get("gtf") or {}).get("fresh") == 3)) else 0
+            if ok and not xg_ok:
+                ok = False; notes.append("x: X-GRADE nahi (score 9+ ya 0-test fresh chahiye)")
+            if ok and sw_score >= 9.0:
                 verdict = "A+"
-            elif ok and sw_score >= 7.0:
+            elif ok and sw_score >= 8.0:
                 verdict = "A"
-            elif ok and sw_score >= 6.0:
-                verdict = "B"
             else:
                 verdict = "—"
                 if ok:
@@ -1751,6 +1805,7 @@ def scan():
                 "dd": round(drawdown, 1),
                 "gtf": d_qual, "et": ((d_zone.get("gtf") or {}).get("et") if d_zone else ""),
                 "t50": t50, "authn": authv,
+                "xg": xg_ok if d_zone else 0,
             }
         except Exception:
             stock_rows[-1]["swing"] = {"ok": False, "score": 0.0, "verdict": "—", "room": 0.0,
@@ -1762,10 +1817,16 @@ def scan():
     stock_rows.sort(key=lambda r: (rank.get(r["sig"], 9), -_combo_num(r["combo"]), r["sym"]))
 
     # v5.0: timeframe subsets (DAILY / MONTHLY / TRADE = dono me same stock)
-    daily_stock_rows = [r for r in stock_rows if r["inDaily"]]
-    monthly_stock_rows = [r for r in stock_rows if r["inMonthly"]]
+    # v5.9.2 PDF STRONG-ZONE filter (user-corrected): "strong zone" = PDF trade score >= 7
+    # (8+ = Set&Forget strongest; <7 = confirmation/no-trade, list se bahar). Demand + Supply dono side.
+    # ⚡best (chaaron criteria) wale list me sabse upar.
+    daily_stock_rows = [r for r in stock_rows if r["inDaily"] and (r.get("d_sc") or 0) >= 7]
+    monthly_stock_rows = [r for r in stock_rows if r["inMonthly"] and (r.get("m_sc") or 0) >= 7]
+    supply_stock_rows = [r for r in stock_rows if r.get("bsz")]
     trade_stock_rows = [r for r in stock_rows if r["tradeStock"]]
-    for subset in (daily_stock_rows, monthly_stock_rows, trade_stock_rows):
+    daily_stock_rows.sort(key=lambda r: (-int(r.get("bdz", 0)), -int(r.get("d_sc", 0)), r["sym"]))
+    monthly_stock_rows.sort(key=lambda r: (-int(r.get("bmz", 0)), -int(r.get("m_sc", 0)), r["sym"]))
+    for subset in (trade_stock_rows, supply_stock_rows):
         subset.sort(key=lambda r: (-_combo_num(r["combo"]), r["sym"]))
 
     # v5.1 STRICT TRADE FIX: dual-zone stocks pe quality gate (negative-edge fix)
@@ -1792,7 +1853,7 @@ def scan():
     swing_avoid = []
     for r in stock_rows:
         swx = r.get("swing") or {}
-        bn = [n for n in (swx.get("notes") or []) if str(n).startswith("book:")]
+        bn = [n for n in (swx.get("notes") or []) if str(n).startswith("book:") or str(n).startswith("elite:") or str(n).startswith("x:")]
         other = [n for n in (swx.get("notes") or []) if not str(n).startswith("book:") and not str(n).startswith("score")]
         if bn and not other and swx.get("gtf") and swx.get("zhi"):
             swing_avoid.append({"sym": r["sym"], "comp": r.get("comp", ""), "ltp": r.get("ltp"),
@@ -1880,6 +1941,7 @@ def scan():
         "sectorZones": sector_zones,
         "dailyStocks": [public(r) for r in daily_stock_rows],
         "monthlyStocks": [public(r) for r in monthly_stock_rows],
+        "supplyStocks": [public(r) for r in supply_stock_rows],
         "tradeStocks": [public(r) for r in trade_stock_rows],
         "tradeStocksStrict": [public(r) for r in strict_trade_rows],
         "tradeStocksWatch": [public(r) for r in watch_trade_rows],

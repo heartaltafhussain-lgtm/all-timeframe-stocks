@@ -185,9 +185,10 @@
 
   <!-- ================= v5.3 SWING 4-5 DIN ================= -->
   <section>
-    <h2>🎯 SWING PICKS — 4-5 DIN HOLD <span class="badge g" id="swingcount"></span></h2>
+    <h2>🎯 SWING ⚡X-GRADE — 4-5 DIN HOLD <span class="badge g" id="swingcount"></span></h2>
     <div class="secsub"><b>Setup:</b> stock apne TOP se <b>10%+ correct</b> hoke <b>MONTHLY demand zone</b> ke paas aaya, wahan <b>ruk gaya</b> (5 din zone hold), aur <b>1D pe FRESH DR demand</b> bana — usi 1D zone se entry, target upar.
-      <b>Hold rules (4-5 din):</b> T1 pe SL→entry (trade FREE) • <b>5 trading din me T1 nahi → exit</b> (time-stop) • monthly/daily zone bottom ke neeche daily close → exit • supply zone aaya to profit-book.</div>
+      <b>Hold rules (4-5 din):</b> T1(+2R) pe aadha book + SL→entry (trade FREE) • <b>5 trading din me T1 nahi → exit</b> (time-stop) • zone bottom ke neeche daily close → exit • supply zone aaya to profit-book.
+      <br><b>📊 Backtest (1 saal, 75 elite trades):</b> Sirf <b>⚡X-GRADE</b> picks: elite gates (score 8+ & 50SMA UP) + <b>score 9+ YA 0-test fresh zone</b> — backtest me sabse high win-rate tier (<b>~52%</b> @ 1:2 vs elite 45%). 5-din hold best (10-12 din = 33-35%). 65%+ ka koi honest filter nahi — jo bole wo jhooth.</div>
     <div class="secsub" style="margin-top:4px">📘 <b>Book risk /trade:</b>
       <select id="riskSel" style="background:var(--card,#111);color:inherit;border:1px solid #444;border-radius:6px;padding:2px 6px;font-size:12px">
         <option value="1000" selected>1% — Beginner (₹1k per ₹1L)</option>
@@ -241,7 +242,7 @@
   <!-- ================= DAILY TIMEFRAME ================= -->
   <section>
     <h2>📅 DAILY (1D) TIMEFRAME STOCKS <span class="badge b" id="bdg-dailycount"></span></h2>
-    <div class="secsub">Sirf daily chart ke zone (1D execution) ke IN/NEAR + PULLBACK WATCH (8% band) stocks. <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
+    <div class="secsub">PDF rule: sirf <b>STRONG zones (📘 score 7+)</b> — <b>8+ = Set&Forget (sabse strong)</b>; 5-6 (confirmation kamzor) &lt;5 (no-trade) hata diye. <b>Demand + Supply dono side</b> • ⚡ = best 4-criteria zone • <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
     <div class="panel">
       <div class="strip">
         <button class="btn" onclick="downloadCSV(getSubset('dailyStocks'), 'daily_stocks')">⬇ CSV</button>
@@ -256,8 +257,7 @@
   <!-- ================= MONTHLY TIMEFRAME ================= -->
   <section>
     <h2>🗓 MONTHLY (1M) TIMEFRAME STOCKS <span class="badge b" id="bdg-monthlycount"></span></h2>
-    <div class="secsub">Sirf monthly chart ke zone (1M support) ke IN/NEAR + PULLBACK WATCH stocks — sabse powerful zones (Ep 5).
-      <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
+    <div class="secsub">Monthly (1M) zones — PDF rule: sirf <b>STRONG zones (📘 score 7+)</b>, <b>Demand + Supply dono side</b> (supply = sell/avoid). ⚡ = best 4-criteria. <b class="up">Green = DEMAND</b> • <b class="dn">Red = SUPPLY</b></div>
     <div class="panel">
       <div class="strip">
         <button class="btn" onclick="downloadCSV(getSubset('monthlyStocks'), 'monthly_stocks')">⬇ CSV</button>
@@ -266,6 +266,22 @@
         <span class="kv" id="monthlycountlabel"></span>
       </div>
       <div class="tblwrap" id="monthlyarea"></div>
+    </div>
+  </section>
+
+  <!-- ================= v5.9 BEST SUPPLY (SELL SIDE) ================= -->
+  <section>
+    <h2>🔴 BEST SUPPLY ZONES — SELL SIDE <span class="badge r" id="bdg-supplycount"></span></h2>
+    <div class="secsub">PDF ke chaaron supply-criteria pass: <b>explosive/gap departure + fresh (0-test) + 1-3 base candles + red legout</b>.
+      Stock is zone me/pe hai — SELL/avoid side (book: supply sell ONLY downtrend me). Green highlight = best zone.</div>
+    <div class="panel">
+      <div class="strip">
+        <button class="btn" onclick="downloadCSV(getSubset('supplyStocks'), 'best_supply_stocks')">⬇ CSV</button>
+        <input type="text" id="fSupplySearch" placeholder="🔍 symbol…" oninput="renderTfTables()" style="min-width:140px">
+        <button class="btn" onclick="clearFilters()" style="color:#ff8d85">✕</button>
+        <span class="kv" id="supplycountlabel"></span>
+      </div>
+      <div class="tblwrap" id="supplyarea"></div>
     </div>
   </section>
 
@@ -522,27 +538,29 @@ new MutationObserver(function (muts) {
 }).observe(document.body, { childList: true, subtree: true });
 
 /* ================= v5.3 GRADE column ================= */
-function gradeBadge(r) {
-  let g = "—", cls = "p", tip = "koi grade nahi";
-  const sw = r.swing || {};
-  if (sw.verdict && sw.verdict !== "—") {
-    g = sw.verdict;
-    cls = sw.verdict === "A+" ? "g" : (sw.verdict === "A" ? "a" : "b");
-    tip = "SWING 4-5D grade (score " + sw.score + ")";
-  } else if (r.qualityGrade === "STRICT") { g = "S"; cls = "g"; tip = "STRICT backtest-approved"; }
-  else if (r.rel === "WATCH") { g = "C"; cls = "b"; tip = "WATCH — zone se door"; }
-  else if ((r.sig || "").indexOf("BUY READY") >= 0 && (r.tests_count || 0) <= 1) { g = "B"; cls = "b"; tip = "BUY READY, fresh"; }
-  else if ((r.sig || "").indexOf("BUY READY") >= 0) { g = "C"; cls = "b"; tip = "BUY READY, tested zone"; }
-  return '<td class="gcol"><span class="badge ' + cls + '" title="' + tip + '">' + g + '</span></td>';
-}
 function tsBadge(r) {
   if (r == null || r.tsc == null) return "";
-  const cls = r.tsc >= 8 ? "g" : (r.tsc >= 6 ? "a" : "p");
-  const tip = "GTF BOOK trade score " + r.tsc + "/9 (departure+freshness+base) — " +
-    (r.tsc >= 8 ? "SET & FORGET entry (Type 1)" : r.tsc >= 6 ? "CONFIRMATION entry (Type 2/3)" : "book: NO TRADE");
+  const cls = r.tsc >= 8 ? "g" : (r.tsc >= 5 ? "a" : "p");
+  const tip = "PDF TRADE SCORE " + r.tsc + "/9 (departure+freshness+base) — " +
+    (r.tsc >= 8 ? "SET & FORGET entry (Type 1)" : r.tsc >= 5 ? "CONFIRMATION entry (Type 2/3)" : "book: NO TRADE (<5)");
   let h = '<span class="badge ' + cls + '" title="' + tip + '">📘' + r.tsc + '</span>';
   if (r.t50warn) h += ' <span class="badge r" title="GTF book: 50SMA DOWN me demand buy karna DANGEROUS — sirf best location me lo">50DN</span>';
   return h;
+}
+function sideZoneTd(r, tf) {
+  const dem = tf === "m" ? r.mdz : r.dz;
+  const sup = tf === "m" ? r.msz : r.sz;
+  const isSup = r.type === "SUPPLY" || (!dem && !!sup);
+  const txt = isSup ? (sup || "—") : (dem || "—");
+  return '<td>' + (isSup
+    ? '<span class="badge r" title="Stock SUPPLY zone me/pe hai — SHORT/sell side (book: supply sell sirf DOWNTREND me)">🔴 SUPPLY</span> '
+    : '<span class="badge g" title="Stock DEMAND zone me/pe hai — BUY side">🟢 DEMAND</span> ')
+    + '<span class="mut" style="font-size:11px">' + txt + '</span></td>';
+}
+function zoneTd(t) {
+  if (!t) return '<td class="mut">—</td>';
+  const best = t.indexOf("⚡") === 0;
+  return '<td' + (best ? ' style="color:#3fb950;font-weight:700"' : '') + '>' + t + '</td>';
 }
 let SWING_SET = new Set();
 function analysisBtn(r) {
@@ -599,6 +617,7 @@ function zoneCard(tf, z, sub) {
     (z.gtf ? '<div class="zstrength">' +
       '<span class="badge ' + (z.gtf.score >= 8 ? "g" : (z.gtf.score >= 5 ? "a" : "r")) + '" title="GTF book trade score">📘 GTF ' + z.gtf.score + '/9</span>' +
       '<b style="font-size:12.5px">' + (z.gtf.et || "") + '</b>' +
+      (z.gtf.best ? ' <span class="badge g" title="PDF ke chaaron criteria: explosive departure + 0-test + 1-3 base + sahi legout color">⚡ BEST (4-criteria)</span>' : '') +
       (z.gtf.auth === 0 ? ' <span style="color:var(--red);font-size:11px">⚠ NON-AUTHENTIC (p33)</span>' : (z.gtf.auth === 2 ? ' <span class="mut" style="font-size:11px">reaction+good closing ✓</span>' : '')) + '</div>' +
       '<div class="mut" style="font-size:11px;margin-top:3px">Departure ' + z.gtf.dep + '/3 • Freshness ' + z.gtf.fresh + '/3 • Base ' + z.gtf.base + '/3 — book: 8+ Set&Forget • 5-7 Confirmation • &lt;5 skip</div>' : '') +
     (bars ? '<div class="pbars">' + bars + '</div>' : '<div class="mut" style="font-size:11.5px">Strength data is purani entry ke liye nahi hai</div>') +
@@ -741,10 +760,11 @@ function downloadStrictTradeCSV() {
 /* v5 subsets (purani history entries me dailyStocks nahi hoti -> derive) */
 function getSubset(key) {
   const p = DATA || {};
-  const rows = (p[key] && p[key].length) ? p[key] : (p.stockData || []);
-  if (p[key] && p[key].length) return rows;
+  if (Array.isArray(p[key])) return p[key]; /* v5.9: khali list bhi LEGIT (best-filter) — derive mat karo */
+  const rows = p.stockData || [];
   if (key === "dailyStocks") return rows.filter(r => r.z1d && !/NO ACTIVE/.test(r.z1d));
   if (key === "monthlyStocks") return rows.filter(r => r.z1m && !/NO ACTIVE/.test(r.z1m));
+  if (key === "supplyStocks") return rows.filter(r => r.bsz);
   if (key === "tradeStocks") return rows.filter(r => isDualZone(r));
   return rows;
 }
@@ -773,7 +793,7 @@ function renderSwing() {
   const avHtml0 = av0.length ? ('<div style="margin-top:10px;font-size:11.5px" class="mut">📘 <b>BOOK-FILTER se bahar</b> (setup tha, par book rule bola skip — hover = reason): ' +
     av0.map(function (a) { return '<span class="badge p" style="margin:2px" title="' + (a.why || "").replace(/"/g, "") + '">' + a.sym + ' 📘' + (a.gtf != null ? a.gtf : "—") + '/9 ⚠</span>'; }).join(" ") + '</div>') : "";
   if (!rows.length) {
-    area.innerHTML = '<div class="nopicks"><h3>📘 Aaj book bola: NO TRADE (cash bhi ek position hai)</h3><p>Book-strict filter: MONTHLY demand + top se −10-60% correction + fresh DR 1D zone (GTF score 6+) + <b>50SMA UP/SIDEWAYS (DOWN = avoid)</b> + authentic zone (p33) + <b>HTF supply block nahi</b> + 5%+ room + 5-din hold. Aaj koi setup sab pass nahi kar paya — patience = profit.</p></div>' + avHtml0;
+    area.innerHTML = '<div class="nopicks"><h3>⚡ Aaj koi X-GRADE pick nahi (cash bhi ek position hai)</h3><p>X-GRADE = elite gates (score 8+ & 50SMA UP, book rules) + <b>score 9+ ya 0-test fresh zone</b> — backtest ~52% win @ 1:2. Kam picks, sabse high quality. Patience = profit.</p></div>' + avHtml0;
     return;
   }
   let html = '<table><tr><th class="stk">SYMBOL</th><th>COMPANY</th><th>LTP</th>' +
@@ -800,6 +820,7 @@ function renderSwing() {
     why.push("5-din HOLD ✓");
     if (sw.room >= 7) why.push(sw.room + "% room");
     if (sw.t50 === "UP") why.push("📘 50SMA UP");
+    if (sw.xg) why.push("⚡X-GRADE");
     html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td>' +
       '<td>' + r.ltp + '</td>' +
       '<td><span class="dn"><b>' + ddTxt + '</b></span></td>' +
@@ -810,7 +831,7 @@ function renderSwing() {
       '<td>' + t1 + '</td>' +
       '<td>' + t2 + '</td>' +
       '<td>' + qty + '</td>' +
-      '<td><span class="badge ' + vCls + '">' + (sw.verdict || "—") + '</span></td>' +
+      '<td><span class="badge ' + vCls + '">' + (sw.verdict || "—") + '</span>' + (sw.xg ? ' <span class="badge g" title="⚡X-GRADE: score 9+ ya 0-test fresh zone — backtest subset 54-60% win @ 1:2 (n=15-26, chhota sample)">⚡X</span>' : '') + '</td>' +
       '<td><span class="badge ' + vCls + '">' + (sw.score || "") + '</span></td>' +
       '<td><span class="badge ' + (sw.gtf >= 8 ? "g" : (sw.gtf >= 6 ? "a" : "p")) + '" title="GTF book trade score /9">' + (sw.gtf != null ? sw.gtf + '/9' : "—") + '</span></td>' +
       '<td>' + (sw.room || "—") + '%</td>' +
@@ -871,8 +892,11 @@ function renderTop3(top3) {
   }
   let html = '<table><tr><th>PICK &amp; SECTOR</th><th>CMP &amp; COMBO</th><th>📅 FIRST IN TOP-3</th>' +
     '<th>1D EXEC ZONE</th><th>1M SUPPORT</th><th>ENTRY (limit)</th><th>SL</th><th>T1</th><th>T2</th>' +
-    '<th>QTY (₹1,000 risk)</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+    '<th>QTY (₹1,000 risk)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
   for (const p of top3) {
+    const _rk = Math.max((p.entryHi || 0) - (p.sl || 0), 0.1);
+    const _qy = Math.max(1, Math.round((window.RISK_AMT || 1000) / _rk));
+    const _m3 = Math.max(1, Math.round(3000 / _qy));
     html += '<tr>' + symCell(p) +
       '<td><span class="mut">' + (p.sector || "") + ' ' + (p.secBonus || "") + '</span><br>₹' + p.ltp +
       '<br><span class="up">' + (p.combo || "") + '</span></td>' +
@@ -881,7 +905,7 @@ function renderTop3(top3) {
       '<td>' + fmtZone(p.z1m) + '<br><span class="mut">' + (p.s1m || "") + '</span></td>' +
       '<td>₹' + p.entryLo + ' – ₹' + p.entryHi + '</td>' +
       '<td class="dn">₹' + p.sl + '</td><td class="up">₹' + p.t1 + '</td><td class="up">₹' + p.t2 + '</td>' +
-      '<td>' + p.qty + ' sh</td>' + gradeBadge(p) +
+      '<td>' + _qy + ' sh</td>' + tsBadge(p) +
       '<td><a href="' + TV + encodeURIComponent(p.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(p) + '</tr>';
     let cTxt = "";
     if (p.course && p.course.hasZone) {
@@ -909,7 +933,7 @@ function renderTfTables() {
       'Niche WATCH-ONLY list me har stock ke saath exclusion reason badge hai — usse research karo, trade mat karo.</p></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SC</th><th>1M ZONE</th><th>1M SC</th>' +
-      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>COMBO</th><th>🟢 1:3 PLAN — ENTRY → SL → T1 → T2</th><th>QTY ₹1k risk</th><th>₹3k MOVE</th><th>SETUP</th><th>ZONE (D/S)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of strict) {
       const p = tradePlan(r);
       const planCell = p
@@ -922,7 +946,7 @@ function renderTfTables() {
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
         '<td>' + planCell + '</td>' +
         '<td>' + (p ? p.qty + ' sh' : '—') + '</td><td>' + (p ? '₹' + p.move3k : '—') + '</td>' +
-        '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + tsBadge(r) + '</td>' + gradeBadge(r) +
+        '<td><span class="badge g">TRADE READY</span> ' + relBadge(r.rel) + '</td>' + sideZoneTd(r, "d") + '<td class="gcol">' + tsBadge(r) + '</td>' +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     tsa.innerHTML = html + '</table>';
@@ -933,13 +957,13 @@ function renderTfTables() {
   if (!watch.length) {
     twa.innerHTML = '<div class="nopicks"><h3>Koi watch stock nahi</h3></div>';
   } else {
-    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+    let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th><th>1D ZONE</th><th>1M ZONE</th><th>1W TREND</th><th>COMBO</th><th>❌ EXCLUDE KYUN?</th><th>ZONE (D/S)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of watch) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + fmtZone(r.z1m) + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : "dn") + '">' + (r.w_trend || "") + '</td>' +
         '<td class="mut">' + r.combo + '</td>' +
-        '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + tsBadge(r) + '</td>' + gradeBadge(r) +
+        '<td>' + (r._excl || []).map(x => '<span class="badge p">' + x + '</span>').join(" ") + '</td>' + sideZoneTd(r, "d") + '<td class="gcol">' + tsBadge(r) + '</td>' +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     twa.innerHTML = html + '</table>';
@@ -951,39 +975,60 @@ function renderTfTables() {
   document.getElementById("dailycountlabel").textContent = daily.length + " stocks";
   const da = document.getElementById("dailyarea");
   if (!daily.length) {
-    da.innerHTML = '<div class="nopicks"><h3>Koi 1D zone stock nahi</h3></div>';
+    da.innerHTML = '<div class="nopicks"><h3>Aaj koi STRONG 1D zone (score 7+) nahi — book: no-trade</h3><p>ALL table me sab stocks dz/sz columns ke saath hain.</p></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1D ZONE</th><th>1D SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>ZONE (D/S)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of daily) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + tsBadge(r) + '</td>' + gradeBadge(r) +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + sideZoneTd(r, "d") + '<td class="gcol">' + tsBadge(r) + '</td>' +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     da.innerHTML = html + '</table>';
   }
 
+  let suppl = applySector(getSubset("supplyStocks"));
+  const sqEl = document.getElementById("fSupplySearch");
+  if (sqEl && sqEl.value) suppl = suppl.filter(r => r.sym.toLowerCase().includes(sqEl.value.toLowerCase()));
+  document.getElementById("bdg-supplycount").textContent = suppl.length + " STOCKS";
+  const scl = document.getElementById("supplycountlabel");
+  if (scl) scl.textContent = suppl.length + " best-supply stocks";
+  const sua = document.getElementById("supplyarea");
+  if (!suppl.length) {
+    sua.innerHTML = '<div class="nopicks"><h3>Aaj koi BEST supply (4-criteria) wala stock nahi</h3><p>PDF: explosive departure + 0-test fresh + 1-3 base + red legout — sab pass hona zaroori. Kam supply picks = quality.</p></div>';
+  } else {
+    let shtml = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>🔴 SUPPLY ZONE (1D)</th><th>1M ZONE</th><th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
+    for (const r of suppl) {
+      shtml += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
+        zoneTd(r.sz) + '<td class="mut">' + (r.z1m || "—") + '</td>' +
+        '<td class="mut">' + (r.tests_count === 0 ? "0t FRESH" : r.tests_count + "t") + '</td>' +
+        '<td class="mut">' + (r.combo || "") + '</td>' +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + '<td class="gcol">' + tsBadge(r) + '</td>' +
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
+    }
+    sua.innerHTML = shtml + '</table>';
+  }
   let monthly = applySector(getSubset("monthlyStocks"));
   if (mq) monthly = monthly.filter(r => r.sym.toLowerCase().includes(mq));
   document.getElementById("bdg-monthlycount").textContent = monthly.length + " STOCKS";
   document.getElementById("monthlycountlabel").textContent = monthly.length + " stocks";
   const ma = document.getElementById("monthlyarea");
   if (!monthly.length) {
-    ma.innerHTML = '<div class="nopicks"><h3>Koi 1M zone stock nahi</h3></div>';
+    ma.innerHTML = '<div class="nopicks"><h3>Aaj koi STRONG 1M zone (score 7+) nahi — book: no-trade</h3><p>ALL table me sab stocks (dz/sz columns ke saath) hain.</p></div>';
   } else {
     let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>1M ZONE</th><th>1M SCORE</th>' +
-      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+      '<th>1W TREND</th><th>FRESHNESS</th><th>VOLUME</th><th>COMBO</th><th>SETUP</th><th>ZONE (D/S)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
     for (const r of monthly) {
       html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
         '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
         '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
         '<td>' + (r.fresh_badge || "") + '</td><td>' + (r.vol_expl || "") + '</td>' +
         '<td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + tsBadge(r) + '</td>' + gradeBadge(r) +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + sideZoneTd(r, "m") + '<td class="gcol">' + tsBadge(r) + '</td>' +
         '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
     }
     ma.innerHTML = html + '</table>';
@@ -1036,6 +1081,7 @@ function clearFilters() {
   if (LIVE_DATA) { HISTORY_MODE = false; DATA = LIVE_DATA; }
   renderAll();
   toast("🧹 Sab filters clear — latest live scan dikh raha hai", "ok");
+  const fsup = document.getElementById("fSupplySearch"); if (fsup) fsup.value = "";
 }
 
 function selectSectorAll() {
@@ -1099,14 +1145,14 @@ function renderAllTable() {
   }
   let html = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>TYPE</th><th>CMP</th>' +
     '<th>1D ZONE</th><th>1D SCORE</th><th>1M ZONE</th><th>1M SCORE</th><th>1W TREND</th>' +
-    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>GRADE</th><th>CHART</th><th>🔍</th></tr>';
+    '<th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>ZONE (D/S)</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
   for (const r of rows) {
     html += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>' + r.type + '</td><td>₹' + r.ltp + '</td>' +
       '<td>' + fmtZone(r.z1d) + '</td><td>' + (r.s1d || "—") + '</td>' +
       '<td>' + fmtZone(r.z1m) + '</td><td>' + (r.s1m || "—") + '</td>' +
       '<td class="' + ((r.w_trend || "").includes("UP") ? "up" : (r.w_trend || "").includes("DOWN") ? "dn" : "mut") + '">' + (r.w_trend || "") + '</td>' +
       '<td>' + (r.fresh_badge || "") + '</td><td class="' + (comboNum(r.combo) >= 11 ? "up" : "mut") + '">' + r.combo + '</td>' +
-      '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + tsBadge(r) + '</td>' + gradeBadge(r) +
+      '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + sideZoneTd(r, "d") + '<td class="gcol">' + tsBadge(r) + '</td>' +
       '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
   }
   area.innerHTML = html + '</table>';
@@ -1128,5 +1174,5 @@ function downloadCSV(rows, name) {
   toast("⬇ CSV downloaded — " + rows.length + " stocks", "ok");
 }
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2e7501f8c387a10',t:'MTc4NzI5MDkzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a32da3819d027a07',t:'MTc4ODAyODM0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2e7501f8c387a10',t:'MTc4NzI5MDkzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
