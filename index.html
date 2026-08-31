@@ -269,6 +269,22 @@
     </div>
   </section>
 
+  <!-- ================= v5.9.4 BEST DEMAND (BUY SIDE) ================= -->
+  <section>
+    <h2>🟢 BEST DEMAND ZONES — BUY SIDE <span class="badge g" id="bdg-bdemcount"></span></h2>
+    <div class="secsub">PDF ke chaaron demand-criteria pass: <b>explosive/gap departure + fresh (0-test) + 1-3 base candles + green legout</b>.
+      Stock is demand zone ke paas/andar — BUY side (book: demand buy ONLY uptrend me, 50SMA UP). Green highlight = best zone.</div>
+    <div class="panel">
+      <div class="strip">
+        <button class="btn" onclick="downloadCSV(getSubset('bestDemandStocks'), 'best_demand_stocks')">⬇ CSV</button>
+        <input type="text" id="fDemandSearch" placeholder="🔍 symbol…" oninput="renderTfTables()" style="min-width:140px">
+        <button class="btn" onclick="clearFilters()" style="color:#ff8d85">✕</button>
+        <span class="kv" id="demandcountlabel"></span>
+      </div>
+      <div class="tblwrap" id="demandarea"></div>
+    </div>
+  </section>
+
   <!-- ================= v5.9 BEST SUPPLY (SELL SIDE) ================= -->
   <section>
     <h2>🔴 BEST SUPPLY ZONES — SELL SIDE <span class="badge r" id="bdg-supplycount"></span></h2>
@@ -290,7 +306,7 @@
     <h2>🗂 SECTOR ZONES <span class="badge a" id="bdg-sectorcount"></span></h2>
     <div class="secsub">Har sector index ka apna monthly zone status (demand me hai ya supply me).
       Card pe click = us sector ke stocks har table me filter.</div>
-    <div class="cards" id="sectorcards"></div>
+    <div class="tblwrap" id="sectorcards"></div>
   </section>
 
   <!-- ================= ALL ZONE STOCKS ================= -->
@@ -304,6 +320,9 @@
         </select>
         <select id="fType" onchange="renderAllTable()">
           <option value="">All Types</option><option>DEMAND</option><option>SUPPLY</option><option>EQUILIBRIUM</option>
+        </select>
+        <select id="fAllSector" onchange="setAllSector(this.value)" title="Sector filter — sab tables par lagta hai">
+          <option value="">🌐 All Sectors</option>
         </select>
         <select id="fTf" onchange="renderAllTable()">
           <option value="">All Timeframes</option><option value="daily">1D zone wale</option>
@@ -765,6 +784,7 @@ function getSubset(key) {
   if (key === "dailyStocks") return rows.filter(r => r.z1d && !/NO ACTIVE/.test(r.z1d));
   if (key === "monthlyStocks") return rows.filter(r => r.z1m && !/NO ACTIVE/.test(r.z1m));
   if (key === "supplyStocks") return rows.filter(r => r.bsz);
+  if (key === "bestDemandStocks") return rows.filter(r => r.bdz).sort((a, b) => (b.d_sc || 0) - (a.d_sc || 0));
   if (key === "tradeStocks") return rows.filter(r => isDualZone(r));
   return rows;
 }
@@ -991,6 +1011,27 @@ function renderTfTables() {
     da.innerHTML = html + '</table>';
   }
 
+  let bdem = applySector(getSubset("bestDemandStocks"));
+  const dqEl = document.getElementById("fDemandSearch");
+  if (dqEl && dqEl.value) bdem = bdem.filter(r => r.sym.toLowerCase().includes(dqEl.value.toLowerCase()));
+  document.getElementById("bdg-bdemcount").textContent = bdem.length + " STOCKS";
+  const dcl = document.getElementById("demandcountlabel");
+  if (dcl) dcl.textContent = bdem.length + " best-demand stocks";
+  const dma = document.getElementById("demandarea");
+  if (!bdem.length) {
+    dma.innerHTML = '<div class="nopicks"><h3>Aaj koi BEST demand (4-criteria) wala stock nahi</h3><p>PDF: explosive departure + 0-test fresh + 1-3 base + green legout — sab pass hona zaroori. DAILY list me strong (7+) demand wale milenge.</p></div>';
+  } else {
+    let dhtml = '<table><tr><th>SYMBOL</th><th>COMPANY</th><th>SECTOR</th><th>CMP</th><th>🟢 DEMAND ZONE (1D)</th><th>1M ZONE</th><th>FRESHNESS</th><th>COMBO</th><th>SETUP</th><th>📘 PDF SCORE</th><th>CHART</th><th>🔍</th></tr>';
+    for (const r of bdem) {
+      dhtml += '<tr>' + symCell(r) + '<td class="mut">' + (r.comp || "") + '</td><td>' + r.sector + '</td><td>₹' + r.ltp + '</td>' +
+        zoneTd(r.dz) + '<td class="mut">' + (r.z1m || "—") + '</td>' +
+        '<td class="mut">' + (r.tests_count === 0 ? "0t FRESH" : r.tests_count + "t") + '</td>' +
+        '<td class="mut">' + (r.combo || "") + '</td>' +
+        '<td>' + (r.sig || "") + ' ' + relBadge(r.rel) + '</td>' + '<td class="gcol">' + tsBadge(r) + '</td>' +
+        '<td><a href="' + TV + encodeURIComponent(r.sym) + '" target="_blank" rel="noopener">📊</a></td>' + analysisBtn(r) + '</tr>';
+    }
+    dma.innerHTML = dhtml + '</table>';
+  }
   let suppl = applySector(getSubset("supplyStocks"));
   const sqEl = document.getElementById("fSupplySearch");
   if (sqEl && sqEl.value) suppl = suppl.filter(r => r.sym.toLowerCase().includes(sqEl.value.toLowerCase()));
@@ -1041,32 +1082,36 @@ function renderSectors(sectorZones) {
   const stockData = DATA ? (DATA.stockData || []) : [];
   let cards = sectorZones;
   if (!cards || !cards.length) {
-    // purani history dates: sectorZones nahi hote -> stockData counts se banao
     const by = {};
     for (const r of stockData) { by[r.sector] = by[r.sector] || { d: 0, s: 0 }; if (r.type === "DEMAND") by[r.sector].d++; else if (r.type === "SUPPLY") by[r.sector].s++; }
-    cards = Object.keys(by).map(s => ({ id: s, name: s, status: by[s].d > by[s].s ? "IN DEMAND (stocks)" : "NEAR SUPPLY (stocks)", side: by[s].d > by[s].s ? "DEMAND" : "SUPPLY", zone: "—", score: "—", ltp: null, demCount: by[s].d, supCount: by[s].s }));
+    cards = Object.keys(by).map(s => ({ id: s, name: s, status: "—", d_side: null, d_best: 0, m_side: null, m_best: 0, ltp: null, demCount: by[s].d, supCount: by[s].s }));
   }
   document.getElementById("bdg-sectorcount").textContent = cards.length + " SECTORS";
   if (!cards.length) { el.innerHTML = '<div class="mut">no sector data</div>'; return; }
-  let html = "";
-  const totalDem = cards.reduce((a, c) => a + (c.demCount || 0), 0);
-  const totalSup = cards.reduce((a, c) => a + (c.supCount || 0), 0);
-  html += '<div class="card" data-sec="" onclick="selectSectorAll()">' +
-    '<div class="nm">🌐 ALL SECTORS</div>' +
-    '<div class="st eq">' + (totalDem + totalSup) + ' ZONE STOCKS</div>' +
-    '<div class="sc">Demand ' + totalDem + ' / Supply ' + totalSup + ' — sab sectors ka combined view</div></div>';
+  const sideTxt = (sd, best, md2, mbest) => {
+    if (sd === "DEMAND") return '<span class="badge g" title="Sector-index DEMAND zone me/pe — BUY side' + (best ? ' • zone PDF 4-criteria pass (⚡)' : '') + '">🟢 DEMAND' + (best ? ' ⚡' : '') + '</span>';
+    if (sd === "SUPPLY") return '<span class="badge r" title="Sector-index SUPPLY zone me/pe — SHORT/avoid side' + (best ? ' • zone PDF 4-criteria pass (⚡)' : '') + '">🔴 SUPPLY' + (best ? ' ⚡' : '') + '</span>';
+    if (md2 === "DEMAND") return '<span class="badge g">🟢 DEMAND</span>';
+    if (md2 === "SUPPLY") return '<span class="badge r">🔴 SUPPLY</span>';
+    return '<span class="mut">— koi active nahi</span>';
+  };
+  let html = '<table><tr><th>SECTOR</th><th>INDEX LTP</th><th>STATUS</th>' +
+    '<th>1D ZONE SIDE</th><th>1M ZONE SIDE</th>' +
+    '<th>STOCKS D/S</th><th>FILTER</th></tr>';
   for (const c of cards) {
-    const side = (c.side || c.status || "").includes("SUPPLY") ? "supply"
-      : (c.side || c.status || "").includes("DEMAND") ? "demand" : "eq";
-    const stCls = side === "demand" ? "demand" : side === "supply" ? "supply" : "eq";
-    html += '<div class="card ' + side + '" data-sec="' + c.id + '" onclick="selectSector(\'' + c.id + '\')">' +
-      '<div class="nm">' + (c.name || c.id) + '</div>' +
-      '<div class="st ' + stCls + '">' + (c.status || "—") + '</div>' +
-      '<div class="sc">Index: ' + (c.ltp ? "₹" + c.ltp : "—") + ' • Zone: ' + (c.zone || "—") + '</div>' +
-      '<div class="sc">' + (c.score ? "Score " + c.score + " • " : "") + "Demand " + c.demCount + " / Supply " + c.supCount + ' stocks</div></div>';
+    if (c.d_side == null && c.d_dem != null) c.d_side = c.d_dem && !c.d_sup ? "DEMAND" : (!c.d_dem && c.d_sup ? "SUPPLY" : null);
+    if (c.m_side == null && c.m_dem != null) c.m_side = c.m_dem && !c.m_sup ? "DEMAND" : (!c.m_dem && c.m_sup ? "SUPPLY" : null);
+    const stc = (c.status || "").includes("DEMAND") ? "up" : (c.status || "").includes("SUPPLY") ? "dn" : "mut";
+    html += '<tr data-sec="' + c.id + '" onclick="selectSector(\'' + c.id + '\')" style="cursor:pointer">' +
+      '<td><b>' + (c.name || c.id) + '</b></td>' +
+      '<td>' + (c.ltp ? "₹" + c.ltp : "—") + '</td>' +
+      '<td class="' + stc + '" style="font-size:11px">' + (c.status || "—") + '</td>' +
+      '<td>' + sideTxt(c.d_side, c.d_best) + '</td>' +
+      '<td>' + sideTxt(c.m_side, c.m_best) + '</td>' +
+      '<td class="mut">' + (c.demCount || 0) + ' / ' + (c.supCount || 0) + '</td>' +
+      '<td><button class="btn" onclick="event.stopPropagation();selectSector(\'' + c.id + '\')">🗂</button></td></tr>';
   }
-  el.innerHTML = html;
-  updateCardSelection();
+  el.innerHTML = html + '</table>';
 }
 
 function clearFilters() {
@@ -1082,6 +1127,7 @@ function clearFilters() {
   renderAll();
   toast("🧹 Sab filters clear — latest live scan dikh raha hai", "ok");
   const fsup = document.getElementById("fSupplySearch"); if (fsup) fsup.value = "";
+  const fdem = document.getElementById("fDemandSearch"); if (fdem) fdem.value = "";
 }
 
 function selectSectorAll() {
@@ -1094,6 +1140,8 @@ function selectSectorAll() {
 
 function selectSector(id) {
   SECTOR_FILTER = (SECTOR_FILTER === id) ? "" : id;
+  const sel = document.getElementById("fAllSector");
+  if (sel) sel.value = SECTOR_FILTER || "";
   renderTfTables();
   renderAllTable();
   updateCardSelection();
@@ -1130,7 +1178,27 @@ function filteredAllRows() {
   return out;
 }
 
+function setAllSector(v) {
+  SECTOR_FILTER = v || "";
+  renderTfTables();
+  renderAllTable();
+  updateCardSelection();
+  toast(SECTOR_FILTER ? "🗂 Sector filter: " + SECTOR_FILTER : "🌐 All Sectors", "ok");
+}
+function populateSectorDropdown() {
+  const sel = document.getElementById("fAllSector");
+  if (!sel) return;
+  const cur = SECTOR_FILTER;
+  let opts = '<option value="">🌐 All Sectors</option>';
+  const secs = (DATA && DATA.sectorZones && DATA.sectorZones.length)
+    ? DATA.sectorZones.map(c => ({ id: c.id, name: c.name }))
+    : [...new Set((DATA ? (DATA.stockData || []) : []).map(r => r.sector))].sort().map(s => ({ id: s, name: s }));
+  for (const s of secs) opts += '<option value="' + s.id + '">' + (s.name || s.id) + '</option>';
+  sel.innerHTML = opts;
+  sel.value = cur || "";
+}
 function renderAllTable() {
+  populateSectorDropdown();
   const rows = filteredAllRows();
   const total = DATA ? (DATA.stockData || []).length : 0;
   document.getElementById("bdg-zonecount").textContent = rows.length + " STOCKS";

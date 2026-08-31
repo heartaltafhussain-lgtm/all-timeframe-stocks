@@ -59,7 +59,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-VERSION = "v5.9.2 All Timeframe Stocks (PDF STRONG-ZONE LISTS: daily/monthly = score 7+ zones, demand+supply dono, best pehle)"
+VERSION = "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)"
 PASSWORD_REF = "7004602"
 
 # ---------------- v5.2 NO-VANISH WATCH BAND ----------------
@@ -1075,31 +1075,86 @@ def course_zone_check(df, ltp):
 
 
 def build_sector_zones(index_frames, index_ltps, stock_rows):
-    """Sector INDEX ka apna 1M zone status (demand/supply) + stock counts."""
+    """v5.9.3 SECTOR ZONE TRACKER — PDF ke hisaab se har sector-index ka apna
+    1D + 1M demand & supply zone (GTF trade score ke saath, best-first).
+    Har sector: d_dem/d_sup (1D), m_dem/m_sup (1M) + stock counts."""
     by_sec = defaultdict(list)
     for row in stock_rows:
         by_sec[row["sector"]].append(row["type"])
+
+    def zone_cell(zones, side, ltp, df):
+        cand = []
+        for z in zones or []:
+            try:
+                lo = min(float(z["prox"]), float(z["dist"]))
+                hi = max(float(z["prox"]), float(z["dist"]))
+                if side == "DEMAND" and lo > ltp * 1.01:
+                    continue
+                if side == "SUPPLY" and hi < ltp * 0.99:
+                    continue
+                g = z.get("gtf") or {}
+                sc = g.get("score") or 0
+                dist = abs(ltp - (hi if side == "DEMAND" else lo))
+                cand.append((-(1 if g.get("best") else 0), -sc, dist, lo, hi, int(z.get("tests", 0)), sc))
+            except Exception:
+                continue
+        if not cand:
+            return None
+        cand.sort(key=lambda x: (x[0], x[1], x[2]))
+        _, _, _, lo, hi, t, sc = cand[0]
+        pre = "⚡ " if (cand[0][0] == 0) else ""
+        tt = f"{lo:.2f} - {hi:.2f} • S{sc}"
+        if t == 0:
+            tt += " fresh"
+        return tt, sc
+
     out = []
     for sec_id in SECTOR_NAMES:
         name = SECTOR_NAMES[sec_id]
         df = index_frames.get(sec_id)
-        status, zone_txt, score_txt, side = "NO INDEX DATA", "—", "—", "NEUTRAL"
+        ltp = index_ltps.get(sec_id)
+        d_dem = d_sup = m_dem = m_sup = None
+        status, side, zone_txt, score_txt = "NO INDEX DATA", "NEUTRAL", "—", "—"
+        d_side = m_side = None
+        d_best = m_best = 0
         if df is not None and len(df) >= 40:
-            mdf = resample_ohlc(df, "ME")
-            if mdf is not None and len(mdf) >= 12:
-                month_d, month_s = detect_active_zones(mdf, impulse_body_pct=50.0)
+            try:
                 ltp = float(df["Close"].iloc[-1])
-                z, rel, _ = pick_best_side(ltp, month_d, month_s)
-                if z is not None and rel in ("IN", "NEAR"):
-                    side = z["side"]
-                    status = f"IN {side} ZONE" if rel == "IN" else f"NEAR {side} ZONE"
-                    zone_txt = fmt_zone(z)
-                    score_txt = fmt_score(z)
+                ds_ = df.tail(270)
+                dd, dss = detect_active_zones(ds_, impulse_body_pct=50.0)
+                attach_gtf_scores(dd, ds_)
+                attach_gtf_scores(dss, ds_)
+                mdf = resample_ohlc(df, "ME")
+                md = ms = []
+                if mdf is not None and len(mdf) >= 12:
+                    md, ms = detect_active_zones(mdf, impulse_body_pct=50.0)
+                    attach_gtf_scores(md, mdf)
+                    attach_gtf_scores(ms, mdf)
+                # v5.9.5 STOCK-JAISA analysis: pick_best_side = EK hi side (jahan index hai)
+                # + PDF 4-criteria quality flag (⚡best zone hi side ko qualify karta hai)
+                z1, rel1, _ = pick_best_side(ltp, dd, dss)
+                if z1 is not None and rel1 in ("IN", "NEAR"):
+                    g1 = z1.get("gtf") or {}
+                    d_side = z1.get("side")
+                    d_best = 1 if g1.get("best") else 0
+                z2, rel2, _ = pick_best_side(ltp, md, ms)
+                if z2 is not None and rel2 in ("IN", "NEAR"):
+                    g2 = z2.get("gtf") or {}
+                    m_side = z2.get("side")
+                    m_best = 1 if g2.get("best") else 0
+                # status: 1D pehle, phir 1M — STRONG jab 4-criteria pass
+                if d_side:
+                    status = "1D " + ("STRONG " if d_best else "") + d_side
+                    side = d_side
+                elif m_side:
+                    status = "1M " + ("STRONG " if m_best else "") + m_side
+                    side = m_side
                 else:
-                    status = "NO ACTIVE 1M ZONE"
+                    status = "NO ACTIVE ZONE"
+            except Exception:
+                status = "SCAN ERROR"
         dem = sum(1 for t in by_sec.get(sec_id, []) if t == "DEMAND")
         sup = sum(1 for t in by_sec.get(sec_id, []) if t == "SUPPLY")
-        ltp = index_ltps.get(sec_id)
         out.append({
             "id": sec_id,
             "name": name,
@@ -1107,6 +1162,7 @@ def build_sector_zones(index_frames, index_ltps, stock_rows):
             "side": side,
             "zone": zone_txt,
             "score": score_txt,
+            "d_side": d_side, "d_best": d_best, "m_side": m_side, "m_best": m_best,
             "ltp": round(float(ltp), 2) if isinstance(ltp, (int, float)) else None,
             "demCount": dem,
             "supCount": sup,
@@ -1824,6 +1880,9 @@ def scan():
     monthly_stock_rows = [r for r in stock_rows if r["inMonthly"] and (r.get("m_sc") or 0) >= 7]
     supply_stock_rows = [r for r in stock_rows if r.get("bsz")]
     trade_stock_rows = [r for r in stock_rows if r["tradeStock"]]
+    # v5.9.4: BEST DEMAND (buy side) — 4-criteria best demand wale stocks (supply-section ka counterpart)
+    best_demand_rows = [r for r in stock_rows if r.get("bdz")]
+    best_demand_rows.sort(key=lambda r: (-int(r.get("d_sc") or 0), r["sym"]))
     daily_stock_rows.sort(key=lambda r: (-int(r.get("bdz", 0)), -int(r.get("d_sc", 0)), r["sym"]))
     monthly_stock_rows.sort(key=lambda r: (-int(r.get("bmz", 0)), -int(r.get("m_sc", 0)), r["sym"]))
     for subset in (trade_stock_rows, supply_stock_rows):
@@ -1942,6 +2001,7 @@ def scan():
         "dailyStocks": [public(r) for r in daily_stock_rows],
         "monthlyStocks": [public(r) for r in monthly_stock_rows],
         "supplyStocks": [public(r) for r in supply_stock_rows],
+        "bestDemandStocks": [public(r) for r in best_demand_rows],
         "tradeStocks": [public(r) for r in trade_stock_rows],
         "tradeStocksStrict": [public(r) for r in strict_trade_rows],
         "tradeStocksWatch": [public(r) for r in watch_trade_rows],
