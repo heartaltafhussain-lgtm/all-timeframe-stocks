@@ -1,6 +1,6 @@
 {
   "date": "2026-09-04",
-  "timestamp": "2026-09-04 16:13:25 IST",
+  "timestamp": "2026-09-04 18:26:45 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -76840,7 +76840,7 @@
       "dz": "124238.15 - 127876.80 • 1t",
       "sz": "132368.97 - 137180.57 • 5t",
       "mdz": "101787.00 - 115617.15 • 1t",
-      "msz": "151235.04 - 159415.43 • 1t",
+      "msz": "151235.03 - 159415.43 • 1t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -134580,7 +134580,7 @@
       "ltp": 4802.0,
       "z1d": "4347.2 - 4502.9 DR DEMAND",
       "s1d": "5.5 B",
-      "z1m": "4334.99 - 4897.45 RD SUPPLY",
+      "z1m": "4335.0 - 4897.45 RD SUPPLY",
       "s1m": "4.0 C",
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 2,
@@ -171310,7 +171310,7 @@
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "4347.2 - 4502.9 DR DEMAND",
-      "z1m": "4334.99 - 4897.45 RD SUPPLY",
+      "z1m": "4335.0 - 4897.45 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": {
