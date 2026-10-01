@@ -1,6 +1,6 @@
 {
   "date": "2026-10-01",
-  "timestamp": "2026-10-01 21:24:04 IST",
+  "timestamp": "2026-10-01 22:37:18 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -21002,7 +21002,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4335.00 - 4897.45 • 2t",
+      "msz": "4334.99 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -32621,7 +32621,7 @@
       "ltp": 821.3,
       "z1d": "814.41 - 842.09 RD SUPPLY",
       "s1d": "5.0 C",
-      "z1m": "807.81 - 997.31 DR DEMAND",
+      "z1m": "807.83 - 997.32 DR DEMAND",
       "s1m": "3.5 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -32645,7 +32645,7 @@
       "m_strong": true,
       "dz": null,
       "sz": "814.41 - 842.09 • 1t",
-      "mdz": "807.81 - 997.31 • 2t",
+      "mdz": "807.83 - 997.32 • 2t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -32658,8 +32658,8 @@
         },
         "m1": {
           "last": {
-            "lo": 807.81,
-            "hi": 997.31,
+            "lo": 807.83,
+            "hi": 997.32,
             "pat": "DR DEMAND",
             "score": 3.5,
             "grade": "C",
@@ -32696,8 +32696,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 807.81,
-              "hi": 997.31,
+              "lo": 807.83,
+              "hi": 997.32,
               "pat": "DR DEMAND",
               "score": 3.5,
               "grade": "C",
@@ -38864,7 +38864,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4335.00 - 4897.45 • 2t",
+      "msz": "4334.99 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -50483,7 +50483,7 @@
       "ltp": 821.3,
       "z1d": "814.41 - 842.09 RD SUPPLY",
       "s1d": "5.0 C",
-      "z1m": "807.81 - 997.31 DR DEMAND",
+      "z1m": "807.83 - 997.32 DR DEMAND",
       "s1m": "3.5 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -50507,7 +50507,7 @@
       "m_strong": true,
       "dz": null,
       "sz": "814.41 - 842.09 • 1t",
-      "mdz": "807.81 - 997.31 • 2t",
+      "mdz": "807.83 - 997.32 • 2t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -50520,8 +50520,8 @@
         },
         "m1": {
           "last": {
-            "lo": 807.81,
-            "hi": 997.31,
+            "lo": 807.83,
+            "hi": 997.32,
             "pat": "DR DEMAND",
             "score": 3.5,
             "grade": "C",
@@ -50558,8 +50558,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 807.81,
-              "hi": 997.31,
+              "lo": 807.83,
+              "hi": 997.32,
               "pat": "DR DEMAND",
               "score": 3.5,
               "grade": "C",
@@ -57569,7 +57569,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4335.00 - 4897.45 • 2t",
+      "msz": "4334.99 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -93595,7 +93595,7 @@
       "ltp": 821.3,
       "z1d": "814.41 - 842.09 RD SUPPLY",
       "s1d": "5.0 C",
-      "z1m": "807.81 - 997.31 DR DEMAND",
+      "z1m": "807.83 - 997.32 DR DEMAND",
       "s1m": "3.5 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -93619,7 +93619,7 @@
       "m_strong": true,
       "dz": null,
       "sz": "814.41 - 842.09 • 1t",
-      "mdz": "807.81 - 997.31 • 2t",
+      "mdz": "807.83 - 997.32 • 2t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -93632,8 +93632,8 @@
         },
         "m1": {
           "last": {
-            "lo": 807.81,
-            "hi": 997.31,
+            "lo": 807.83,
+            "hi": 997.32,
             "pat": "DR DEMAND",
             "score": 3.5,
             "grade": "C",
@@ -93670,8 +93670,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 807.81,
-              "hi": 997.31,
+              "lo": 807.83,
+              "hi": 997.32,
               "pat": "DR DEMAND",
               "score": 3.5,
               "grade": "C",
@@ -108749,7 +108749,7 @@
       "ltp": 1754.6,
       "z1d": "1660.0 - 1717.3 DR DEMAND",
       "s1d": "5.0 C",
-      "z1m": "1598.44 - 1928.41 RD SUPPLY",
+      "z1m": "1598.43 - 1928.41 RD SUPPLY",
       "s1m": "3.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 3,
@@ -108774,7 +108774,7 @@
       "dz": "1660.00 - 1717.30 • 1t",
       "sz": "1821.10 - 1855.00 • 1t",
       "mdz": null,
-      "msz": "1598.44 - 1928.41 • 3t",
+      "msz": "1598.43 - 1928.41 • 3t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -169671,7 +169671,7 @@
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "814.41 - 842.09 RD SUPPLY",
-      "z1m": "807.81 - 997.31 DR DEMAND",
+      "z1m": "807.83 - 997.32 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -169680,8 +169680,8 @@
         },
         "m1": {
           "last": {
-            "lo": 807.81,
-            "hi": 997.31,
+            "lo": 807.83,
+            "hi": 997.32,
             "pat": "DR DEMAND",
             "score": 3.5,
             "grade": "C",
@@ -169718,8 +169718,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 807.81,
-              "hi": 997.31,
+              "lo": 807.83,
+              "hi": 997.32,
               "pat": "DR DEMAND",
               "score": 3.5,
               "grade": "C",
@@ -171964,7 +171964,7 @@
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "1660.0 - 1717.3 DR DEMAND",
-      "z1m": "1598.44 - 1928.41 RD SUPPLY",
+      "z1m": "1598.43 - 1928.41 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": {
