@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "timestamp": "2026-10-02 21:50:49 IST",
+  "timestamp": "2026-10-02 23:32:44 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -21002,7 +21002,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4334.99 - 4897.45 • 2t",
+      "msz": "4335.00 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -38864,7 +38864,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4334.99 - 4897.45 • 2t",
+      "msz": "4335.00 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -57569,7 +57569,7 @@
       "dz": "4347.20 - 4502.90 • 5t",
       "sz": "4437.10 - 4640.20 • 1t",
       "mdz": "3669.91 - 4444.41 • 1t",
-      "msz": "4334.99 - 4897.45 • 2t",
+      "msz": "4335.00 - 4897.45 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -113111,7 +113111,7 @@
       "m_strong": true,
       "dz": "19431.00 - 20099.00 • fresh",
       "sz": "23000.00 - 24225.00 • 2t",
-      "mdz": "10163.49 - 12763.22 • 2t",
+      "mdz": "10163.48 - 12763.22 • 2t",
       "msz": "21170.00 - 24225.00 • 1t",
       "bdz": false,
       "bmz": false,
@@ -113267,7 +113267,7 @@
         },
         "m1": {
           "last": {
-            "lo": 10163.49,
+            "lo": 10163.48,
             "hi": 12763.22,
             "pat": "DR DEMAND",
             "score": 4.0,
@@ -113305,7 +113305,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 10163.49,
+              "lo": 10163.48,
               "hi": 12763.22,
               "pat": "DR DEMAND",
               "score": 4.0,
@@ -120440,7 +120440,7 @@
       "ltp": 711.0,
       "z1d": "735.0 - 755.0 RD SUPPLY",
       "s1d": "5.5 B",
-      "z1m": "550.35 - 680.07 DR DEMAND",
+      "z1m": "550.35 - 680.06 DR DEMAND",
       "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -120464,7 +120464,7 @@
       "m_strong": true,
       "dz": null,
       "sz": "735.00 - 755.00 • 1t",
-      "mdz": "550.35 - 680.07 • 1t",
+      "mdz": "550.35 - 680.06 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -120478,7 +120478,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.07,
+            "hi": 680.06,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -120516,7 +120516,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.07,
+              "hi": 680.06,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -141650,7 +141650,7 @@
       "rel": "WATCH",
       "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
       "z1d": "735.0 - 755.0 RD SUPPLY",
-      "z1m": "550.35 - 680.07 DR DEMAND",
+      "z1m": "550.35 - 680.06 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -141660,7 +141660,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.07,
+            "hi": 680.06,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -141698,7 +141698,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.07,
+              "hi": 680.06,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -171339,7 +171339,7 @@
         },
         "m1": {
           "last": {
-            "lo": 10163.49,
+            "lo": 10163.48,
             "hi": 12763.22,
             "pat": "DR DEMAND",
             "score": 4.0,
@@ -171377,7 +171377,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 10163.49,
+              "lo": 10163.48,
               "hi": 12763.22,
               "pat": "DR DEMAND",
               "score": 4.0,
