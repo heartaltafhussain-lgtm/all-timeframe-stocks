@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-02",
-  "timestamp": "2026-10-02 23:32:44 IST",
+  "date": "2026-10-06",
+  "timestamp": "2026-10-06 00:52:32 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -54,7 +54,7 @@
       "type": "NEUTRAL",
       "score": "LIVE",
       "ltp": "NSE 500",
-      "desc": "Only stocks sitting IN/NEAR a valid unmitigated 1D or 1M GTF zone on 2026-10-02.",
+      "desc": "Only stocks sitting IN/NEAR a valid unmitigated 1D or 1M GTF zone on 2026-10-06.",
       "bonus": "AUTO"
     },
     {
@@ -1673,7 +1673,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.75,
-            "vol_ratio": 0.49,
+            "vol_ratio": 0.5,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -1711,7 +1711,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.75,
-              "vol_ratio": 0.49,
+              "vol_ratio": 0.5,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -2102,15 +2102,15 @@
             },
             "tests": 1,
             "born": "2025-03-31",
-            "n_base": 3,
-            "legout": 0.5,
+            "n_base": 2,
+            "legout": 0.51,
             "vol_ratio": 0.44,
             "strength": {
-              "total": 5.1,
+              "total": 5.4,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 7.0,
-                "base": 8.0,
+                "base": 10.0,
                 "departure": 4.0,
                 "volume": 3.0,
                 "htf": 3.0,
@@ -2140,15 +2140,15 @@
               },
               "tests": 1,
               "born": "2025-03-31",
-              "n_base": 3,
-              "legout": 0.5,
+              "n_base": 2,
+              "legout": 0.51,
               "vol_ratio": 0.44,
               "strength": {
-                "total": 5.1,
+                "total": 5.4,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 7.0,
-                  "base": 8.0,
+                  "base": 10.0,
                   "departure": 4.0,
                   "volume": 3.0,
                   "htf": 3.0,
@@ -5384,7 +5384,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.68,
-            "vol_ratio": 0.65,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -5458,7 +5458,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.68,
-              "vol_ratio": 0.65,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -6646,7 +6646,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.9,
-            "vol_ratio": 1.65,
+            "vol_ratio": 1.66,
             "strength": {
               "total": 5.9,
               "verdict": "MEDIUM",
@@ -6719,7 +6719,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.9,
-              "vol_ratio": 1.65,
+              "vol_ratio": 1.66,
               "strength": {
                 "total": 5.9,
                 "verdict": "MEDIUM",
@@ -9193,7 +9193,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -9231,7 +9231,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -11411,7 +11411,7 @@
             "born": "2025-02-28",
             "n_base": 2,
             "legout": 0.83,
-            "vol_ratio": 1.04,
+            "vol_ratio": 1.05,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -11449,7 +11449,7 @@
               "born": "2025-02-28",
               "n_base": 2,
               "legout": 0.83,
-              "vol_ratio": 1.04,
+              "vol_ratio": 1.05,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -11876,7 +11876,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 1.35,
-              "vol_ratio": 0.85,
+              "vol_ratio": 0.86,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -15309,7 +15309,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -15347,7 +15347,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -16499,7 +16499,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 1,
-            "legout": 1.35,
+            "legout": 1.36,
             "vol_ratio": 1.52,
             "strength": {
               "total": 6.9,
@@ -16537,7 +16537,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 1,
-              "legout": 1.35,
+              "legout": 1.36,
               "vol_ratio": 1.52,
               "strength": {
                 "total": 6.9,
@@ -16644,7 +16644,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.69,
+            "legout": 0.7,
             "vol_ratio": 0.69,
             "strength": {
               "total": 6.1,
@@ -16682,7 +16682,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.69,
+              "legout": 0.7,
               "vol_ratio": 0.69,
               "strength": {
                 "total": 6.1,
@@ -17409,15 +17409,15 @@
             },
             "tests": 1,
             "born": "2025-03-31",
-            "n_base": 3,
-            "legout": 0.5,
+            "n_base": 2,
+            "legout": 0.51,
             "vol_ratio": 0.44,
             "strength": {
-              "total": 5.1,
+              "total": 5.4,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 7.0,
-                "base": 8.0,
+                "base": 10.0,
                 "departure": 4.0,
                 "volume": 3.0,
                 "htf": 3.0,
@@ -17447,15 +17447,15 @@
               },
               "tests": 1,
               "born": "2025-03-31",
-              "n_base": 3,
-              "legout": 0.5,
+              "n_base": 2,
+              "legout": 0.51,
               "vol_ratio": 0.44,
               "strength": {
-                "total": 5.1,
+                "total": 5.4,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 7.0,
-                  "base": 8.0,
+                  "base": 10.0,
                   "departure": 4.0,
                   "volume": 3.0,
                   "htf": 3.0,
@@ -19486,7 +19486,7 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.58,
+            "legout": 0.59,
             "vol_ratio": 1.05,
             "strength": {
               "total": 4.7,
@@ -19560,7 +19560,7 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.58,
+              "legout": 0.59,
               "vol_ratio": 1.05,
               "strength": {
                 "total": 4.7,
@@ -19740,8 +19740,8 @@
             "tests": 3,
             "born": "2025-01-31",
             "n_base": 1,
-            "legout": 0.45,
-            "vol_ratio": 1.01,
+            "legout": 0.46,
+            "vol_ratio": 1.02,
             "strength": {
               "total": 4.2,
               "verdict": "WEAK",
@@ -19778,8 +19778,8 @@
               "tests": 3,
               "born": "2025-01-31",
               "n_base": 1,
-              "legout": 0.45,
-              "vol_ratio": 1.01,
+              "legout": 0.46,
+              "vol_ratio": 1.02,
               "strength": {
                 "total": 4.2,
                 "verdict": "WEAK",
@@ -19963,7 +19963,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.68,
-            "vol_ratio": 0.65,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -20037,7 +20037,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.68,
-              "vol_ratio": 0.65,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -20443,7 +20443,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 1,
-            "legout": 1.35,
+            "legout": 1.36,
             "vol_ratio": 1.52,
             "strength": {
               "total": 6.9,
@@ -20481,7 +20481,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 1,
-              "legout": 1.35,
+              "legout": 1.36,
               "vol_ratio": 1.52,
               "strength": {
                 "total": 6.9,
@@ -21973,7 +21973,7 @@
               "tests": 1,
               "born": "2026-06-30",
               "n_base": 0,
-              "legout": 0.78,
+              "legout": 0.79,
               "vol_ratio": 0.75,
               "strength": {
                 "total": 6.8,
@@ -22624,7 +22624,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 1.28,
-            "vol_ratio": 1.48,
+            "vol_ratio": 1.49,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -22662,7 +22662,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 1.28,
-              "vol_ratio": 1.48,
+              "vol_ratio": 1.49,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -23281,7 +23281,7 @@
             "born": "2025-01-31",
             "n_base": 1,
             "legout": 0.44,
-            "vol_ratio": 0.8,
+            "vol_ratio": 0.81,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -23355,7 +23355,7 @@
               "born": "2025-01-31",
               "n_base": 1,
               "legout": 0.44,
-              "vol_ratio": 0.8,
+              "vol_ratio": 0.81,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -23535,7 +23535,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -23573,7 +23573,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -25907,7 +25907,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.63,
-            "vol_ratio": 1.4,
+            "vol_ratio": 1.41,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -25945,7 +25945,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.63,
-              "vol_ratio": 1.4,
+              "vol_ratio": 1.41,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -28307,7 +28307,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.16,
-            "vol_ratio": 2.94,
+            "vol_ratio": 2.97,
             "strength": {
               "total": 6.0,
               "verdict": "MEDIUM",
@@ -28345,7 +28345,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.16,
-              "vol_ratio": 2.94,
+              "vol_ratio": 2.97,
               "strength": {
                 "total": 6.0,
                 "verdict": "MEDIUM",
@@ -32533,7 +32533,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 0.56,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -32571,7 +32571,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 0.56,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -33005,7 +33005,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.49,
-            "vol_ratio": 2.21,
+            "vol_ratio": 2.22,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -33078,7 +33078,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.49,
-              "vol_ratio": 2.21,
+              "vol_ratio": 2.22,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -34316,8 +34316,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.34,
-            "vol_ratio": 0.56,
+            "legout": 1.35,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -34354,8 +34354,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.34,
-              "vol_ratio": 0.56,
+              "legout": 1.35,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -37348,7 +37348,7 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.58,
+            "legout": 0.59,
             "vol_ratio": 1.05,
             "strength": {
               "total": 4.7,
@@ -37422,7 +37422,7 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.58,
+              "legout": 0.59,
               "vol_ratio": 1.05,
               "strength": {
                 "total": 4.7,
@@ -37602,8 +37602,8 @@
             "tests": 3,
             "born": "2025-01-31",
             "n_base": 1,
-            "legout": 0.45,
-            "vol_ratio": 1.01,
+            "legout": 0.46,
+            "vol_ratio": 1.02,
             "strength": {
               "total": 4.2,
               "verdict": "WEAK",
@@ -37640,8 +37640,8 @@
               "tests": 3,
               "born": "2025-01-31",
               "n_base": 1,
-              "legout": 0.45,
-              "vol_ratio": 1.01,
+              "legout": 0.46,
+              "vol_ratio": 1.02,
               "strength": {
                 "total": 4.2,
                 "verdict": "WEAK",
@@ -37825,7 +37825,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.68,
-            "vol_ratio": 0.65,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -37899,7 +37899,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.68,
-              "vol_ratio": 0.65,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -38305,7 +38305,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 1,
-            "legout": 1.35,
+            "legout": 1.36,
             "vol_ratio": 1.52,
             "strength": {
               "total": 6.9,
@@ -38343,7 +38343,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 1,
-              "legout": 1.35,
+              "legout": 1.36,
               "vol_ratio": 1.52,
               "strength": {
                 "total": 6.9,
@@ -39835,7 +39835,7 @@
               "tests": 1,
               "born": "2026-06-30",
               "n_base": 0,
-              "legout": 0.78,
+              "legout": 0.79,
               "vol_ratio": 0.75,
               "strength": {
                 "total": 6.8,
@@ -40486,7 +40486,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 1.28,
-            "vol_ratio": 1.48,
+            "vol_ratio": 1.49,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -40524,7 +40524,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 1.28,
-              "vol_ratio": 1.48,
+              "vol_ratio": 1.49,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -41143,7 +41143,7 @@
             "born": "2025-01-31",
             "n_base": 1,
             "legout": 0.44,
-            "vol_ratio": 0.8,
+            "vol_ratio": 0.81,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -41217,7 +41217,7 @@
               "born": "2025-01-31",
               "n_base": 1,
               "legout": 0.44,
-              "vol_ratio": 0.8,
+              "vol_ratio": 0.81,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -41397,7 +41397,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -41435,7 +41435,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -43769,7 +43769,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.63,
-            "vol_ratio": 1.4,
+            "vol_ratio": 1.41,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -43807,7 +43807,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.63,
-              "vol_ratio": 1.4,
+              "vol_ratio": 1.41,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -46169,7 +46169,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.16,
-            "vol_ratio": 2.94,
+            "vol_ratio": 2.97,
             "strength": {
               "total": 6.0,
               "verdict": "MEDIUM",
@@ -46207,7 +46207,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.16,
-              "vol_ratio": 2.94,
+              "vol_ratio": 2.97,
               "strength": {
                 "total": 6.0,
                 "verdict": "MEDIUM",
@@ -50395,7 +50395,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 0.56,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -50433,7 +50433,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 0.56,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -50867,7 +50867,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.49,
-            "vol_ratio": 2.21,
+            "vol_ratio": 2.22,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -50940,7 +50940,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.49,
-              "vol_ratio": 2.21,
+              "vol_ratio": 2.22,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -52178,8 +52178,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.34,
-            "vol_ratio": 0.56,
+            "legout": 1.35,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -52216,8 +52216,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.34,
-              "vol_ratio": 0.56,
+              "legout": 1.35,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -54956,7 +54956,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 1.35,
-              "vol_ratio": 0.85,
+              "vol_ratio": 0.86,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -55754,7 +55754,7 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.58,
+            "legout": 0.59,
             "vol_ratio": 1.05,
             "strength": {
               "total": 4.7,
@@ -55828,7 +55828,7 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.58,
+              "legout": 0.59,
               "vol_ratio": 1.05,
               "strength": {
                 "total": 4.7,
@@ -56009,8 +56009,8 @@
             "tests": 3,
             "born": "2025-01-31",
             "n_base": 1,
-            "legout": 0.45,
-            "vol_ratio": 1.01,
+            "legout": 0.46,
+            "vol_ratio": 1.02,
             "strength": {
               "total": 4.2,
               "verdict": "WEAK",
@@ -56047,8 +56047,8 @@
               "tests": 3,
               "born": "2025-01-31",
               "n_base": 1,
-              "legout": 0.45,
-              "vol_ratio": 1.01,
+              "legout": 0.46,
+              "vol_ratio": 1.02,
               "strength": {
                 "total": 4.2,
                 "verdict": "WEAK",
@@ -56375,7 +56375,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.68,
-            "vol_ratio": 0.65,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -56449,7 +56449,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.68,
-              "vol_ratio": 0.65,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -57007,7 +57007,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 1,
-            "legout": 1.35,
+            "legout": 1.36,
             "vol_ratio": 1.52,
             "strength": {
               "total": 6.9,
@@ -57045,7 +57045,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 1,
-              "legout": 1.35,
+              "legout": 1.36,
               "vol_ratio": 1.52,
               "strength": {
                 "total": 6.9,
@@ -58071,7 +58071,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.9,
-            "vol_ratio": 1.65,
+            "vol_ratio": 1.66,
             "strength": {
               "total": 5.9,
               "verdict": "MEDIUM",
@@ -58144,7 +58144,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.9,
-              "vol_ratio": 1.65,
+              "vol_ratio": 1.66,
               "strength": {
                 "total": 5.9,
                 "verdict": "MEDIUM",
@@ -60025,7 +60025,7 @@
               "tests": 1,
               "born": "2026-06-30",
               "n_base": 0,
-              "legout": 0.78,
+              "legout": 0.79,
               "vol_ratio": 0.75,
               "strength": {
                 "total": 6.8,
@@ -60243,7 +60243,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 1.28,
-            "vol_ratio": 1.48,
+            "vol_ratio": 1.49,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -60281,7 +60281,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 1.28,
-              "vol_ratio": 1.48,
+              "vol_ratio": 1.49,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -63909,8 +63909,8 @@
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 5,
-              "dep": 0,
+              "score": 6,
+              "dep": 1,
               "fresh": 2,
               "base": 3,
               "auth": 1,
@@ -63921,15 +63921,15 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.59,
+            "legout": 0.6,
             "vol_ratio": 0.6,
             "strength": {
-              "total": 6.1,
+              "total": 6.5,
               "verdict": "MEDIUM",
               "parts": {
                 "freshness": 7.0,
                 "base": 10.0,
-                "departure": 4.0,
+                "departure": 6.0,
                 "volume": 3.0,
                 "htf": 6.0,
                 "age": 7.0
@@ -63947,8 +63947,8 @@
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 5,
-                "dep": 0,
+                "score": 6,
+                "dep": 1,
                 "fresh": 2,
                 "base": 3,
                 "auth": 1,
@@ -63959,15 +63959,15 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.59,
+              "legout": 0.6,
               "vol_ratio": 0.6,
               "strength": {
-                "total": 6.1,
+                "total": 6.5,
                 "verdict": "MEDIUM",
                 "parts": {
                   "freshness": 7.0,
                   "base": 10.0,
-                  "departure": 4.0,
+                  "departure": 6.0,
                   "volume": 3.0,
                   "htf": 6.0,
                   "age": 7.0
@@ -65712,7 +65712,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.19,
-            "vol_ratio": 1.35,
+            "vol_ratio": 1.36,
             "strength": {
               "total": 7.1,
               "verdict": "MEDIUM",
@@ -65785,7 +65785,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.19,
-              "vol_ratio": 1.35,
+              "vol_ratio": 1.36,
               "strength": {
                 "total": 7.1,
                 "verdict": "MEDIUM",
@@ -66341,7 +66341,7 @@
             "born": "2025-01-31",
             "n_base": 1,
             "legout": 0.44,
-            "vol_ratio": 0.8,
+            "vol_ratio": 0.81,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -66415,7 +66415,7 @@
               "born": "2025-01-31",
               "n_base": 1,
               "legout": 0.44,
-              "vol_ratio": 0.8,
+              "vol_ratio": 0.81,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -68293,7 +68293,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 1.68,
+            "vol_ratio": 1.69,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -68331,7 +68331,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 1.68,
+              "vol_ratio": 1.69,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -69266,7 +69266,7 @@
             "tests": 2,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.82,
+            "legout": 0.83,
             "vol_ratio": 1.2,
             "strength": {
               "total": 5.8,
@@ -69304,7 +69304,7 @@
               "tests": 2,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.82,
+              "legout": 0.83,
               "vol_ratio": 1.2,
               "strength": {
                 "total": 5.8,
@@ -70719,7 +70719,7 @@
             "born": "2025-03-31",
             "n_base": 6,
             "legout": 0.85,
-            "vol_ratio": 0.75,
+            "vol_ratio": 0.76,
             "strength": {
               "total": 4.0,
               "verdict": "WEAK",
@@ -70793,7 +70793,7 @@
               "born": "2025-03-31",
               "n_base": 6,
               "legout": 0.85,
-              "vol_ratio": 0.75,
+              "vol_ratio": 0.76,
               "strength": {
                 "total": 4.0,
                 "verdict": "WEAK",
@@ -72885,7 +72885,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.79,
-            "vol_ratio": 0.46,
+            "vol_ratio": 0.47,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -72923,7 +72923,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.79,
-              "vol_ratio": 0.46,
+              "vol_ratio": 0.47,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -73994,7 +73994,7 @@
             "born": "2025-05-31",
             "n_base": 2,
             "legout": 0.66,
-            "vol_ratio": 0.45,
+            "vol_ratio": 0.46,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -74032,7 +74032,7 @@
               "born": "2025-05-31",
               "n_base": 2,
               "legout": 0.66,
-              "vol_ratio": 0.45,
+              "vol_ratio": 0.46,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -75128,7 +75128,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.51,
-            "vol_ratio": 0.76,
+            "vol_ratio": 0.77,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -75166,7 +75166,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.51,
-              "vol_ratio": 0.76,
+              "vol_ratio": 0.77,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -76136,7 +76136,7 @@
             "born": "2025-01-31",
             "n_base": 0,
             "legout": 0.95,
-            "vol_ratio": 1.21,
+            "vol_ratio": 1.22,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -76174,7 +76174,7 @@
               "born": "2025-01-31",
               "n_base": 0,
               "legout": 0.95,
-              "vol_ratio": 1.21,
+              "vol_ratio": 1.22,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -76527,7 +76527,7 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.46,
+            "legout": 0.47,
             "vol_ratio": 0.96,
             "strength": {
               "total": 5.5,
@@ -76600,7 +76600,7 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.46,
+              "legout": 0.47,
               "vol_ratio": 0.96,
               "strength": {
                 "total": 5.5,
@@ -76848,8 +76848,8 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 2,
-            "legout": 0.98,
-            "vol_ratio": 0.95,
+            "legout": 0.99,
+            "vol_ratio": 0.96,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -76921,8 +76921,8 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 2,
-              "legout": 0.98,
-              "vol_ratio": 0.95,
+              "legout": 0.99,
+              "vol_ratio": 0.96,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -78438,7 +78438,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.75,
-            "vol_ratio": 0.49,
+            "vol_ratio": 0.5,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -78476,7 +78476,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.75,
-              "vol_ratio": 0.49,
+              "vol_ratio": 0.5,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -79370,7 +79370,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.56,
+            "legout": 0.57,
             "vol_ratio": 1.22,
             "strength": {
               "total": 6.5,
@@ -79408,7 +79408,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.56,
+              "legout": 0.57,
               "vol_ratio": 1.22,
               "strength": {
                 "total": 6.5,
@@ -80453,7 +80453,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.93,
-            "vol_ratio": 0.49,
+            "vol_ratio": 0.5,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -80527,7 +80527,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.93,
-              "vol_ratio": 0.49,
+              "vol_ratio": 0.5,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -81281,7 +81281,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.16,
-            "vol_ratio": 2.94,
+            "vol_ratio": 2.97,
             "strength": {
               "total": 6.0,
               "verdict": "MEDIUM",
@@ -81319,7 +81319,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.16,
-              "vol_ratio": 2.94,
+              "vol_ratio": 2.97,
               "strength": {
                 "total": 6.0,
                 "verdict": "MEDIUM",
@@ -82821,8 +82821,8 @@
       "ltp": 80.39,
       "z1d": "79.46 - 82.08 DR DEMAND",
       "s1d": "4.5 C",
-      "z1m": "52.14 - 68.65 DR DEMAND",
-      "s1m": "3.0 C",
+      "z1m": "57.91 - 70.94 DR DEMAND",
+      "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
       "fresh_badge": "🟡 1 TEST (TESTED)",
@@ -82840,12 +82840,12 @@
       "loc": "NO FRESH ZONES — equilibrium (book: trend follow)",
       "t50warn": false,
       "d_sc": 6,
-      "m_sc": 5,
+      "m_sc": 6,
       "d_strong": true,
       "m_strong": true,
       "dz": "77.68 - 79.52 • 3t",
       "sz": "86.50 - 87.98 • 3t",
-      "mdz": "52.14 - 68.65 • 2t",
+      "mdz": "57.91 - 70.94 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -82966,76 +82966,76 @@
         },
         "m1": {
           "last": {
-            "lo": 52.14,
-            "hi": 68.65,
+            "lo": 57.91,
+            "hi": 70.94,
             "pat": "DR DEMAND",
-            "score": 3.0,
+            "score": 4.0,
             "grade": "C",
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 5,
+              "score": 6,
               "dep": 1,
-              "fresh": 1,
+              "fresh": 2,
               "base": 3,
               "auth": 1,
               "best": 0,
               "et": "CONFIRMATION (Type 2/3)",
               "ets": "CONF"
             },
-            "tests": 2,
-            "born": "2025-04-30",
+            "tests": 1,
+            "born": "2026-04-30",
             "n_base": 0,
-            "legout": 1.06,
-            "vol_ratio": 1.73,
+            "legout": 0.89,
+            "vol_ratio": 0.76,
             "strength": {
-              "total": 5.9,
+              "total": 6.1,
               "verdict": "MEDIUM",
               "parts": {
-                "freshness": 4.0,
+                "freshness": 7.0,
                 "base": 10.0,
-                "departure": 8.0,
-                "volume": 6.0,
+                "departure": 6.0,
+                "volume": 3.0,
                 "htf": 3.0,
-                "age": 4.0
+                "age": 7.0
               }
             }
           },
           "next": null,
           "zones": [
             {
-              "lo": 52.14,
-              "hi": 68.65,
+              "lo": 57.91,
+              "hi": 70.94,
               "pat": "DR DEMAND",
-              "score": 3.0,
+              "score": 4.0,
               "grade": "C",
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 5,
+                "score": 6,
                 "dep": 1,
-                "fresh": 1,
+                "fresh": 2,
                 "base": 3,
                 "auth": 1,
                 "best": 0,
                 "et": "CONFIRMATION (Type 2/3)",
                 "ets": "CONF"
               },
-              "tests": 2,
-              "born": "2025-04-30",
+              "tests": 1,
+              "born": "2026-04-30",
               "n_base": 0,
-              "legout": 1.06,
-              "vol_ratio": 1.73,
+              "legout": 0.89,
+              "vol_ratio": 0.76,
               "strength": {
-                "total": 5.9,
+                "total": 6.1,
                 "verdict": "MEDIUM",
                 "parts": {
-                  "freshness": 4.0,
+                  "freshness": 7.0,
                   "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 6.0,
+                  "departure": 6.0,
+                  "volume": 3.0,
                   "htf": 3.0,
-                  "age": 4.0
+                  "age": 7.0
                 }
               }
             }
@@ -83314,7 +83314,7 @@
             "born": "2025-04-30",
             "n_base": 3,
             "legout": 1.12,
-            "vol_ratio": 2.37,
+            "vol_ratio": 2.38,
             "strength": {
               "total": 5.9,
               "verdict": "MEDIUM",
@@ -83352,7 +83352,7 @@
               "born": "2025-04-30",
               "n_base": 3,
               "legout": 1.12,
-              "vol_ratio": 2.37,
+              "vol_ratio": 2.38,
               "strength": {
                 "total": 5.9,
                 "verdict": "MEDIUM",
@@ -85689,27 +85689,27 @@
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 4,
-              "dep": 0,
+              "score": 5,
+              "dep": 1,
               "fresh": 1,
               "base": 3,
               "auth": 1,
               "best": 0,
-              "et": "BOOK: NO TRADE (<5)",
-              "ets": "SKIP"
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
             },
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 1,
-            "legout": 0.59,
+            "legout": 0.6,
             "vol_ratio": 0.72,
             "strength": {
-              "total": 4.1,
+              "total": 4.5,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 2.0,
                 "base": 10.0,
-                "departure": 4.0,
+                "departure": 6.0,
                 "volume": 3.0,
                 "htf": 3.0,
                 "age": 4.0
@@ -85763,27 +85763,27 @@
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 4,
-                "dep": 0,
+                "score": 5,
+                "dep": 1,
                 "fresh": 1,
                 "base": 3,
                 "auth": 1,
                 "best": 0,
-                "et": "BOOK: NO TRADE (<5)",
-                "ets": "SKIP"
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
               },
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 1,
-              "legout": 0.59,
+              "legout": 0.6,
               "vol_ratio": 0.72,
               "strength": {
-                "total": 4.1,
+                "total": 4.5,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 2.0,
                   "base": 10.0,
-                  "departure": 4.0,
+                  "departure": 6.0,
                   "volume": 3.0,
                   "htf": 3.0,
                   "age": 4.0
@@ -87707,8 +87707,8 @@
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
+            "birth_score": 7.0,
+            "birth_grade": "A",
             "gtf": {
               "score": 7,
               "dep": 2,
@@ -87781,8 +87781,8 @@
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
+              "birth_score": 7.0,
+              "birth_grade": "A",
               "gtf": {
                 "score": 7,
                 "dep": 2,
@@ -88373,8 +88373,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.64,
-            "vol_ratio": 1.09,
+            "legout": 0.65,
+            "vol_ratio": 1.1,
             "strength": {
               "total": 4.7,
               "verdict": "WEAK",
@@ -88411,8 +88411,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.64,
-              "vol_ratio": 1.09,
+              "legout": 0.65,
+              "vol_ratio": 1.1,
               "strength": {
                 "total": 4.7,
                 "verdict": "WEAK",
@@ -88516,7 +88516,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.53,
-            "vol_ratio": 0.52,
+            "vol_ratio": 0.53,
             "strength": {
               "total": 4.1,
               "verdict": "WEAK",
@@ -88554,7 +88554,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.53,
-              "vol_ratio": 0.52,
+              "vol_ratio": 0.53,
               "strength": {
                 "total": 4.1,
                 "verdict": "WEAK",
@@ -88729,8 +88729,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.8,
-            "vol_ratio": 0.7,
+            "legout": 0.82,
+            "vol_ratio": 0.71,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -88767,7 +88767,7 @@
               "tests": 2,
               "born": "2026-02-28",
               "n_base": 0,
-              "legout": 0.97,
+              "legout": 0.98,
               "vol_ratio": 0.71,
               "strength": {
                 "total": 5.3,
@@ -88803,8 +88803,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.8,
-              "vol_ratio": 0.7,
+              "legout": 0.82,
+              "vol_ratio": 0.71,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -89192,7 +89192,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.58,
-            "vol_ratio": 0.87,
+            "vol_ratio": 0.88,
             "strength": {
               "total": 4.8,
               "verdict": "WEAK",
@@ -89230,7 +89230,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.58,
-              "vol_ratio": 0.87,
+              "vol_ratio": 0.88,
               "strength": {
                 "total": 4.8,
                 "verdict": "WEAK",
@@ -90683,7 +90683,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 0.67,
-            "vol_ratio": 0.39,
+            "vol_ratio": 0.4,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -90721,7 +90721,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 0.67,
-              "vol_ratio": 0.39,
+              "vol_ratio": 0.4,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -92498,7 +92498,7 @@
             "born": "2025-03-31",
             "n_base": 3,
             "legout": 1.05,
-            "vol_ratio": 0.94,
+            "vol_ratio": 0.95,
             "strength": {
               "total": 4.8,
               "verdict": "WEAK",
@@ -92536,7 +92536,7 @@
               "born": "2025-03-31",
               "n_base": 3,
               "legout": 1.05,
-              "vol_ratio": 0.94,
+              "vol_ratio": 0.95,
               "strength": {
                 "total": 4.8,
                 "verdict": "WEAK",
@@ -92787,7 +92787,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 0.56,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -92825,7 +92825,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 0.56,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -93149,7 +93149,7 @@
             "born": "2025-04-30",
             "n_base": 1,
             "legout": 0.77,
-            "vol_ratio": 0.66,
+            "vol_ratio": 0.67,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -93187,7 +93187,7 @@
               "born": "2025-04-30",
               "n_base": 1,
               "legout": 0.77,
-              "vol_ratio": 0.66,
+              "vol_ratio": 0.67,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -94406,7 +94406,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.49,
-            "vol_ratio": 2.21,
+            "vol_ratio": 2.22,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -94479,7 +94479,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.49,
-              "vol_ratio": 2.21,
+              "vol_ratio": 2.22,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -94815,7 +94815,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 1.1,
-            "vol_ratio": 0.94,
+            "vol_ratio": 0.95,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -94853,7 +94853,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 1.1,
-              "vol_ratio": 0.94,
+              "vol_ratio": 0.95,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -96261,8 +96261,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.34,
-            "vol_ratio": 0.56,
+            "legout": 1.35,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -96299,8 +96299,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.34,
-              "vol_ratio": 0.56,
+              "legout": 1.35,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -97780,8 +97780,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 3,
-            "legout": 0.91,
-            "vol_ratio": 1.05,
+            "legout": 0.92,
+            "vol_ratio": 1.06,
             "strength": {
               "total": 4.4,
               "verdict": "WEAK",
@@ -97818,8 +97818,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 3,
-              "legout": 0.91,
-              "vol_ratio": 1.05,
+              "legout": 0.92,
+              "vol_ratio": 1.06,
               "strength": {
                 "total": 4.4,
                 "verdict": "WEAK",
@@ -102826,7 +102826,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 0,
-            "legout": 0.85,
+            "legout": 0.86,
             "vol_ratio": 0.48,
             "strength": {
               "total": 6.5,
@@ -102864,7 +102864,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 0,
-              "legout": 0.85,
+              "legout": 0.86,
               "vol_ratio": 0.48,
               "strength": {
                 "total": 6.5,
@@ -103217,8 +103217,8 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.17,
-            "vol_ratio": 0.58,
+            "legout": 1.19,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -103255,8 +103255,8 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.17,
-              "vol_ratio": 0.58,
+              "legout": 1.19,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -103717,15 +103717,15 @@
             },
             "tests": 1,
             "born": "2025-03-31",
-            "n_base": 3,
-            "legout": 0.5,
+            "n_base": 2,
+            "legout": 0.51,
             "vol_ratio": 0.44,
             "strength": {
-              "total": 5.1,
+              "total": 5.4,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 7.0,
-                "base": 8.0,
+                "base": 10.0,
                 "departure": 4.0,
                 "volume": 3.0,
                 "htf": 3.0,
@@ -103755,15 +103755,15 @@
               },
               "tests": 1,
               "born": "2025-03-31",
-              "n_base": 3,
-              "legout": 0.5,
+              "n_base": 2,
+              "legout": 0.51,
               "vol_ratio": 0.44,
               "strength": {
-                "total": 5.1,
+                "total": 5.4,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 7.0,
-                  "base": 8.0,
+                  "base": 10.0,
                   "departure": 4.0,
                   "volume": 3.0,
                   "htf": 3.0,
@@ -104361,7 +104361,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -104399,7 +104399,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -105649,7 +105649,7 @@
             "born": "2025-02-28",
             "n_base": 2,
             "legout": 0.83,
-            "vol_ratio": 1.04,
+            "vol_ratio": 1.05,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -105687,7 +105687,7 @@
               "born": "2025-02-28",
               "n_base": 2,
               "legout": 0.83,
-              "vol_ratio": 1.04,
+              "vol_ratio": 1.05,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -106223,7 +106223,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.63,
-            "vol_ratio": 1.4,
+            "vol_ratio": 1.41,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -106261,7 +106261,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.63,
-              "vol_ratio": 1.4,
+              "vol_ratio": 1.41,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -106814,7 +106814,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.69,
+            "legout": 0.7,
             "vol_ratio": 0.69,
             "strength": {
               "total": 6.1,
@@ -106852,7 +106852,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.69,
+              "legout": 0.7,
               "vol_ratio": 0.69,
               "strength": {
                 "total": 6.1,
@@ -108593,8 +108593,8 @@
             "tests": 1,
             "born": "2025-06-30",
             "n_base": 0,
-            "legout": 0.98,
-            "vol_ratio": 0.69,
+            "legout": 0.99,
+            "vol_ratio": 0.7,
             "strength": {
               "total": 6.2,
               "verdict": "MEDIUM",
@@ -108629,8 +108629,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.86,
-            "vol_ratio": 0.47,
+            "legout": 0.87,
+            "vol_ratio": 0.48,
             "strength": {
               "total": 6.2,
               "verdict": "MEDIUM",
@@ -108666,8 +108666,8 @@
               "tests": 1,
               "born": "2025-06-30",
               "n_base": 0,
-              "legout": 0.98,
-              "vol_ratio": 0.69,
+              "legout": 0.99,
+              "vol_ratio": 0.7,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -108702,8 +108702,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.86,
-              "vol_ratio": 0.47,
+              "legout": 0.87,
+              "vol_ratio": 0.48,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -109170,7 +109170,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 0.68,
-            "vol_ratio": 0.48,
+            "vol_ratio": 0.49,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -109208,7 +109208,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 0.68,
-              "vol_ratio": 0.48,
+              "vol_ratio": 0.49,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -109823,7 +109823,7 @@
             "born": "2025-02-28",
             "n_base": 0,
             "legout": 1.43,
-            "vol_ratio": 1.61,
+            "vol_ratio": 1.62,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -109861,7 +109861,7 @@
               "born": "2025-02-28",
               "n_base": 0,
               "legout": 1.43,
-              "vol_ratio": 1.61,
+              "vol_ratio": 1.62,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -113507,8 +113507,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.76,
-            "vol_ratio": 0.6,
+            "legout": 0.77,
+            "vol_ratio": 0.61,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -113545,8 +113545,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.76,
-              "vol_ratio": 0.6,
+              "legout": 0.77,
+              "vol_ratio": 0.61,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -114751,7 +114751,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.92,
-            "vol_ratio": 3.12,
+            "vol_ratio": 3.13,
             "strength": {
               "total": 6.5,
               "verdict": "MEDIUM",
@@ -114789,7 +114789,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.92,
-              "vol_ratio": 3.12,
+              "vol_ratio": 3.13,
               "strength": {
                 "total": 6.5,
                 "verdict": "MEDIUM",
@@ -115551,8 +115551,8 @@
               "tests": 1,
               "born": "2025-05-31",
               "n_base": 1,
-              "legout": 0.6,
-              "vol_ratio": 0.52,
+              "legout": 0.61,
+              "vol_ratio": 0.53,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -116912,7 +116912,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.44,
-            "vol_ratio": 6.83,
+            "vol_ratio": 6.84,
             "strength": {
               "total": 6.4,
               "verdict": "MEDIUM",
@@ -116950,7 +116950,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.44,
-              "vol_ratio": 6.83,
+              "vol_ratio": 6.84,
               "strength": {
                 "total": 6.4,
                 "verdict": "MEDIUM",
@@ -120209,7 +120209,7 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 2,
-            "legout": 0.69,
+            "legout": 0.7,
             "vol_ratio": 0.35,
             "strength": {
               "total": 5.0,
@@ -120247,7 +120247,7 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 2,
-              "legout": 0.69,
+              "legout": 0.7,
               "vol_ratio": 0.35,
               "strength": {
                 "total": 5.0,
@@ -120440,7 +120440,7 @@
       "ltp": 711.0,
       "z1d": "735.0 - 755.0 RD SUPPLY",
       "s1d": "5.5 B",
-      "z1m": "550.35 - 680.06 DR DEMAND",
+      "z1m": "550.35 - 680.07 DR DEMAND",
       "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -120464,7 +120464,7 @@
       "m_strong": true,
       "dz": null,
       "sz": "735.00 - 755.00 • 1t",
-      "mdz": "550.35 - 680.06 • 1t",
+      "mdz": "550.35 - 680.07 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -120478,7 +120478,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.06,
+            "hi": 680.07,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -120516,7 +120516,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.06,
+              "hi": 680.07,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -120780,7 +120780,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.79,
-            "vol_ratio": 0.78,
+            "vol_ratio": 0.79,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -120818,7 +120818,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.79,
-              "vol_ratio": 0.78,
+              "vol_ratio": 0.79,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -123156,8 +123156,8 @@
       "ltp": 544.65,
       "z1d": "590.4 - 599.7 RD SUPPLY",
       "s1d": "5.0 C",
-      "z1m": "— NO ACTIVE ZONE —",
-      "s1m": "—",
+      "z1m": "633.63 - 764.17 RD SUPPLY",
+      "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
       "fresh_badge": "🟡 1 TEST (TESTED)",
@@ -123175,13 +123175,13 @@
       "loc": "NO FRESH ZONES — equilibrium (book: trend follow)",
       "t50warn": false,
       "d_sc": 5,
-      "m_sc": 0,
+      "m_sc": 4,
       "d_strong": true,
       "m_strong": false,
       "dz": null,
       "sz": "590.40 - 599.70 • 1t",
       "mdz": null,
-      "msz": null,
+      "msz": "633.63 - 764.17 • 3t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -124101,7 +124101,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.07,
-            "vol_ratio": 2.45,
+            "vol_ratio": 2.46,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -124139,7 +124139,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.07,
-              "vol_ratio": 2.45,
+              "vol_ratio": 2.46,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -128964,7 +128964,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.48,
-            "vol_ratio": 0.7,
+            "vol_ratio": 0.71,
             "strength": {
               "total": 5.1,
               "verdict": "WEAK",
@@ -129002,7 +129002,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.48,
-              "vol_ratio": 0.7,
+              "vol_ratio": 0.71,
               "strength": {
                 "total": 5.1,
                 "verdict": "WEAK",
@@ -129146,27 +129146,27 @@
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 4,
-              "dep": 0,
+              "score": 5,
+              "dep": 1,
               "fresh": 1,
               "base": 3,
               "auth": 1,
               "best": 0,
-              "et": "BOOK: NO TRADE (<5)",
-              "ets": "SKIP"
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
             },
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 1,
-            "legout": 0.59,
+            "legout": 0.6,
             "vol_ratio": 0.72,
             "strength": {
-              "total": 4.1,
+              "total": 4.5,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 2.0,
                 "base": 10.0,
-                "departure": 4.0,
+                "departure": 6.0,
                 "volume": 3.0,
                 "htf": 3.0,
                 "age": 4.0
@@ -129220,27 +129220,27 @@
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 4,
-                "dep": 0,
+                "score": 5,
+                "dep": 1,
                 "fresh": 1,
                 "base": 3,
                 "auth": 1,
                 "best": 0,
-                "et": "BOOK: NO TRADE (<5)",
-                "ets": "SKIP"
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
               },
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 1,
-              "legout": 0.59,
+              "legout": 0.6,
               "vol_ratio": 0.72,
               "strength": {
-                "total": 4.1,
+                "total": 4.5,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 2.0,
                   "base": 10.0,
-                  "departure": 4.0,
+                  "departure": 6.0,
                   "volume": 3.0,
                   "htf": 3.0,
                   "age": 4.0
@@ -130407,7 +130407,7 @@
             "born": "2025-02-28",
             "n_base": 0,
             "legout": 1.43,
-            "vol_ratio": 1.61,
+            "vol_ratio": 1.62,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -130445,7 +130445,7 @@
               "born": "2025-02-28",
               "n_base": 0,
               "legout": 1.43,
-              "vol_ratio": 1.61,
+              "vol_ratio": 1.62,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -131047,8 +131047,8 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 2,
-            "legout": 0.98,
-            "vol_ratio": 0.95,
+            "legout": 0.99,
+            "vol_ratio": 0.96,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -131120,8 +131120,8 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 2,
-              "legout": 0.98,
-              "vol_ratio": 0.95,
+              "legout": 0.99,
+              "vol_ratio": 0.96,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -131593,7 +131593,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.49,
-            "vol_ratio": 2.21,
+            "vol_ratio": 2.22,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -131666,7 +131666,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.49,
-              "vol_ratio": 2.21,
+              "vol_ratio": 2.22,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -133532,7 +133532,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 1.28,
-            "vol_ratio": 1.48,
+            "vol_ratio": 1.49,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -133570,7 +133570,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 1.28,
-              "vol_ratio": 1.48,
+              "vol_ratio": 1.49,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -133864,8 +133864,8 @@
               "tests": 1,
               "born": "2025-05-31",
               "n_base": 1,
-              "legout": 0.6,
-              "vol_ratio": 0.52,
+              "legout": 0.61,
+              "vol_ratio": 0.53,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -134771,7 +134771,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 0.56,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -134809,7 +134809,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 0.56,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -136197,7 +136197,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 1.1,
-            "vol_ratio": 0.94,
+            "vol_ratio": 0.95,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -136235,7 +136235,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 1.1,
-              "vol_ratio": 0.94,
+              "vol_ratio": 0.95,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -138396,7 +138396,7 @@
             "tests": 1,
             "born": "2025-09-30",
             "n_base": 2,
-            "legout": 0.5,
+            "legout": 0.51,
             "vol_ratio": 0.45,
             "strength": {
               "total": 5.7,
@@ -138434,7 +138434,7 @@
               "tests": 1,
               "born": "2025-09-30",
               "n_base": 2,
-              "legout": 0.5,
+              "legout": 0.51,
               "vol_ratio": 0.45,
               "strength": {
                 "total": 5.7,
@@ -139671,7 +139671,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.88,
-            "vol_ratio": 0.91,
+            "vol_ratio": 0.92,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -139709,7 +139709,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.88,
-              "vol_ratio": 0.91,
+              "vol_ratio": 0.92,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -139996,7 +139996,7 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 2,
-            "legout": 0.69,
+            "legout": 0.7,
             "vol_ratio": 0.35,
             "strength": {
               "total": 5.0,
@@ -140034,7 +140034,7 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 2,
-              "legout": 0.69,
+              "legout": 0.7,
               "vol_ratio": 0.35,
               "strength": {
                 "total": 5.0,
@@ -140842,7 +140842,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.64,
-            "vol_ratio": 1.68,
+            "vol_ratio": 1.69,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -140880,7 +140880,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.64,
-              "vol_ratio": 1.68,
+              "vol_ratio": 1.69,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -141124,7 +141124,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.79,
-            "vol_ratio": 0.46,
+            "vol_ratio": 0.47,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -141162,7 +141162,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.79,
-              "vol_ratio": 0.46,
+              "vol_ratio": 0.47,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -141325,7 +141325,7 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.58,
+            "legout": 0.59,
             "vol_ratio": 1.05,
             "strength": {
               "total": 4.7,
@@ -141399,7 +141399,7 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.58,
+              "legout": 0.59,
               "vol_ratio": 1.05,
               "strength": {
                 "total": 4.7,
@@ -141650,7 +141650,7 @@
       "rel": "WATCH",
       "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
       "z1d": "735.0 - 755.0 RD SUPPLY",
-      "z1m": "550.35 - 680.06 DR DEMAND",
+      "z1m": "550.35 - 680.07 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -141660,7 +141660,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.06,
+            "hi": 680.07,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -141698,7 +141698,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.06,
+              "hi": 680.07,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -141774,7 +141774,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.53,
-            "vol_ratio": 0.62,
+            "vol_ratio": 0.63,
             "strength": {
               "total": 5.4,
               "verdict": "WEAK",
@@ -141812,7 +141812,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.53,
-              "vol_ratio": 0.62,
+              "vol_ratio": 0.63,
               "strength": {
                 "total": 5.4,
                 "verdict": "WEAK",
@@ -143352,7 +143352,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.92,
-            "vol_ratio": 3.12,
+            "vol_ratio": 3.13,
             "strength": {
               "total": 6.5,
               "verdict": "MEDIUM",
@@ -143390,7 +143390,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.92,
-              "vol_ratio": 3.12,
+              "vol_ratio": 3.13,
               "strength": {
                 "total": 6.5,
                 "verdict": "MEDIUM",
@@ -143611,8 +143611,8 @@
             "tests": 3,
             "born": "2025-01-31",
             "n_base": 1,
-            "legout": 0.45,
-            "vol_ratio": 1.01,
+            "legout": 0.46,
+            "vol_ratio": 1.02,
             "strength": {
               "total": 4.2,
               "verdict": "WEAK",
@@ -143649,8 +143649,8 @@
               "tests": 3,
               "born": "2025-01-31",
               "n_base": 1,
-              "legout": 0.45,
-              "vol_ratio": 1.01,
+              "legout": 0.46,
+              "vol_ratio": 1.02,
               "strength": {
                 "total": 4.2,
                 "verdict": "WEAK",
@@ -145601,7 +145601,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.68,
-            "vol_ratio": 0.65,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -145675,7 +145675,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.68,
-              "vol_ratio": 0.65,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -146330,7 +146330,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.44,
-            "vol_ratio": 6.83,
+            "vol_ratio": 6.84,
             "strength": {
               "total": 6.4,
               "verdict": "MEDIUM",
@@ -146368,7 +146368,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.44,
-              "vol_ratio": 6.83,
+              "vol_ratio": 6.84,
               "strength": {
                 "total": 6.4,
                 "verdict": "MEDIUM",
@@ -147686,7 +147686,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.98,
-            "vol_ratio": 0.59,
+            "vol_ratio": 0.6,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -147724,7 +147724,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.98,
-              "vol_ratio": 0.59,
+              "vol_ratio": 0.6,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -149341,7 +149341,7 @@
             "born": "2025-04-30",
             "n_base": 1,
             "legout": 0.77,
-            "vol_ratio": 0.66,
+            "vol_ratio": 0.67,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -149379,7 +149379,7 @@
               "born": "2025-04-30",
               "n_base": 1,
               "legout": 0.77,
-              "vol_ratio": 0.66,
+              "vol_ratio": 0.67,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -150310,7 +150310,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 1.13,
+            "legout": 1.14,
             "vol_ratio": 1.11,
             "strength": {
               "total": 7.0,
@@ -150348,7 +150348,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 1.13,
+              "legout": 1.14,
               "vol_ratio": 1.11,
               "strength": {
                 "total": 7.0,
@@ -150850,8 +150850,8 @@
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
+            "birth_score": 7.0,
+            "birth_grade": "A",
             "gtf": {
               "score": 7,
               "dep": 2,
@@ -150924,8 +150924,8 @@
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
+              "birth_score": 7.0,
+              "birth_grade": "A",
               "gtf": {
                 "score": 7,
                 "dep": 2,
@@ -151637,7 +151637,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.19,
-            "vol_ratio": 1.35,
+            "vol_ratio": 1.36,
             "strength": {
               "total": 7.1,
               "verdict": "MEDIUM",
@@ -151710,7 +151710,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.19,
-              "vol_ratio": 1.35,
+              "vol_ratio": 1.36,
               "strength": {
                 "total": 7.1,
                 "verdict": "MEDIUM",
@@ -152285,7 +152285,7 @@
             "born": "2025-05-31",
             "n_base": 2,
             "legout": 0.66,
-            "vol_ratio": 0.45,
+            "vol_ratio": 0.46,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -152323,7 +152323,7 @@
               "born": "2025-05-31",
               "n_base": 2,
               "legout": 0.66,
-              "vol_ratio": 0.45,
+              "vol_ratio": 0.46,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -152651,8 +152651,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.34,
-            "vol_ratio": 0.56,
+            "legout": 1.35,
+            "vol_ratio": 0.57,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -152689,8 +152689,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.34,
-              "vol_ratio": 0.56,
+              "legout": 1.35,
+              "vol_ratio": 0.57,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -153272,7 +153272,7 @@
             "tests": 2,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.82,
+            "legout": 0.83,
             "vol_ratio": 1.2,
             "strength": {
               "total": 5.8,
@@ -153310,7 +153310,7 @@
               "tests": 2,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.82,
+              "legout": 0.83,
               "vol_ratio": 1.2,
               "strength": {
                 "total": 5.8,
@@ -153819,7 +153819,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.9,
-            "vol_ratio": 1.65,
+            "vol_ratio": 1.66,
             "strength": {
               "total": 5.9,
               "verdict": "MEDIUM",
@@ -153892,7 +153892,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.9,
-              "vol_ratio": 1.65,
+              "vol_ratio": 1.66,
               "strength": {
                 "total": 5.9,
                 "verdict": "MEDIUM",
@@ -154479,7 +154479,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 0,
-            "legout": 0.85,
+            "legout": 0.86,
             "vol_ratio": 0.48,
             "strength": {
               "total": 6.5,
@@ -154517,7 +154517,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 0,
-              "legout": 0.85,
+              "legout": 0.86,
               "vol_ratio": 0.48,
               "strength": {
                 "total": 6.5,
@@ -155008,7 +155008,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.79,
-            "vol_ratio": 0.78,
+            "vol_ratio": 0.79,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -155046,7 +155046,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.79,
-              "vol_ratio": 0.78,
+              "vol_ratio": 0.79,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -157128,7 +157128,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 0.67,
-            "vol_ratio": 0.39,
+            "vol_ratio": 0.4,
             "strength": {
               "total": 4.5,
               "verdict": "WEAK",
@@ -157166,7 +157166,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 0.67,
-              "vol_ratio": 0.39,
+              "vol_ratio": 0.4,
               "strength": {
                 "total": 4.5,
                 "verdict": "WEAK",
@@ -157683,7 +157683,7 @@
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "79.46 - 82.08 DR DEMAND",
-      "z1m": "52.14 - 68.65 DR DEMAND",
+      "z1m": "57.91 - 70.94 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
@@ -157800,76 +157800,76 @@
         },
         "m1": {
           "last": {
-            "lo": 52.14,
-            "hi": 68.65,
+            "lo": 57.91,
+            "hi": 70.94,
             "pat": "DR DEMAND",
-            "score": 3.0,
+            "score": 4.0,
             "grade": "C",
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 5,
+              "score": 6,
               "dep": 1,
-              "fresh": 1,
+              "fresh": 2,
               "base": 3,
               "auth": 1,
               "best": 0,
               "et": "CONFIRMATION (Type 2/3)",
               "ets": "CONF"
             },
-            "tests": 2,
-            "born": "2025-04-30",
+            "tests": 1,
+            "born": "2026-04-30",
             "n_base": 0,
-            "legout": 1.06,
-            "vol_ratio": 1.73,
+            "legout": 0.89,
+            "vol_ratio": 0.76,
             "strength": {
-              "total": 5.9,
+              "total": 6.1,
               "verdict": "MEDIUM",
               "parts": {
-                "freshness": 4.0,
+                "freshness": 7.0,
                 "base": 10.0,
-                "departure": 8.0,
-                "volume": 6.0,
+                "departure": 6.0,
+                "volume": 3.0,
                 "htf": 3.0,
-                "age": 4.0
+                "age": 7.0
               }
             }
           },
           "next": null,
           "zones": [
             {
-              "lo": 52.14,
-              "hi": 68.65,
+              "lo": 57.91,
+              "hi": 70.94,
               "pat": "DR DEMAND",
-              "score": 3.0,
+              "score": 4.0,
               "grade": "C",
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 5,
+                "score": 6,
                 "dep": 1,
-                "fresh": 1,
+                "fresh": 2,
                 "base": 3,
                 "auth": 1,
                 "best": 0,
                 "et": "CONFIRMATION (Type 2/3)",
                 "ets": "CONF"
               },
-              "tests": 2,
-              "born": "2025-04-30",
+              "tests": 1,
+              "born": "2026-04-30",
               "n_base": 0,
-              "legout": 1.06,
-              "vol_ratio": 1.73,
+              "legout": 0.89,
+              "vol_ratio": 0.76,
               "strength": {
-                "total": 5.9,
+                "total": 6.1,
                 "verdict": "MEDIUM",
                 "parts": {
-                  "freshness": 4.0,
+                  "freshness": 7.0,
                   "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 6.0,
+                  "departure": 6.0,
+                  "volume": 3.0,
                   "htf": 3.0,
-                  "age": 4.0
+                  "age": 7.0
                 }
               }
             }
@@ -159575,7 +159575,7 @@
             "born": "2025-04-30",
             "n_base": 3,
             "legout": 1.12,
-            "vol_ratio": 2.37,
+            "vol_ratio": 2.38,
             "strength": {
               "total": 5.9,
               "verdict": "MEDIUM",
@@ -159613,7 +159613,7 @@
               "born": "2025-04-30",
               "n_base": 3,
               "legout": 1.12,
-              "vol_ratio": 2.37,
+              "vol_ratio": 2.38,
               "strength": {
                 "total": 5.9,
                 "verdict": "MEDIUM",
@@ -160770,7 +160770,7 @@
       "rel": "WATCH",
       "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
       "z1d": "590.4 - 599.7 RD SUPPLY",
-      "z1m": "— NO ACTIVE ZONE —",
+      "z1m": "633.63 - 764.17 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": null,
@@ -161269,8 +161269,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.64,
-            "vol_ratio": 1.09,
+            "legout": 0.65,
+            "vol_ratio": 1.1,
             "strength": {
               "total": 4.7,
               "verdict": "WEAK",
@@ -161307,8 +161307,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.64,
-              "vol_ratio": 1.09,
+              "legout": 0.65,
+              "vol_ratio": 1.1,
               "strength": {
                 "total": 4.7,
                 "verdict": "WEAK",
@@ -161542,8 +161542,8 @@
             "tests": 2,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 1.17,
-            "vol_ratio": 0.58,
+            "legout": 1.19,
+            "vol_ratio": 0.66,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -161580,8 +161580,8 @@
               "tests": 2,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 1.17,
-              "vol_ratio": 0.58,
+              "legout": 1.19,
+              "vol_ratio": 0.66,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -161709,7 +161709,7 @@
             "born": "2025-01-31",
             "n_base": 1,
             "legout": 0.44,
-            "vol_ratio": 0.8,
+            "vol_ratio": 0.81,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -161783,7 +161783,7 @@
               "born": "2025-01-31",
               "n_base": 1,
               "legout": 0.44,
-              "vol_ratio": 0.8,
+              "vol_ratio": 0.81,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -163570,7 +163570,7 @@
               "tests": 1,
               "born": "2026-06-30",
               "n_base": 0,
-              "legout": 0.78,
+              "legout": 0.79,
               "vol_ratio": 0.75,
               "strength": {
                 "total": 6.8,
@@ -164440,7 +164440,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.62,
-            "vol_ratio": 1.53,
+            "vol_ratio": 1.55,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -164478,7 +164478,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.62,
-              "vol_ratio": 1.53,
+              "vol_ratio": 1.55,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -164793,7 +164793,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.75,
-            "vol_ratio": 0.49,
+            "vol_ratio": 0.5,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -164831,7 +164831,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.75,
-              "vol_ratio": 0.49,
+              "vol_ratio": 0.5,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -165644,7 +165644,7 @@
             "born": "2025-03-31",
             "n_base": 6,
             "legout": 0.85,
-            "vol_ratio": 0.75,
+            "vol_ratio": 0.76,
             "strength": {
               "total": 4.0,
               "verdict": "WEAK",
@@ -165718,7 +165718,7 @@
               "born": "2025-03-31",
               "n_base": 6,
               "legout": 0.85,
-              "vol_ratio": 0.75,
+              "vol_ratio": 0.76,
               "strength": {
                 "total": 4.0,
                 "verdict": "WEAK",
@@ -167298,7 +167298,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.53,
-            "vol_ratio": 0.52,
+            "vol_ratio": 0.53,
             "strength": {
               "total": 4.1,
               "verdict": "WEAK",
@@ -167336,7 +167336,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.53,
-              "vol_ratio": 0.52,
+              "vol_ratio": 0.53,
               "strength": {
                 "total": 4.1,
                 "verdict": "WEAK",
@@ -167956,7 +167956,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.63,
-            "vol_ratio": 1.4,
+            "vol_ratio": 1.42,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -167994,7 +167994,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.63,
-              "vol_ratio": 1.4,
+              "vol_ratio": 1.42,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -168287,8 +168287,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.8,
-            "vol_ratio": 0.7,
+            "legout": 0.82,
+            "vol_ratio": 0.71,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -168325,7 +168325,7 @@
               "tests": 2,
               "born": "2026-02-28",
               "n_base": 0,
-              "legout": 0.97,
+              "legout": 0.98,
               "vol_ratio": 0.71,
               "strength": {
                 "total": 5.3,
@@ -168361,8 +168361,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.8,
-              "vol_ratio": 0.7,
+              "legout": 0.82,
+              "vol_ratio": 0.71,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -170684,8 +170684,8 @@
             "tests": 1,
             "born": "2025-06-30",
             "n_base": 0,
-            "legout": 0.98,
-            "vol_ratio": 0.69,
+            "legout": 0.99,
+            "vol_ratio": 0.7,
             "strength": {
               "total": 6.2,
               "verdict": "MEDIUM",
@@ -170720,8 +170720,8 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.86,
-            "vol_ratio": 0.47,
+            "legout": 0.87,
+            "vol_ratio": 0.48,
             "strength": {
               "total": 6.2,
               "verdict": "MEDIUM",
@@ -170757,8 +170757,8 @@
               "tests": 1,
               "born": "2025-06-30",
               "n_base": 0,
-              "legout": 0.98,
-              "vol_ratio": 0.69,
+              "legout": 0.99,
+              "vol_ratio": 0.7,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -170793,8 +170793,8 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.86,
-              "vol_ratio": 0.47,
+              "legout": 0.87,
+              "vol_ratio": 0.48,
               "strength": {
                 "total": 6.2,
                 "verdict": "MEDIUM",
@@ -171619,7 +171619,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.6,
-            "vol_ratio": 1.0,
+            "vol_ratio": 1.01,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -171657,7 +171657,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.6,
-              "vol_ratio": 1.0,
+              "vol_ratio": 1.01,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -172679,7 +172679,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.51,
-            "vol_ratio": 0.76,
+            "vol_ratio": 0.77,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -172717,7 +172717,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.51,
-              "vol_ratio": 0.76,
+              "vol_ratio": 0.77,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -173220,8 +173220,8 @@
             "birth_score": 6.0,
             "birth_grade": "B",
             "gtf": {
-              "score": 5,
-              "dep": 0,
+              "score": 6,
+              "dep": 1,
               "fresh": 2,
               "base": 3,
               "auth": 1,
@@ -173232,15 +173232,15 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.59,
+            "legout": 0.6,
             "vol_ratio": 0.6,
             "strength": {
-              "total": 6.1,
+              "total": 6.5,
               "verdict": "MEDIUM",
               "parts": {
                 "freshness": 7.0,
                 "base": 10.0,
-                "departure": 4.0,
+                "departure": 6.0,
                 "volume": 3.0,
                 "htf": 6.0,
                 "age": 7.0
@@ -173258,8 +173258,8 @@
               "birth_score": 6.0,
               "birth_grade": "B",
               "gtf": {
-                "score": 5,
-                "dep": 0,
+                "score": 6,
+                "dep": 1,
                 "fresh": 2,
                 "base": 3,
                 "auth": 1,
@@ -173270,15 +173270,15 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.59,
+              "legout": 0.6,
               "vol_ratio": 0.6,
               "strength": {
-                "total": 6.1,
+                "total": 6.5,
                 "verdict": "MEDIUM",
                 "parts": {
                   "freshness": 7.0,
                   "base": 10.0,
-                  "departure": 4.0,
+                  "departure": 6.0,
                   "volume": 3.0,
                   "htf": 6.0,
                   "age": 7.0
@@ -173514,7 +173514,7 @@
             "born": "2025-03-31",
             "n_base": 2,
             "legout": 0.68,
-            "vol_ratio": 0.48,
+            "vol_ratio": 0.49,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -173552,7 +173552,7 @@
               "born": "2025-03-31",
               "n_base": 2,
               "legout": 0.68,
-              "vol_ratio": 0.48,
+              "vol_ratio": 0.49,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -174852,7 +174852,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.56,
+            "legout": 0.57,
             "vol_ratio": 1.22,
             "strength": {
               "total": 6.5,
@@ -174890,7 +174890,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.56,
+              "legout": 0.57,
               "vol_ratio": 1.22,
               "strength": {
                 "total": 6.5,
@@ -176691,15 +176691,15 @@
             },
             "tests": 1,
             "born": "2025-03-31",
-            "n_base": 3,
-            "legout": 0.5,
+            "n_base": 2,
+            "legout": 0.51,
             "vol_ratio": 0.44,
             "strength": {
-              "total": 5.1,
+              "total": 5.4,
               "verdict": "WEAK",
               "parts": {
                 "freshness": 7.0,
-                "base": 8.0,
+                "base": 10.0,
                 "departure": 4.0,
                 "volume": 3.0,
                 "htf": 3.0,
@@ -176729,15 +176729,15 @@
               },
               "tests": 1,
               "born": "2025-03-31",
-              "n_base": 3,
-              "legout": 0.5,
+              "n_base": 2,
+              "legout": 0.51,
               "vol_ratio": 0.44,
               "strength": {
-                "total": 5.1,
+                "total": 5.4,
                 "verdict": "WEAK",
                 "parts": {
                   "freshness": 7.0,
-                  "base": 8.0,
+                  "base": 10.0,
                   "departure": 4.0,
                   "volume": 3.0,
                   "htf": 3.0,
@@ -179079,7 +179079,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.48,
-            "vol_ratio": 0.7,
+            "vol_ratio": 0.71,
             "strength": {
               "total": 5.1,
               "verdict": "WEAK",
@@ -179117,7 +179117,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.48,
-              "vol_ratio": 0.7,
+              "vol_ratio": 0.71,
               "strength": {
                 "total": 5.1,
                 "verdict": "WEAK",
@@ -179885,7 +179885,7 @@
             "tests": 1,
             "born": "2026-02-28",
             "n_base": 1,
-            "legout": 1.35,
+            "legout": 1.36,
             "vol_ratio": 1.52,
             "strength": {
               "total": 6.9,
@@ -179923,7 +179923,7 @@
               "tests": 1,
               "born": "2026-02-28",
               "n_base": 1,
-              "legout": 1.35,
+              "legout": 1.36,
               "vol_ratio": 1.52,
               "strength": {
                 "total": 6.9,
@@ -180159,7 +180159,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.07,
-            "vol_ratio": 2.45,
+            "vol_ratio": 2.46,
             "strength": {
               "total": 6.6,
               "verdict": "MEDIUM",
@@ -180197,7 +180197,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.07,
-              "vol_ratio": 2.45,
+              "vol_ratio": 2.46,
               "strength": {
                 "total": 6.6,
                 "verdict": "MEDIUM",
@@ -180369,7 +180369,7 @@
             "born": "2025-02-28",
             "n_base": 2,
             "legout": 0.83,
-            "vol_ratio": 1.04,
+            "vol_ratio": 1.05,
             "strength": {
               "total": 5.2,
               "verdict": "WEAK",
@@ -180407,7 +180407,7 @@
               "born": "2025-02-28",
               "n_base": 2,
               "legout": 0.83,
-              "vol_ratio": 1.04,
+              "vol_ratio": 1.05,
               "strength": {
                 "total": 5.2,
                 "verdict": "WEAK",
@@ -180794,7 +180794,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.63,
-            "vol_ratio": 1.4,
+            "vol_ratio": 1.41,
             "strength": {
               "total": 6.7,
               "verdict": "MEDIUM",
@@ -180832,7 +180832,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.63,
-              "vol_ratio": 1.4,
+              "vol_ratio": 1.41,
               "strength": {
                 "total": 6.7,
                 "verdict": "MEDIUM",
@@ -180887,7 +180887,7 @@
             "tests": 1,
             "born": "2026-04-30",
             "n_base": 0,
-            "legout": 0.69,
+            "legout": 0.7,
             "vol_ratio": 0.69,
             "strength": {
               "total": 6.1,
@@ -180925,7 +180925,7 @@
               "tests": 1,
               "born": "2026-04-30",
               "n_base": 0,
-              "legout": 0.69,
+              "legout": 0.7,
               "vol_ratio": 0.69,
               "strength": {
                 "total": 6.1,
@@ -181400,7 +181400,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 1.35,
-              "vol_ratio": 0.85,
+              "vol_ratio": 0.86,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -181809,7 +181809,7 @@
             "born": "2025-03-31",
             "n_base": 1,
             "legout": 0.93,
-            "vol_ratio": 0.49,
+            "vol_ratio": 0.5,
             "strength": {
               "total": 5.8,
               "verdict": "MEDIUM",
@@ -181883,7 +181883,7 @@
               "born": "2025-03-31",
               "n_base": 1,
               "legout": 0.93,
-              "vol_ratio": 0.49,
+              "vol_ratio": 0.5,
               "strength": {
                 "total": 5.8,
                 "verdict": "MEDIUM",
@@ -182537,8 +182537,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.76,
-            "vol_ratio": 0.6,
+            "legout": 0.77,
+            "vol_ratio": 0.61,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -182575,8 +182575,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.76,
-              "vol_ratio": 0.6,
+              "legout": 0.77,
+              "vol_ratio": 0.61,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -182944,7 +182944,7 @@
             "born": "2025-03-31",
             "n_base": 3,
             "legout": 0.53,
-            "vol_ratio": 0.69,
+            "vol_ratio": 0.7,
             "strength": {
               "total": 5.5,
               "verdict": "MEDIUM",
@@ -183017,7 +183017,7 @@
               "born": "2025-03-31",
               "n_base": 3,
               "legout": 0.53,
-              "vol_ratio": 0.69,
+              "vol_ratio": 0.7,
               "strength": {
                 "total": 5.5,
                 "verdict": "MEDIUM",
@@ -183224,8 +183224,8 @@
             "tests": 3,
             "born": "2025-03-31",
             "n_base": 3,
-            "legout": 0.91,
-            "vol_ratio": 1.05,
+            "legout": 0.92,
+            "vol_ratio": 1.06,
             "strength": {
               "total": 4.4,
               "verdict": "WEAK",
@@ -183262,8 +183262,8 @@
               "tests": 3,
               "born": "2025-03-31",
               "n_base": 3,
-              "legout": 0.91,
-              "vol_ratio": 1.05,
+              "legout": 0.92,
+              "vol_ratio": 1.06,
               "strength": {
                 "total": 4.4,
                 "verdict": "WEAK",
@@ -183485,7 +183485,7 @@
             "born": "2025-01-31",
             "n_base": 0,
             "legout": 0.95,
-            "vol_ratio": 1.21,
+            "vol_ratio": 1.22,
             "strength": {
               "total": 5.0,
               "verdict": "WEAK",
@@ -183523,7 +183523,7 @@
               "born": "2025-01-31",
               "n_base": 0,
               "legout": 0.95,
-              "vol_ratio": 1.21,
+              "vol_ratio": 1.22,
               "strength": {
                 "total": 5.0,
                 "verdict": "WEAK",
@@ -185216,7 +185216,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.58,
-            "vol_ratio": 0.87,
+            "vol_ratio": 0.88,
             "strength": {
               "total": 4.8,
               "verdict": "WEAK",
@@ -185254,7 +185254,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.58,
-              "vol_ratio": 0.87,
+              "vol_ratio": 0.88,
               "strength": {
                 "total": 4.8,
                 "verdict": "WEAK",
@@ -185512,7 +185512,7 @@
             "born": "2025-05-31",
             "n_base": 0,
             "legout": 1.16,
-            "vol_ratio": 2.94,
+            "vol_ratio": 2.97,
             "strength": {
               "total": 6.0,
               "verdict": "MEDIUM",
@@ -185550,7 +185550,7 @@
               "born": "2025-05-31",
               "n_base": 0,
               "legout": 1.16,
-              "vol_ratio": 2.94,
+              "vol_ratio": 2.97,
               "strength": {
                 "total": 6.0,
                 "verdict": "MEDIUM",
@@ -187281,7 +187281,7 @@
             "born": "2025-03-31",
             "n_base": 3,
             "legout": 1.05,
-            "vol_ratio": 0.94,
+            "vol_ratio": 0.95,
             "strength": {
               "total": 4.8,
               "verdict": "WEAK",
@@ -187319,7 +187319,7 @@
               "born": "2025-03-31",
               "n_base": 3,
               "legout": 1.05,
-              "vol_ratio": 0.94,
+              "vol_ratio": 0.95,
               "strength": {
                 "total": 4.8,
                 "verdict": "WEAK",
@@ -190309,7 +190309,7 @@
             "tests": 1,
             "born": "2025-03-31",
             "n_base": 0,
-            "legout": 0.46,
+            "legout": 0.47,
             "vol_ratio": 0.96,
             "strength": {
               "total": 5.5,
@@ -190382,7 +190382,7 @@
               "tests": 1,
               "born": "2025-03-31",
               "n_base": 0,
-              "legout": 0.46,
+              "legout": 0.47,
               "vol_ratio": 0.96,
               "strength": {
                 "total": 5.5,
@@ -192970,7 +192970,7 @@
             "born": "2025-03-31",
             "n_base": 0,
             "legout": 0.95,
-            "vol_ratio": 1.86,
+            "vol_ratio": 1.87,
             "strength": {
               "total": 7.0,
               "verdict": "MEDIUM",
@@ -193043,7 +193043,7 @@
               "born": "2025-03-31",
               "n_base": 0,
               "legout": 0.95,
-              "vol_ratio": 1.86,
+              "vol_ratio": 1.87,
               "strength": {
                 "total": 7.0,
                 "verdict": "MEDIUM",
@@ -194927,7 +194927,7 @@
             "born": "2025-05-31",
             "n_base": 1,
             "legout": 1.26,
-            "vol_ratio": 1.26,
+            "vol_ratio": 1.3,
             "strength": {
               "total": 7.1,
               "verdict": "MEDIUM",
@@ -194965,7 +194965,7 @@
               "born": "2025-05-31",
               "n_base": 1,
               "legout": 1.26,
-              "vol_ratio": 1.26,
+              "vol_ratio": 1.3,
               "strength": {
                 "total": 7.1,
                 "verdict": "MEDIUM",
@@ -196801,7 +196801,7 @@
             "born": "2025-04-30",
             "n_base": 0,
             "legout": 1.3,
-            "vol_ratio": 1.48,
+            "vol_ratio": 1.49,
             "strength": {
               "total": 7.1,
               "verdict": "MEDIUM",
@@ -196839,7 +196839,7 @@
               "born": "2025-04-30",
               "n_base": 0,
               "legout": 1.3,
-              "vol_ratio": 1.48,
+              "vol_ratio": 1.49,
               "strength": {
                 "total": 7.1,
                 "verdict": "MEDIUM",
@@ -198631,8 +198631,8 @@
             "tests": 2,
             "born": "2025-02-28",
             "n_base": 7,
-            "legout": 0.98,
-            "vol_ratio": 0.92,
+            "legout": 0.99,
+            "vol_ratio": 0.93,
             "strength": {
               "total": 4.6,
               "verdict": "WEAK",
@@ -198669,8 +198669,8 @@
               "tests": 2,
               "born": "2025-02-28",
               "n_base": 7,
-              "legout": 0.98,
-              "vol_ratio": 0.92,
+              "legout": 0.99,
+              "vol_ratio": 0.93,
               "strength": {
                 "total": 4.6,
                 "verdict": "WEAK",
@@ -201925,85 +201925,13 @@
       "ltp": 69.55,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "10.5 - 11.47 DR DEMAND",
+      "z1d": "— NO ACTIVE ZONE —",
       "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
-          "last": {
-            "lo": 10.5,
-            "hi": 11.47,
-            "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 2,
-            "born": "2026-01-14",
-            "n_base": 0,
-            "legout": 0.78,
-            "vol_ratio": 0.45,
-            "strength": {
-              "total": 5.2,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 4.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 3.0,
-                "htf": 6.0,
-                "age": 2.0
-              }
-            }
-          },
+          "last": null,
           "next": null,
-          "zones": [
-            {
-              "lo": 10.5,
-              "hi": 11.47,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 2,
-              "born": "2026-01-14",
-              "n_base": 0,
-              "legout": 0.78,
-              "vol_ratio": 0.45,
-              "strength": {
-                "total": 5.2,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 4.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 3.0,
-                  "htf": 6.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
+          "zones": []
         },
         "m1": {
           "last": null,
@@ -204551,7 +204479,7 @@
       "sym": "TCC",
       "comp": "TCC",
       "sector": "CONSUMPTION",
-      "ltp": 47.47,
+      "ltp": 47.07,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "78.61 - 81.95 RD SUPPLY",
