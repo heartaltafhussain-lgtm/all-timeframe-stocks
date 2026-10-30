@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "timestamp": "2026-10-30 22:18:03 IST",
+  "timestamp": "2026-10-30 23:44:19 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -34,16 +34,16 @@
   },
   "scanStats": {
     "universe": 500,
-    "ohlcOk": 619,
+    "ohlcOk": 612,
     "scanned": 499,
-    "failed": 27,
+    "failed": 24,
     "inZone": 385,
     "demand": 144,
     "supply": 184,
     "equilibrium": 57,
     "buyReady": 10,
-    "extraScanned": 120,
-    "analysisTracked": 619
+    "extraScanned": 113,
+    "analysisTracked": 612
   },
   "top3": [],
   "sectorIndices": [
@@ -14394,7 +14394,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -23895,7 +23895,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -76684,7 +76684,7 @@
       "ltp": 116775.0,
       "z1d": "124700.0 - 125780.0 RD SUPPLY",
       "s1d": "4.5 C",
-      "z1m": "101786.99 - 115617.15 DR DEMAND",
+      "z1m": "101787.0 - 115617.15 DR DEMAND",
       "s1m": "3.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 2,
@@ -76708,7 +76708,7 @@
       "m_strong": false,
       "dz": null,
       "sz": "124700.00 - 125780.00 • 2t",
-      "mdz": "101786.99 - 115617.15 • 2t",
+      "mdz": "101787.00 - 115617.15 • 2t",
       "msz": "151235.04 - 159415.43 • 1t",
       "bdz": false,
       "bmz": false,
@@ -76721,7 +76721,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101786.99,
+            "lo": 101787.0,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -76759,7 +76759,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 101786.99,
+              "lo": 101787.0,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -132562,7 +132562,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -174459,7 +174459,7 @@
       "rel": "NEAR",
       "sig": "ZONE KE PAAS",
       "z1d": "124700.0 - 125780.0 RD SUPPLY",
-      "z1m": "101786.99 - 115617.15 DR DEMAND",
+      "z1m": "101787.0 - 115617.15 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -174468,7 +174468,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101786.99,
+            "lo": 101787.0,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -174506,7 +174506,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 101786.99,
+              "lo": 101787.0,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -196417,6 +196417,172 @@
         }
       }
     },
+    "AARTECH": {
+      "sym": "AARTECH",
+      "comp": "AARTECH",
+      "sector": "CONSUMPTION",
+      "ltp": 40.13,
+      "rel": "IN",
+      "sig": "ZONE KE PAAS",
+      "z1d": "39.76 - 43.4 RD SUPPLY",
+      "z1m": "35.1 - 55.85 DR DEMAND",
+      "analysis": {
+        "d1": {
+          "last": {
+            "lo": 40.01,
+            "hi": 43.64,
+            "pat": "DR DEMAND",
+            "score": 3.0,
+            "grade": "C",
+            "birth_score": 6.5,
+            "birth_grade": "B",
+            "gtf": {
+              "score": 5,
+              "dep": 1,
+              "fresh": 1,
+              "base": 3,
+              "auth": 1,
+              "best": 0,
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
+            },
+            "tests": 4,
+            "born": "2026-05-18",
+            "n_base": 0,
+            "legout": 0.81,
+            "vol_ratio": 2.69,
+            "strength": {
+              "total": 6.4,
+              "verdict": "MEDIUM",
+              "parts": {
+                "freshness": 2.0,
+                "base": 10.0,
+                "departure": 6.0,
+                "volume": 10.0,
+                "htf": 10.0,
+                "age": 2.0
+              }
+            }
+          },
+          "next": null,
+          "zones": [
+            {
+              "lo": 40.01,
+              "hi": 43.64,
+              "pat": "DR DEMAND",
+              "score": 3.0,
+              "grade": "C",
+              "birth_score": 6.5,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 5,
+                "dep": 1,
+                "fresh": 1,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 4,
+              "born": "2026-05-18",
+              "n_base": 0,
+              "legout": 0.81,
+              "vol_ratio": 2.69,
+              "strength": {
+                "total": 6.4,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 2.0,
+                  "base": 10.0,
+                  "departure": 6.0,
+                  "volume": 10.0,
+                  "htf": 10.0,
+                  "age": 2.0
+                }
+              }
+            }
+          ]
+        },
+        "m1": {
+          "last": {
+            "lo": 35.1,
+            "hi": 55.85,
+            "pat": "DR DEMAND",
+            "score": 4.0,
+            "grade": "C",
+            "birth_score": 6.0,
+            "birth_grade": "B",
+            "gtf": {
+              "score": 6,
+              "dep": 1,
+              "fresh": 2,
+              "base": 3,
+              "auth": 1,
+              "best": 0,
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
+            },
+            "tests": 1,
+            "born": "2026-04-30",
+            "n_base": 3,
+            "legout": 0.88,
+            "vol_ratio": 1.21,
+            "strength": {
+              "total": 6.2,
+              "verdict": "MEDIUM",
+              "parts": {
+                "freshness": 7.0,
+                "base": 8.0,
+                "departure": 6.0,
+                "volume": 6.0,
+                "htf": 3.0,
+                "age": 7.0
+              }
+            }
+          },
+          "next": null,
+          "zones": [
+            {
+              "lo": 35.1,
+              "hi": 55.85,
+              "pat": "DR DEMAND",
+              "score": 4.0,
+              "grade": "C",
+              "birth_score": 6.0,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 6,
+                "dep": 1,
+                "fresh": 2,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 1,
+              "born": "2026-04-30",
+              "n_base": 3,
+              "legout": 0.88,
+              "vol_ratio": 1.21,
+              "strength": {
+                "total": 6.2,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 7.0,
+                  "base": 8.0,
+                  "departure": 6.0,
+                  "volume": 6.0,
+                  "htf": 3.0,
+                  "age": 7.0
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "AARTIDRUGS": {
       "sym": "AARTIDRUGS",
       "comp": "AARTIDRUGS",
@@ -197319,163 +197485,20 @@
         }
       }
     },
-    "ARIS": {
-      "sym": "ARIS",
-      "comp": "ARIS",
+    "ANNAPURNA": {
+      "sym": "ANNAPURNA",
+      "comp": "ANNAPURNA",
       "sector": "CONSUMPTION",
-      "ltp": 139.17,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "137.1 - 147.75 RD SUPPLY",
+      "ltp": 119.17,
+      "rel": "AWAY",
+      "sig": "AWAY — koi active zone 8% band me nahi",
+      "z1d": "155.35 - 165.4 RD SUPPLY",
       "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
-          "last": {
-            "lo": 106.08,
-            "hi": 109.91,
-            "pat": "DR DEMAND",
-            "score": 2.5,
-            "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 4,
-              "dep": 0,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "BOOK: NO TRADE (<5)",
-              "ets": "SKIP"
-            },
-            "tests": 3,
-            "born": "2026-07-01",
-            "n_base": 0,
-            "legout": 0.48,
-            "vol_ratio": 0.49,
-            "strength": {
-              "total": 4.3,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 4.0,
-                "volume": 3.0,
-                "htf": 6.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": {
-            "lo": 82.18,
-            "hi": 90.6,
-            "pat": "DR DEMAND",
-            "score": 4.0,
-            "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-02-09",
-            "n_base": 0,
-            "legout": 0.63,
-            "vol_ratio": 1.5,
-            "strength": {
-              "total": 6.4,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 6.0,
-                "htf": 6.0,
-                "age": 2.0
-              }
-            }
-          },
-          "zones": [
-            {
-              "lo": 106.08,
-              "hi": 109.91,
-              "pat": "DR DEMAND",
-              "score": 2.5,
-              "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 4,
-                "dep": 0,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "BOOK: NO TRADE (<5)",
-                "ets": "SKIP"
-              },
-              "tests": 3,
-              "born": "2026-07-01",
-              "n_base": 0,
-              "legout": 0.48,
-              "vol_ratio": 0.49,
-              "strength": {
-                "total": 4.3,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 4.0,
-                  "volume": 3.0,
-                  "htf": 6.0,
-                  "age": 2.0
-                }
-              }
-            },
-            {
-              "lo": 82.18,
-              "hi": 90.6,
-              "pat": "DR DEMAND",
-              "score": 4.0,
-              "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-02-09",
-              "n_base": 0,
-              "legout": 0.63,
-              "vol_ratio": 1.5,
-              "strength": {
-                "total": 6.4,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 6.0,
-                  "htf": 6.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
+          "last": null,
+          "next": null,
+          "zones": []
         },
         "m1": {
           "last": null,
@@ -197493,28 +197516,6 @@
       "sig": "ZONE KE PAAS",
       "z1d": "96.07 - 98.91 RD SUPPLY",
       "z1m": "122.0 - 141.19 RD SUPPLY",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
-    "ASIANTILES": {
-      "sym": "ASIANTILES",
-      "comp": "ASIANTILES",
-      "sector": "CONSUMPTION",
-      "ltp": 45.88,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "58.42 - 66.2 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": null,
@@ -200995,172 +200996,6 @@
         }
       }
     },
-    "GENUSPOWER": {
-      "sym": "GENUSPOWER",
-      "comp": "GENUSPOWER",
-      "sector": "CONSUMPTION",
-      "ltp": 273.5,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "222.23 - 236.61 DR DEMAND",
-      "z1m": "220.41 - 318.66 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 222.23,
-            "hi": 236.61,
-            "pat": "DR DEMAND",
-            "score": 4.0,
-            "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-04-01",
-            "n_base": 0,
-            "legout": 0.67,
-            "vol_ratio": 1.26,
-            "strength": {
-              "total": 7.0,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 6.0,
-                "htf": 10.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 222.23,
-              "hi": 236.61,
-              "pat": "DR DEMAND",
-              "score": 4.0,
-              "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-01",
-              "n_base": 0,
-              "legout": 0.67,
-              "vol_ratio": 1.26,
-              "strength": {
-                "total": 7.0,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 6.0,
-                  "htf": 10.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": {
-            "lo": 220.41,
-            "hi": 318.66,
-            "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 8.5,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 7,
-              "dep": 2,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-04-30",
-            "n_base": 1,
-            "legout": 1.22,
-            "vol_ratio": 0.86,
-            "strength": {
-              "total": 6.6,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 4.0,
-                "htf": 3.0,
-                "age": 7.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 220.41,
-              "hi": 318.66,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 8.5,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 7,
-                "dep": 2,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-30",
-              "n_base": 1,
-              "legout": 1.22,
-              "vol_ratio": 0.86,
-              "strength": {
-                "total": 6.6,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 4.0,
-                  "htf": 3.0,
-                  "age": 7.0
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
     "GNRL": {
       "sym": "GNRL",
       "comp": "GNRL",
@@ -201361,100 +201196,6 @@
                   "freshness": 7.0,
                   "base": 10.0,
                   "departure": 4.0,
-                  "volume": 4.0,
-                  "htf": 6.0,
-                  "age": 7.0
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
-    "IIFLCAPS": {
-      "sym": "IIFLCAPS",
-      "comp": "IIFLCAPS",
-      "sector": "CONSUMPTION",
-      "ltp": 347.85,
-      "rel": "WATCH",
-      "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
-      "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "246.67 - 338.0 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
-          "last": {
-            "lo": 246.67,
-            "hi": 338.0,
-            "pat": "DR DEMAND",
-            "score": 5.0,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-04-30",
-            "n_base": 1,
-            "legout": 0.71,
-            "vol_ratio": 0.81,
-            "strength": {
-              "total": 6.7,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 4.0,
-                "htf": 6.0,
-                "age": 7.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 246.67,
-              "hi": 338.0,
-              "pat": "DR DEMAND",
-              "score": 5.0,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-30",
-              "n_base": 1,
-              "legout": 0.71,
-              "vol_ratio": 0.81,
-              "strength": {
-                "total": 6.7,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 6.0,
                   "volume": 4.0,
                   "htf": 6.0,
                   "age": 7.0
@@ -201998,279 +201739,6 @@
         }
       }
     },
-    "JGCHEM": {
-      "sym": "JGCHEM",
-      "comp": "JGCHEM",
-      "sector": "CONSUMPTION",
-      "ltp": 562.4,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "560.0 - 586.0 RD SUPPLY",
-      "z1m": "315.33 - 416.85 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 533.59,
-            "hi": 555.0,
-            "pat": "DR DEMAND",
-            "score": 2.5,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 3,
-            "born": "2026-08-07",
-            "n_base": 0,
-            "legout": 0.63,
-            "vol_ratio": 0.83,
-            "strength": {
-              "total": 4.9,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 4.0,
-                "htf": 6.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": {
-            "lo": 404.32,
-            "hi": 433.87,
-            "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-06-08",
-            "n_base": 0,
-            "legout": 1.04,
-            "vol_ratio": 1.18,
-            "strength": {
-              "total": 7.1,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 4.0,
-                "htf": 10.0,
-                "age": 2.0
-              }
-            }
-          },
-          "zones": [
-            {
-              "lo": 533.59,
-              "hi": 555.0,
-              "pat": "DR DEMAND",
-              "score": 2.5,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 3,
-              "born": "2026-08-07",
-              "n_base": 0,
-              "legout": 0.63,
-              "vol_ratio": 0.83,
-              "strength": {
-                "total": 4.9,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 4.0,
-                  "htf": 6.0,
-                  "age": 2.0
-                }
-              }
-            },
-            {
-              "lo": 404.32,
-              "hi": 433.87,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-06-08",
-              "n_base": 0,
-              "legout": 1.04,
-              "vol_ratio": 1.18,
-              "strength": {
-                "total": 7.1,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 4.0,
-                  "htf": 10.0,
-                  "age": 2.0
-                }
-              }
-            },
-            {
-              "lo": 315.33,
-              "hi": 336.99,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 6.5,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-01",
-              "n_base": 0,
-              "legout": 1.06,
-              "vol_ratio": 0.93,
-              "strength": {
-                "total": 7.1,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 4.0,
-                  "htf": 10.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": {
-            "lo": 315.33,
-            "hi": 416.85,
-            "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 7.5,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-04-30",
-            "n_base": 0,
-            "legout": 1.01,
-            "vol_ratio": 0.35,
-            "strength": {
-              "total": 6.9,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 3.0,
-                "htf": 6.0,
-                "age": 7.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 315.33,
-              "hi": 416.85,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 7.5,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-30",
-              "n_base": 0,
-              "legout": 1.01,
-              "vol_ratio": 0.35,
-              "strength": {
-                "total": 6.9,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 3.0,
-                  "htf": 6.0,
-                  "age": 7.0
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
     "JINDRILL": {
       "sym": "JINDRILL",
       "comp": "JINDRILL",
@@ -202357,6 +201825,50 @@
               }
             }
           ]
+        },
+        "m1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        }
+      }
+    },
+    "JISLDVREQS": {
+      "sym": "JISLDVREQS",
+      "comp": "JISLDVREQS",
+      "sector": "CONSUMPTION",
+      "ltp": 19.18,
+      "rel": "WATCH",
+      "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
+      "z1d": "20.7 - 22.4 RD SUPPLY",
+      "z1m": "28.01 - 33.49 RD SUPPLY",
+      "analysis": {
+        "d1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        },
+        "m1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        }
+      }
+    },
+    "JISLJALEQS": {
+      "sym": "JISLJALEQS",
+      "comp": "JISLJALEQS",
+      "sector": "CONSUMPTION",
+      "ltp": 28.47,
+      "rel": "WATCH",
+      "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
+      "z1d": "30.9 - 32.54 RD SUPPLY",
+      "z1m": "29.11 - 36.1 RD SUPPLY",
+      "analysis": {
+        "d1": {
+          "last": null,
+          "next": null,
+          "zones": []
         },
         "m1": {
           "last": null,
@@ -202697,97 +202209,169 @@
         }
       }
     },
-    "KSR": {
-      "sym": "KSR",
-      "comp": "KSR",
+    "KSHITIJPOL": {
+      "sym": "KSHITIJPOL",
+      "comp": "KSHITIJPOL",
       "sector": "CONSUMPTION",
-      "ltp": 34.36,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "23.61 - 25.29 DR DEMAND",
-      "z1m": "— NO ACTIVE ZONE —",
+      "ltp": 3.09,
+      "rel": "IN",
+      "sig": "ZONE KE PAAS",
+      "z1d": "2.85 - 3.0 DR DEMAND",
+      "z1m": "2.9 - 4.0 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 23.61,
-            "hi": 25.29,
+            "lo": 2.85,
+            "hi": 3.0,
             "pat": "DR DEMAND",
-            "score": 5.0,
+            "score": 4.5,
             "grade": "C",
-            "birth_score": 7.0,
+            "birth_score": 7.5,
             "birth_grade": "A",
             "gtf": {
-              "score": 6,
+              "score": 5,
               "dep": 1,
               "fresh": 2,
-              "base": 3,
+              "base": 2,
               "auth": 1,
               "best": 0,
               "et": "CONFIRMATION (Type 2/3)",
               "ets": "CONF"
             },
             "tests": 1,
-            "born": "2026-01-22",
-            "n_base": 0,
-            "legout": 0.6,
-            "vol_ratio": 0.63,
+            "born": "2026-09-02",
+            "n_base": 4,
+            "legout": 0.92,
+            "vol_ratio": 0.92,
             "strength": {
-              "total": 6.0,
+              "total": 6.7,
               "verdict": "MEDIUM",
               "parts": {
                 "freshness": 7.0,
-                "base": 10.0,
+                "base": 8.0,
                 "departure": 6.0,
-                "volume": 3.0,
-                "htf": 6.0,
-                "age": 2.0
+                "volume": 4.0,
+                "htf": 10.0,
+                "age": 4.0
               }
             }
           },
           "next": null,
           "zones": [
             {
-              "lo": 23.61,
-              "hi": 25.29,
+              "lo": 2.85,
+              "hi": 3.0,
               "pat": "DR DEMAND",
-              "score": 5.0,
+              "score": 4.5,
               "grade": "C",
-              "birth_score": 7.0,
+              "birth_score": 7.5,
               "birth_grade": "A",
               "gtf": {
-                "score": 6,
+                "score": 5,
                 "dep": 1,
                 "fresh": 2,
-                "base": 3,
+                "base": 2,
                 "auth": 1,
                 "best": 0,
                 "et": "CONFIRMATION (Type 2/3)",
                 "ets": "CONF"
               },
               "tests": 1,
-              "born": "2026-01-22",
-              "n_base": 0,
-              "legout": 0.6,
-              "vol_ratio": 0.63,
+              "born": "2026-09-02",
+              "n_base": 4,
+              "legout": 0.92,
+              "vol_ratio": 0.92,
               "strength": {
-                "total": 6.0,
+                "total": 6.7,
                 "verdict": "MEDIUM",
                 "parts": {
                   "freshness": 7.0,
-                  "base": 10.0,
+                  "base": 8.0,
                   "departure": 6.0,
-                  "volume": 3.0,
-                  "htf": 6.0,
-                  "age": 2.0
+                  "volume": 4.0,
+                  "htf": 10.0,
+                  "age": 4.0
                 }
               }
             }
           ]
         },
         "m1": {
-          "last": null,
+          "last": {
+            "lo": 1.98,
+            "hi": 3.26,
+            "pat": "DR DEMAND",
+            "score": 3.0,
+            "grade": "C",
+            "birth_score": 6.0,
+            "birth_grade": "B",
+            "gtf": {
+              "score": 2,
+              "dep": 0,
+              "fresh": 1,
+              "base": 1,
+              "auth": 1,
+              "best": 0,
+              "et": "BOOK: NO TRADE (<5)",
+              "ets": "SKIP"
+            },
+            "tests": 2,
+            "born": "2026-02-28",
+            "n_base": 8,
+            "legout": 0.59,
+            "vol_ratio": 0.44,
+            "strength": {
+              "total": 3.9,
+              "verdict": "WEAK",
+              "parts": {
+                "freshness": 4.0,
+                "base": 3.0,
+                "departure": 4.0,
+                "volume": 3.0,
+                "htf": 3.0,
+                "age": 7.0
+              }
+            }
+          },
           "next": null,
-          "zones": []
+          "zones": [
+            {
+              "lo": 1.98,
+              "hi": 3.26,
+              "pat": "DR DEMAND",
+              "score": 3.0,
+              "grade": "C",
+              "birth_score": 6.0,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 2,
+                "dep": 0,
+                "fresh": 1,
+                "base": 1,
+                "auth": 1,
+                "best": 0,
+                "et": "BOOK: NO TRADE (<5)",
+                "ets": "SKIP"
+              },
+              "tests": 2,
+              "born": "2026-02-28",
+              "n_base": 8,
+              "legout": 0.59,
+              "vol_ratio": 0.44,
+              "strength": {
+                "total": 3.9,
+                "verdict": "WEAK",
+                "parts": {
+                  "freshness": 4.0,
+                  "base": 3.0,
+                  "departure": 4.0,
+                  "volume": 3.0,
+                  "htf": 3.0,
+                  "age": 7.0
+                }
+              }
+            }
+          ]
         }
       }
     },
@@ -202916,6 +202500,243 @@
                   "departure": 6.0,
                   "volume": 8.0,
                   "htf": 3.0,
+                  "age": 2.0
+                }
+              }
+            }
+          ]
+        },
+        "m1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        }
+      }
+    },
+    "LOTUSDEV": {
+      "sym": "LOTUSDEV",
+      "comp": "LOTUSDEV",
+      "sector": "CONSUMPTION",
+      "ltp": 245.98,
+      "rel": "WATCH",
+      "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
+      "z1d": "214.23 - 236.77 DR DEMAND",
+      "z1m": "— NO ACTIVE ZONE —",
+      "analysis": {
+        "d1": {
+          "last": {
+            "lo": 214.23,
+            "hi": 236.77,
+            "pat": "DR DEMAND",
+            "score": 3.5,
+            "grade": "C",
+            "birth_score": 7.0,
+            "birth_grade": "A",
+            "gtf": {
+              "score": 5,
+              "dep": 1,
+              "fresh": 1,
+              "base": 3,
+              "auth": 1,
+              "best": 0,
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
+            },
+            "tests": 2,
+            "born": "2026-10-26",
+            "n_base": 0,
+            "legout": 1.18,
+            "vol_ratio": 0.69,
+            "strength": {
+              "total": 6.4,
+              "verdict": "MEDIUM",
+              "parts": {
+                "freshness": 4.0,
+                "base": 10.0,
+                "departure": 8.0,
+                "volume": 3.0,
+                "htf": 6.0,
+                "age": 10.0
+              }
+            }
+          },
+          "next": {
+            "lo": 173.6,
+            "hi": 184.05,
+            "pat": "DR DEMAND",
+            "score": 6.0,
+            "grade": "B",
+            "birth_score": 8.5,
+            "birth_grade": "A",
+            "gtf": {
+              "score": 7,
+              "dep": 2,
+              "fresh": 2,
+              "base": 3,
+              "auth": 1,
+              "best": 0,
+              "et": "CONFIRMATION (Type 2/3)",
+              "ets": "CONF"
+            },
+            "tests": 1,
+            "born": "2026-09-03",
+            "n_base": 0,
+            "legout": 1.31,
+            "vol_ratio": 0.39,
+            "strength": {
+              "total": 6.6,
+              "verdict": "MEDIUM",
+              "parts": {
+                "freshness": 7.0,
+                "base": 10.0,
+                "departure": 8.0,
+                "volume": 3.0,
+                "htf": 6.0,
+                "age": 4.0
+              }
+            }
+          },
+          "zones": [
+            {
+              "lo": 214.23,
+              "hi": 236.77,
+              "pat": "DR DEMAND",
+              "score": 3.5,
+              "grade": "C",
+              "birth_score": 7.0,
+              "birth_grade": "A",
+              "gtf": {
+                "score": 5,
+                "dep": 1,
+                "fresh": 1,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 2,
+              "born": "2026-10-26",
+              "n_base": 0,
+              "legout": 1.18,
+              "vol_ratio": 0.69,
+              "strength": {
+                "total": 6.4,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 4.0,
+                  "base": 10.0,
+                  "departure": 8.0,
+                  "volume": 3.0,
+                  "htf": 6.0,
+                  "age": 10.0
+                }
+              }
+            },
+            {
+              "lo": 173.6,
+              "hi": 184.05,
+              "pat": "DR DEMAND",
+              "score": 6.0,
+              "grade": "B",
+              "birth_score": 8.5,
+              "birth_grade": "A",
+              "gtf": {
+                "score": 7,
+                "dep": 2,
+                "fresh": 2,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 1,
+              "born": "2026-09-03",
+              "n_base": 0,
+              "legout": 1.31,
+              "vol_ratio": 0.39,
+              "strength": {
+                "total": 6.6,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 7.0,
+                  "base": 10.0,
+                  "departure": 8.0,
+                  "volume": 3.0,
+                  "htf": 6.0,
+                  "age": 4.0
+                }
+              }
+            },
+            {
+              "lo": 138.98,
+              "hi": 143.66,
+              "pat": "DR DEMAND",
+              "score": 5.0,
+              "grade": "C",
+              "birth_score": 6.0,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 4,
+                "dep": 0,
+                "fresh": 2,
+                "base": 2,
+                "auth": 1,
+                "best": 0,
+                "et": "BOOK: NO TRADE (<5)",
+                "ets": "SKIP"
+              },
+              "tests": 1,
+              "born": "2026-07-09",
+              "n_base": 5,
+              "legout": 0.56,
+              "vol_ratio": 0.54,
+              "strength": {
+                "total": 5.3,
+                "verdict": "WEAK",
+                "parts": {
+                  "freshness": 7.0,
+                  "base": 8.0,
+                  "departure": 4.0,
+                  "volume": 3.0,
+                  "htf": 6.0,
+                  "age": 2.0
+                }
+              }
+            },
+            {
+              "lo": 105.53,
+              "hi": 112.7,
+              "pat": "DR DEMAND",
+              "score": 5.0,
+              "grade": "C",
+              "birth_score": 6.5,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 6,
+                "dep": 1,
+                "fresh": 2,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 1,
+              "born": "2026-04-01",
+              "n_base": 0,
+              "legout": 0.91,
+              "vol_ratio": 0.72,
+              "strength": {
+                "total": 6.0,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 7.0,
+                  "base": 10.0,
+                  "departure": 6.0,
+                  "volume": 3.0,
+                  "htf": 6.0,
                   "age": 2.0
                 }
               }
@@ -203556,30 +203377,25 @@
         }
       }
     },
-    "MASTEK": {
-      "sym": "MASTEK",
-      "comp": "MASTEK",
+    "MARSONS": {
+      "sym": "MARSONS",
+      "comp": "MARSONS",
       "sector": "CONSUMPTION",
-      "ltp": 1429.6,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "1345.38 - 1781.28 DR DEMAND",
+      "ltp": 148.62,
+      "rel": "AWAY",
+      "sig": "AWAY — koi active zone 8% band me nahi",
+      "z1d": "162.5 - 173.0 RD SUPPLY",
+      "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
           "last": {
-            "lo": 1345.38,
-            "hi": 1781.28,
+            "lo": 102.31,
+            "hi": 111.6,
             "pat": "DR DEMAND",
-            "score": 4.5,
-            "grade": "C",
-            "birth_score": 6.5,
-            "birth_grade": "B",
+            "score": 5.5,
+            "grade": "B",
+            "birth_score": 7.0,
+            "birth_grade": "A",
             "gtf": {
               "score": 6,
               "dep": 1,
@@ -203591,30 +203407,231 @@
               "ets": "CONF"
             },
             "tests": 1,
-            "born": "2026-04-30",
-            "n_base": 0,
-            "legout": 0.82,
-            "vol_ratio": 0.52,
+            "born": "2026-08-19",
+            "n_base": 1,
+            "legout": 1.02,
+            "vol_ratio": 2.58,
             "strength": {
-              "total": 6.1,
+              "total": 7.4,
               "verdict": "MEDIUM",
               "parts": {
                 "freshness": 7.0,
                 "base": 10.0,
-                "departure": 6.0,
-                "volume": 3.0,
-                "htf": 3.0,
-                "age": 7.0
+                "departure": 8.0,
+                "volume": 10.0,
+                "htf": 6.0,
+                "age": 2.0
               }
             }
           },
           "next": null,
           "zones": [
             {
-              "lo": 1345.38,
-              "hi": 1781.28,
+              "lo": 102.31,
+              "hi": 111.6,
               "pat": "DR DEMAND",
-              "score": 4.5,
+              "score": 5.5,
+              "grade": "B",
+              "birth_score": 7.0,
+              "birth_grade": "A",
+              "gtf": {
+                "score": 6,
+                "dep": 1,
+                "fresh": 2,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "CONFIRMATION (Type 2/3)",
+                "ets": "CONF"
+              },
+              "tests": 1,
+              "born": "2026-08-19",
+              "n_base": 1,
+              "legout": 1.02,
+              "vol_ratio": 2.58,
+              "strength": {
+                "total": 7.4,
+                "verdict": "MEDIUM",
+                "parts": {
+                  "freshness": 7.0,
+                  "base": 10.0,
+                  "departure": 8.0,
+                  "volume": 10.0,
+                  "htf": 6.0,
+                  "age": 2.0
+                }
+              }
+            }
+          ]
+        },
+        "m1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        }
+      }
+    },
+    "MMFL": {
+      "sym": "MMFL",
+      "comp": "MMFL",
+      "sector": "CONSUMPTION",
+      "ltp": 482.9,
+      "rel": "IN",
+      "sig": "ZONE KE PAAS",
+      "z1d": "477.35 - 499.7 RD SUPPLY",
+      "z1m": "— NO ACTIVE ZONE —",
+      "analysis": {
+        "d1": {
+          "last": {
+            "lo": 435.0,
+            "hi": 452.9,
+            "pat": "DR DEMAND",
+            "score": 3.0,
+            "grade": "C",
+            "birth_score": 6.5,
+            "birth_grade": "B",
+            "gtf": {
+              "score": 5,
+              "dep": 1,
+              "fresh": 1,
+              "base": 3,
+              "auth": 0,
+              "best": 0,
+              "et": "NON-AUTHENTIC — SKIP (book p33)",
+              "ets": "SKIP"
+            },
+            "tests": 2,
+            "born": "2026-06-24",
+            "n_base": 0,
+            "legout": 0.83,
+            "vol_ratio": 0.62,
+            "strength": {
+              "total": 4.8,
+              "verdict": "WEAK",
+              "parts": {
+                "freshness": 4.0,
+                "base": 10.0,
+                "departure": 6.0,
+                "volume": 3.0,
+                "htf": 3.0,
+                "age": 2.0
+              }
+            }
+          },
+          "next": {
+            "lo": 430.0,
+            "hi": 443.78,
+            "pat": "DR DEMAND",
+            "score": 3.5,
+            "grade": "C",
+            "birth_score": 6.5,
+            "birth_grade": "B",
+            "gtf": {
+              "score": 4,
+              "dep": 0,
+              "fresh": 1,
+              "base": 3,
+              "auth": 1,
+              "best": 0,
+              "et": "BOOK: NO TRADE (<5)",
+              "ets": "SKIP"
+            },
+            "tests": 2,
+            "born": "2026-06-11",
+            "n_base": 3,
+            "legout": 0.59,
+            "vol_ratio": 0.4,
+            "strength": {
+              "total": 4.1,
+              "verdict": "WEAK",
+              "parts": {
+                "freshness": 4.0,
+                "base": 8.0,
+                "departure": 4.0,
+                "volume": 3.0,
+                "htf": 3.0,
+                "age": 2.0
+              }
+            }
+          },
+          "zones": [
+            {
+              "lo": 435.0,
+              "hi": 452.9,
+              "pat": "DR DEMAND",
+              "score": 3.0,
+              "grade": "C",
+              "birth_score": 6.5,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 5,
+                "dep": 1,
+                "fresh": 1,
+                "base": 3,
+                "auth": 0,
+                "best": 0,
+                "et": "NON-AUTHENTIC — SKIP (book p33)",
+                "ets": "SKIP"
+              },
+              "tests": 2,
+              "born": "2026-06-24",
+              "n_base": 0,
+              "legout": 0.83,
+              "vol_ratio": 0.62,
+              "strength": {
+                "total": 4.8,
+                "verdict": "WEAK",
+                "parts": {
+                  "freshness": 4.0,
+                  "base": 10.0,
+                  "departure": 6.0,
+                  "volume": 3.0,
+                  "htf": 3.0,
+                  "age": 2.0
+                }
+              }
+            },
+            {
+              "lo": 430.0,
+              "hi": 443.78,
+              "pat": "DR DEMAND",
+              "score": 3.5,
+              "grade": "C",
+              "birth_score": 6.5,
+              "birth_grade": "B",
+              "gtf": {
+                "score": 4,
+                "dep": 0,
+                "fresh": 1,
+                "base": 3,
+                "auth": 1,
+                "best": 0,
+                "et": "BOOK: NO TRADE (<5)",
+                "ets": "SKIP"
+              },
+              "tests": 2,
+              "born": "2026-06-11",
+              "n_base": 3,
+              "legout": 0.59,
+              "vol_ratio": 0.4,
+              "strength": {
+                "total": 4.1,
+                "verdict": "WEAK",
+                "parts": {
+                  "freshness": 4.0,
+                  "base": 8.0,
+                  "departure": 4.0,
+                  "volume": 3.0,
+                  "htf": 3.0,
+                  "age": 2.0
+                }
+              }
+            },
+            {
+              "lo": 373.17,
+              "hi": 407.01,
+              "pat": "DR DEMAND",
+              "score": 5.0,
               "grade": "C",
               "birth_score": 6.5,
               "birth_grade": "B",
@@ -203629,24 +203646,29 @@
                 "ets": "CONF"
               },
               "tests": 1,
-              "born": "2026-04-30",
+              "born": "2026-04-01",
               "n_base": 0,
-              "legout": 0.82,
-              "vol_ratio": 0.52,
+              "legout": 1.16,
+              "vol_ratio": 1.02,
               "strength": {
                 "total": 6.1,
                 "verdict": "MEDIUM",
                 "parts": {
                   "freshness": 7.0,
                   "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 3.0,
+                  "departure": 8.0,
+                  "volume": 4.0,
                   "htf": 3.0,
-                  "age": 7.0
+                  "age": 2.0
                 }
               }
             }
           ]
+        },
+        "m1": {
+          "last": null,
+          "next": null,
+          "zones": []
         }
       }
     },
@@ -203923,28 +203945,6 @@
         }
       }
     },
-    "MOS": {
-      "sym": "MOS",
-      "comp": "MOS",
-      "sector": "CONSUMPTION",
-      "ltp": 7.6,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "248.0 - 293.7 RD SUPPLY",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
     "MOTISONS": {
       "sym": "MOTISONS",
       "comp": "MOTISONS",
@@ -204147,172 +204147,6 @@
         }
       }
     },
-    "MUFIN": {
-      "sym": "MUFIN",
-      "comp": "MUFIN",
-      "sector": "CONSUMPTION",
-      "ltp": 132.79,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "132.0 - 134.63 RD SUPPLY",
-      "z1m": "98.5 - 120.0 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 119.56,
-            "hi": 122.8,
-            "pat": "DR DEMAND",
-            "score": 3.0,
-            "grade": "C",
-            "birth_score": 7.5,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 3,
-            "born": "2026-06-12",
-            "n_base": 2,
-            "legout": 0.67,
-            "vol_ratio": 0.54,
-            "strength": {
-              "total": 5.4,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 3.0,
-                "htf": 10.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 119.56,
-              "hi": 122.8,
-              "pat": "DR DEMAND",
-              "score": 3.0,
-              "grade": "C",
-              "birth_score": 7.5,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 3,
-              "born": "2026-06-12",
-              "n_base": 2,
-              "legout": 0.67,
-              "vol_ratio": 0.54,
-              "strength": {
-                "total": 5.4,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 3.0,
-                  "htf": 10.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": {
-            "lo": 98.5,
-            "hi": 120.0,
-            "pat": "DR DEMAND",
-            "score": 5.0,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 0,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-04-30",
-            "n_base": 3,
-            "legout": 0.54,
-            "vol_ratio": 5.53,
-            "strength": {
-              "total": 6.8,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 8.0,
-                "departure": 4.0,
-                "volume": 10.0,
-                "htf": 6.0,
-                "age": 7.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 98.5,
-              "hi": 120.0,
-              "pat": "DR DEMAND",
-              "score": 5.0,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 0,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-04-30",
-              "n_base": 3,
-              "legout": 0.54,
-              "vol_ratio": 5.53,
-              "strength": {
-                "total": 6.8,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 8.0,
-                  "departure": 4.0,
-                  "volume": 10.0,
-                  "htf": 6.0,
-                  "age": 7.0
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
     "MVELECTRO": {
       "sym": "MVELECTRO",
       "comp": "MVELECTRO",
@@ -204429,28 +204263,6 @@
         }
       }
     },
-    "NIRMAN": {
-      "sym": "NIRMAN",
-      "comp": "NIRMAN",
-      "sector": "CONSUMPTION",
-      "ltp": 27.45,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "26.5 - 28.8 RD SUPPLY",
-      "z1m": "95.05 - 194.5 RD SUPPLY",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
     "NORTHARC": {
       "sym": "NORTHARC",
       "comp": "NORTHARC",
@@ -204545,15 +204357,15 @@
         }
       }
     },
-    "OMAXE": {
-      "sym": "OMAXE",
-      "comp": "OMAXE",
+    "PARSVNATH": {
+      "sym": "PARSVNATH",
+      "comp": "PARSVNATH",
       "sector": "CONSUMPTION",
-      "ltp": 90.56,
+      "ltp": 2.98,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "116.65 - 123.54 RD SUPPLY",
-      "z1m": "108.01 - 138.89 RD SUPPLY",
+      "z1d": "6.46 - 6.97 RD SUPPLY",
+      "z1m": "4.01 - 8.25 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": null,
@@ -204567,15 +204379,15 @@
         }
       }
     },
-    "PARSVNATH": {
-      "sym": "PARSVNATH",
-      "comp": "PARSVNATH",
+    "PASHUPATI": {
+      "sym": "PASHUPATI",
+      "comp": "PASHUPATI",
       "sector": "CONSUMPTION",
-      "ltp": 2.98,
+      "ltp": 134.6,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "6.46 - 6.97 RD SUPPLY",
-      "z1m": "4.01 - 8.25 RD SUPPLY",
+      "z1d": "— NO ACTIVE ZONE —",
+      "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
           "last": null,
@@ -205202,25 +205014,30 @@
         }
       }
     },
-    "RAIN": {
-      "sym": "RAIN",
-      "comp": "RAIN",
+    "QUICKHEAL": {
+      "sym": "QUICKHEAL",
+      "comp": "QUICKHEAL",
       "sector": "CONSUMPTION",
-      "ltp": 194.13,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "171.1 - 177.91 DR DEMAND",
-      "z1m": "99.43 - 148.9 DR DEMAND",
+      "ltp": 154.46,
+      "rel": "IN",
+      "sig": "ZONE KE PAAS",
+      "z1d": "142.3 - 155.0 RD SUPPLY",
+      "z1m": "128.07 - 175.0 DR DEMAND",
       "analysis": {
         "d1": {
+          "last": null,
+          "next": null,
+          "zones": []
+        },
+        "m1": {
           "last": {
-            "lo": 171.1,
-            "hi": 177.91,
+            "lo": 128.07,
+            "hi": 175.0,
             "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 7.0,
-            "birth_grade": "A",
+            "score": 4.5,
+            "grade": "C",
+            "birth_score": 6.0,
+            "birth_grade": "B",
             "gtf": {
               "score": 5,
               "dep": 0,
@@ -205232,33 +205049,33 @@
               "ets": "CONF"
             },
             "tests": 1,
-            "born": "2026-05-27",
-            "n_base": 0,
-            "legout": 0.52,
-            "vol_ratio": 0.42,
+            "born": "2026-04-30",
+            "n_base": 1,
+            "legout": 0.41,
+            "vol_ratio": 0.61,
             "strength": {
-              "total": 5.2,
-              "verdict": "WEAK",
+              "total": 6.1,
+              "verdict": "MEDIUM",
               "parts": {
                 "freshness": 7.0,
                 "base": 10.0,
                 "departure": 4.0,
                 "volume": 3.0,
-                "htf": 3.0,
-                "age": 2.0
+                "htf": 6.0,
+                "age": 7.0
               }
             }
           },
           "next": null,
           "zones": [
             {
-              "lo": 171.1,
-              "hi": 177.91,
+              "lo": 128.07,
+              "hi": 175.0,
               "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 7.0,
-              "birth_grade": "A",
+              "score": 4.5,
+              "grade": "C",
+              "birth_score": 6.0,
+              "birth_grade": "B",
               "gtf": {
                 "score": 5,
                 "dep": 0,
@@ -205270,96 +205087,19 @@
                 "ets": "CONF"
               },
               "tests": 1,
-              "born": "2026-05-27",
-              "n_base": 0,
-              "legout": 0.52,
-              "vol_ratio": 0.42,
+              "born": "2026-04-30",
+              "n_base": 1,
+              "legout": 0.41,
+              "vol_ratio": 0.61,
               "strength": {
-                "total": 5.2,
-                "verdict": "WEAK",
+                "total": 6.1,
+                "verdict": "MEDIUM",
                 "parts": {
                   "freshness": 7.0,
                   "base": 10.0,
                   "departure": 4.0,
                   "volume": 3.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": {
-            "lo": 99.43,
-            "hi": 148.9,
-            "pat": "DR DEMAND",
-            "score": 5.0,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 7,
-              "dep": 2,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2025-12-31",
-            "n_base": 2,
-            "legout": 1.24,
-            "vol_ratio": 2.4,
-            "strength": {
-              "total": 7.2,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 8.0,
-                "htf": 3.0,
-                "age": 7.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 99.43,
-              "hi": 148.9,
-              "pat": "DR DEMAND",
-              "score": 5.0,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 7,
-                "dep": 2,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2025-12-31",
-              "n_base": 2,
-              "legout": 1.24,
-              "vol_ratio": 2.4,
-              "strength": {
-                "total": 7.2,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 8.0,
-                  "htf": 3.0,
+                  "htf": 6.0,
                   "age": 7.0
                 }
               }
@@ -206477,171 +206217,6 @@
         }
       }
     },
-    "SHAHALLOYS": {
-      "sym": "SHAHALLOYS",
-      "comp": "SHAHALLOYS",
-      "sector": "CONSUMPTION",
-      "ltp": 71.36,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "69.16 - 72.43 RD SUPPLY",
-      "z1m": "83.5 - 116.0 RD SUPPLY",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 64.82,
-            "hi": 66.99,
-            "pat": "DR DEMAND",
-            "score": 2.5,
-            "grade": "C",
-            "birth_score": 5.5,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 4,
-              "dep": 0,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "BOOK: NO TRADE (<5)",
-              "ets": "SKIP"
-            },
-            "tests": 4,
-            "born": "2026-07-22",
-            "n_base": 0,
-            "legout": 0.38,
-            "vol_ratio": 0.21,
-            "strength": {
-              "total": 3.9,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 4.0,
-                "volume": 3.0,
-                "htf": 3.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": {
-            "lo": 56.05,
-            "hi": 63.0,
-            "pat": "DR DEMAND",
-            "score": 2.5,
-            "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 3,
-            "born": "2026-03-12",
-            "n_base": 2,
-            "legout": 1.11,
-            "vol_ratio": 0.56,
-            "strength": {
-              "total": 4.7,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 3.0,
-                "htf": 3.0,
-                "age": 2.0
-              }
-            }
-          },
-          "zones": [
-            {
-              "lo": 64.82,
-              "hi": 66.99,
-              "pat": "DR DEMAND",
-              "score": 2.5,
-              "grade": "C",
-              "birth_score": 5.5,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 4,
-                "dep": 0,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "BOOK: NO TRADE (<5)",
-                "ets": "SKIP"
-              },
-              "tests": 4,
-              "born": "2026-07-22",
-              "n_base": 0,
-              "legout": 0.38,
-              "vol_ratio": 0.21,
-              "strength": {
-                "total": 3.9,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 4.0,
-                  "volume": 3.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            },
-            {
-              "lo": 56.05,
-              "hi": 63.0,
-              "pat": "DR DEMAND",
-              "score": 2.5,
-              "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 3,
-              "born": "2026-03-12",
-              "n_base": 2,
-              "legout": 1.11,
-              "vol_ratio": 0.56,
-              "strength": {
-                "total": 4.7,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 3.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
     "SHANKESH": {
       "sym": "SHANKESH",
       "comp": "SHANKESH",
@@ -207059,172 +206634,6 @@
           "last": null,
           "next": null,
           "zones": []
-        }
-      }
-    },
-    "SIRCA": {
-      "sym": "SIRCA",
-      "comp": "SIRCA",
-      "sector": "CONSUMPTION",
-      "ltp": 405.45,
-      "rel": "NEAR",
-      "sig": "ZONE KE PAAS",
-      "z1d": "387.09 - 402.46 DR DEMAND",
-      "z1m": "228.81 - 308.72 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 387.09,
-            "hi": 402.46,
-            "pat": "DR DEMAND",
-            "score": 3.0,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 6,
-            "born": "2026-07-29",
-            "n_base": 3,
-            "legout": 1.05,
-            "vol_ratio": 2.28,
-            "strength": {
-              "total": 5.2,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 8.0,
-                "departure": 8.0,
-                "volume": 8.0,
-                "htf": 3.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 387.09,
-              "hi": 402.46,
-              "pat": "DR DEMAND",
-              "score": 3.0,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 6,
-              "born": "2026-07-29",
-              "n_base": 3,
-              "legout": 1.05,
-              "vol_ratio": 2.28,
-              "strength": {
-                "total": 5.2,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 8.0,
-                  "departure": 8.0,
-                  "volume": 8.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": {
-            "lo": 228.81,
-            "hi": 308.72,
-            "pat": "DR DEMAND",
-            "score": 5.5,
-            "grade": "B",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2025-04-30",
-            "n_base": 0,
-            "legout": 0.89,
-            "vol_ratio": 0.87,
-            "strength": {
-              "total": 5.9,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 4.0,
-                "htf": 3.0,
-                "age": 4.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 228.81,
-              "hi": 308.72,
-              "pat": "DR DEMAND",
-              "score": 5.5,
-              "grade": "B",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2025-04-30",
-              "n_base": 0,
-              "legout": 0.89,
-              "vol_ratio": 0.87,
-              "strength": {
-                "total": 5.9,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 4.0,
-                  "htf": 3.0,
-                  "age": 4.0
-                }
-              }
-            }
-          ]
         }
       }
     },
@@ -207729,230 +207138,6 @@
                   "base": 10.0,
                   "departure": 6.0,
                   "volume": 10.0,
-                  "htf": 6.0,
-                  "age": 10.0
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
-    "SPAL": {
-      "sym": "SPAL",
-      "comp": "SPAL",
-      "sector": "CONSUMPTION",
-      "ltp": 813.45,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "769.67 - 827.66 DR DEMAND",
-      "z1m": "— NO ACTIVE ZONE —",
-      "analysis": {
-        "d1": {
-          "last": {
-            "lo": 735.37,
-            "hi": 782.73,
-            "pat": "DR DEMAND",
-            "score": 2.5,
-            "grade": "C",
-            "birth_score": 7.0,
-            "birth_grade": "A",
-            "gtf": {
-              "score": 5,
-              "dep": 1,
-              "fresh": 1,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 4,
-            "born": "2026-04-13",
-            "n_base": 0,
-            "legout": 0.92,
-            "vol_ratio": 1.27,
-            "strength": {
-              "total": 4.8,
-              "verdict": "WEAK",
-              "parts": {
-                "freshness": 2.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 6.0,
-                "htf": 3.0,
-                "age": 2.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 769.67,
-              "hi": 827.66,
-              "pat": "DR DEMAND",
-              "score": 3.0,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 2,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 4,
-              "born": "2026-06-02",
-              "n_base": 0,
-              "legout": 1.07,
-              "vol_ratio": 0.99,
-              "strength": {
-                "total": 4.9,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 4.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            },
-            {
-              "lo": 735.37,
-              "hi": 782.73,
-              "pat": "DR DEMAND",
-              "score": 2.5,
-              "grade": "C",
-              "birth_score": 7.0,
-              "birth_grade": "A",
-              "gtf": {
-                "score": 5,
-                "dep": 1,
-                "fresh": 1,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 4,
-              "born": "2026-04-13",
-              "n_base": 0,
-              "legout": 0.92,
-              "vol_ratio": 1.27,
-              "strength": {
-                "total": 4.8,
-                "verdict": "WEAK",
-                "parts": {
-                  "freshness": 2.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 6.0,
-                  "htf": 3.0,
-                  "age": 2.0
-                }
-              }
-            }
-          ]
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
-    "SPRL": {
-      "sym": "SPRL",
-      "comp": "SPRL",
-      "sector": "CONSUMPTION",
-      "ltp": 140.25,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "77.09 - 114.67 DR DEMAND",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        },
-        "m1": {
-          "last": {
-            "lo": 77.09,
-            "hi": 114.67,
-            "pat": "DR DEMAND",
-            "score": 5.0,
-            "grade": "C",
-            "birth_score": 6.5,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-06-30",
-            "n_base": 0,
-            "legout": 1.14,
-            "vol_ratio": 0.92,
-            "strength": {
-              "total": 7.3,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 8.0,
-                "volume": 4.0,
-                "htf": 6.0,
-                "age": 10.0
-              }
-            }
-          },
-          "next": null,
-          "zones": [
-            {
-              "lo": 77.09,
-              "hi": 114.67,
-              "pat": "DR DEMAND",
-              "score": 5.0,
-              "grade": "C",
-              "birth_score": 6.5,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-06-30",
-              "n_base": 0,
-              "legout": 1.14,
-              "vol_ratio": 0.92,
-              "strength": {
-                "total": 7.3,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 8.0,
-                  "volume": 4.0,
                   "htf": 6.0,
                   "age": 10.0
                 }
@@ -209074,28 +208259,6 @@
               }
             }
           ]
-        },
-        "m1": {
-          "last": null,
-          "next": null,
-          "zones": []
-        }
-      }
-    },
-    "WEL": {
-      "sym": "WEL",
-      "comp": "WEL",
-      "sector": "CONSUMPTION",
-      "ltp": 70.25,
-      "rel": "AWAY",
-      "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "76.38 - 81.79 RD SUPPLY",
-      "z1m": "158.29 - 183.24 RD SUPPLY",
-      "analysis": {
-        "d1": {
-          "last": null,
-          "next": null,
-          "zones": []
         },
         "m1": {
           "last": null,
