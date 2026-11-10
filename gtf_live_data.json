@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "timestamp": "2026-11-10 04:13:13 IST",
+  "timestamp": "2026-11-10 23:37:38 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -63,7 +63,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "59,086.00",
+      "ltp": "59,741.25",
       "desc": "NIFTY BANK: 4 demand / 3 supply zone stocks in today's auto-filter. Banking heavyweights.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -73,7 +73,7 @@
       "status": "EQUILIBRIUM",
       "type": "NEUTRAL",
       "score": "8.0 A",
-      "ltp": "36,867.30",
+      "ltp": "37,164.95",
       "desc": "NIFTY ENERGY: 5 demand / 5 supply zone stocks in today's auto-filter. Oil & energy names.",
       "bonus": "+1.0 PT TREND"
     },
@@ -83,7 +83,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "32,977.90",
+      "ltp": "32,468.95",
       "desc": "NIFTY IT: 12 demand / 6 supply zone stocks in today's auto-filter. IT / tech names.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -93,7 +93,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "27,811.80",
+      "ltp": "27,925.90",
       "desc": "NIFTY AUTO: 19 demand / 14 supply zone stocks in today's auto-filter. Auto & auto-ancillary.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -103,7 +103,7 @@
       "status": "EQUILIBRIUM",
       "type": "NEUTRAL",
       "score": "8.0 A",
-      "ltp": "12,678.15",
+      "ltp": "12,664.65",
       "desc": "NIFTY METAL: 7 demand / 7 supply zone stocks in today's auto-filter. Metals & mining.",
       "bonus": "+1.0 PT TREND"
     },
@@ -113,7 +113,7 @@
       "status": "EQUILIBRIUM",
       "type": "NEUTRAL",
       "score": "8.0 A",
-      "ltp": "27,940.40",
+      "ltp": "28,896.10",
       "desc": "NIFTY PHARMA: 2 demand / 2 supply zone stocks in today's auto-filter. Pharma names.",
       "bonus": "+1.0 PT TREND"
     },
@@ -123,7 +123,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "46,785.60",
+      "ltp": "46,660.65",
       "desc": "NIFTY FMCG: 23 demand / 18 supply zone stocks in today's auto-filter. FMCG / staples.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -133,7 +133,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "896.70",
+      "ltp": "897.70",
       "desc": "NIFTY REALTY: 6 demand / 2 supply zone stocks in today's auto-filter. Realty names.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -143,7 +143,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "9,446.80",
+      "ltp": "9,462.90",
       "desc": "NIFTY INFRA: 35 demand / 20 supply zone stocks in today's auto-filter. Infra / capital goods.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -163,7 +163,7 @@
       "status": "NEAR SUPPLY",
       "type": "SUPPLY",
       "score": "8.5 A",
-      "ltp": "27,283.95",
+      "ltp": "27,384.90",
       "desc": "NIFTY FIN SERVICE: 25 demand / 29 supply zone stocks in today's auto-filter. NBFCs & financials.",
       "bonus": "0.0 PTS (Supply Near)"
     },
@@ -173,7 +173,7 @@
       "status": "NEAR SUPPLY",
       "type": "SUPPLY",
       "score": "8.5 A",
-      "ltp": "8,612.90",
+      "ltp": "8,905.35",
       "desc": "NIFTY PSU BANK: 2 demand / 6 supply zone stocks in today's auto-filter. PSU banks.",
       "bonus": "0.0 PTS (Supply Near)"
     },
@@ -183,7 +183,7 @@
       "status": "NEAR SUPPLY",
       "type": "SUPPLY",
       "score": "8.5 A",
-      "ltp": "59,086.00",
+      "ltp": "59,741.25",
       "desc": "NIFTY PVT BANK: 1 demand / 2 supply zone stocks in today's auto-filter. Private banks.",
       "bonus": "0.0 PTS (Supply Near)"
     },
@@ -193,7 +193,7 @@
       "status": "IN DEMAND",
       "type": "DEMAND",
       "score": "9.0 A+",
-      "ltp": "11,957.25",
+      "ltp": "11,935.55",
       "desc": "NIFTY CONSUMPTION: 30 demand / 22 supply zone stocks in today's auto-filter. Consumption theme.",
       "bonus": "+2.0 PTS DEMAND"
     },
@@ -203,7 +203,7 @@
       "status": "NEAR SUPPLY",
       "type": "SUPPLY",
       "score": "8.5 A",
-      "ltp": "27,940.40",
+      "ltp": "28,896.10",
       "desc": "NIFTY HEALTHCARE: 8 demand / 15 supply zone stocks in today's auto-filter. Hospitals & healthcare.",
       "bonus": "0.0 PTS (Supply Near)"
     },
@@ -222,15 +222,15 @@
     {
       "id": "BANK",
       "name": "NIFTY BANK",
-      "status": "NO ACTIVE ZONE",
-      "side": "NEUTRAL",
+      "status": "1D SUPPLY",
+      "side": "SUPPLY",
       "zone": "—",
       "score": "—",
-      "d_side": null,
+      "d_side": "SUPPLY",
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 59086.0,
+      "ltp": 59741.25,
       "demCount": 4,
       "supCount": 3
     },
@@ -245,22 +245,22 @@
       "d_best": 0,
       "m_side": "DEMAND",
       "m_best": 0,
-      "ltp": 36867.3,
+      "ltp": 37164.95,
       "demCount": 5,
       "supCount": 5
     },
     {
       "id": "IT",
       "name": "NIFTY IT",
-      "status": "NO ACTIVE ZONE",
-      "side": "NEUTRAL",
+      "status": "1D DEMAND",
+      "side": "DEMAND",
       "zone": "—",
       "score": "—",
-      "d_side": null,
+      "d_side": "DEMAND",
       "d_best": 0,
-      "m_side": null,
+      "m_side": "DEMAND",
       "m_best": 0,
-      "ltp": 32977.9,
+      "ltp": 32468.95,
       "demCount": 12,
       "supCount": 6
     },
@@ -275,7 +275,7 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 27811.8,
+      "ltp": 27925.9,
       "demCount": 19,
       "supCount": 14
     },
@@ -290,7 +290,7 @@
       "d_best": 0,
       "m_side": "DEMAND",
       "m_best": 0,
-      "ltp": 12678.15,
+      "ltp": 12664.65,
       "demCount": 7,
       "supCount": 7
     },
@@ -305,7 +305,7 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 27940.4,
+      "ltp": 28896.1,
       "demCount": 2,
       "supCount": 2
     },
@@ -320,7 +320,7 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 46785.6,
+      "ltp": 46660.65,
       "demCount": 23,
       "supCount": 18
     },
@@ -335,22 +335,22 @@
       "d_best": 0,
       "m_side": "SUPPLY",
       "m_best": 0,
-      "ltp": 896.7,
+      "ltp": 897.7,
       "demCount": 6,
       "supCount": 2
     },
     {
       "id": "INFRA",
       "name": "NIFTY INFRA",
-      "status": "1D DEMAND",
-      "side": "DEMAND",
+      "status": "1D SUPPLY",
+      "side": "SUPPLY",
       "zone": "—",
       "score": "—",
-      "d_side": "DEMAND",
+      "d_side": "SUPPLY",
       "d_best": 0,
       "m_side": "DEMAND",
       "m_best": 0,
-      "ltp": 9446.8,
+      "ltp": 9462.9,
       "demCount": 35,
       "supCount": 20
     },
@@ -380,28 +380,13 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 27283.95,
+      "ltp": 27384.9,
       "demCount": 25,
       "supCount": 29
     },
     {
       "id": "PSUBANK",
       "name": "NIFTY PSU BANK",
-      "status": "1D SUPPLY",
-      "side": "SUPPLY",
-      "zone": "—",
-      "score": "—",
-      "d_side": "SUPPLY",
-      "d_best": 0,
-      "m_side": null,
-      "m_best": 0,
-      "ltp": 8612.9,
-      "demCount": 2,
-      "supCount": 6
-    },
-    {
-      "id": "PVTBANK",
-      "name": "NIFTY PVT BANK",
       "status": "NO ACTIVE ZONE",
       "side": "NEUTRAL",
       "zone": "—",
@@ -410,7 +395,22 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 59086.0,
+      "ltp": 8905.35,
+      "demCount": 2,
+      "supCount": 6
+    },
+    {
+      "id": "PVTBANK",
+      "name": "NIFTY PVT BANK",
+      "status": "1D SUPPLY",
+      "side": "SUPPLY",
+      "zone": "—",
+      "score": "—",
+      "d_side": "SUPPLY",
+      "d_best": 0,
+      "m_side": null,
+      "m_best": 0,
+      "ltp": 59741.25,
       "demCount": 1,
       "supCount": 2
     },
@@ -425,7 +425,7 @@
       "d_best": 0,
       "m_side": "SUPPLY",
       "m_best": 0,
-      "ltp": 11957.25,
+      "ltp": 11935.55,
       "demCount": 30,
       "supCount": 22
     },
@@ -440,7 +440,7 @@
       "d_best": 0,
       "m_side": null,
       "m_best": 0,
-      "ltp": 27940.4,
+      "ltp": 28896.1,
       "demCount": 8,
       "supCount": 15
     },
@@ -745,7 +745,7 @@
             "born": "2026-11-09",
             "n_base": 0,
             "legout": 0.39,
-            "vol_ratio": 0.9,
+            "vol_ratio": 0.91,
             "strength": {
               "total": 6.8,
               "verdict": "MEDIUM",
@@ -783,7 +783,7 @@
               "born": "2026-11-09",
               "n_base": 0,
               "legout": 0.39,
-              "vol_ratio": 0.9,
+              "vol_ratio": 0.91,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -3316,7 +3316,7 @@
       "ltp": 757.35,
       "z1d": "769.0 - 791.95 RD SUPPLY",
       "s1d": "5.5 B",
-      "z1m": "550.35 - 680.06 DR DEMAND",
+      "z1m": "550.35 - 680.07 DR DEMAND",
       "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -3340,7 +3340,7 @@
       "m_strong": true,
       "dz": "719.35 - 750.00 • 2t",
       "sz": "769.00 - 791.95 • 1t",
-      "mdz": "550.35 - 680.06 • 1t",
+      "mdz": "550.35 - 680.07 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -3426,7 +3426,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.06,
+            "hi": 680.07,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -3464,7 +3464,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.06,
+              "hi": 680.07,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -14163,7 +14163,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.72 - 6552.65 • 4t",
+      "sz": "6402.71 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -20443,7 +20443,7 @@
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 5,
       "fresh_badge": "🔴 5 TESTS (WEAK)",
-      "vol_expl": "NORMAL VOL",
+      "vol_expl": "🔥 1.8x HIGH VOL",
       "secBonus": "+0.0 PTS",
       "combo": "4.5 / 10 SUPPLY",
       "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
@@ -27830,7 +27830,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.72 - 6552.65 • 4t",
+      "sz": "6402.71 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -32922,7 +32922,7 @@
             "born": "2026-11-09",
             "n_base": 0,
             "legout": 0.39,
-            "vol_ratio": 0.9,
+            "vol_ratio": 0.91,
             "strength": {
               "total": 6.8,
               "verdict": "MEDIUM",
@@ -32960,7 +32960,7 @@
               "born": "2026-11-09",
               "n_base": 0,
               "legout": 0.39,
-              "vol_ratio": 0.9,
+              "vol_ratio": 0.91,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -89785,7 +89785,7 @@
             "born": "2026-11-09",
             "n_base": 0,
             "legout": 0.39,
-            "vol_ratio": 0.9,
+            "vol_ratio": 0.91,
             "strength": {
               "total": 6.8,
               "verdict": "MEDIUM",
@@ -89823,7 +89823,7 @@
               "born": "2026-11-09",
               "n_base": 0,
               "legout": 0.39,
-              "vol_ratio": 0.9,
+              "vol_ratio": 0.91,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -108492,7 +108492,7 @@
       "dz": null,
       "sz": "132368.97 - 137180.57 • 5t",
       "mdz": "116685.00 - 127245.00 • fresh",
-      "msz": "151235.03 - 159415.43 • 1t",
+      "msz": "151235.03 - 159415.42 • 1t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -108504,7 +108504,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101787.0,
+            "lo": 101786.99,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -108578,7 +108578,7 @@
               }
             },
             {
-              "lo": 101787.0,
+              "lo": 101786.99,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -134840,7 +134840,7 @@
       "ltp": 757.35,
       "z1d": "769.0 - 791.95 RD SUPPLY",
       "s1d": "5.5 B",
-      "z1m": "550.35 - 680.06 DR DEMAND",
+      "z1m": "550.35 - 680.07 DR DEMAND",
       "s1m": "4.0 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -134864,7 +134864,7 @@
       "m_strong": true,
       "dz": "719.35 - 750.00 • 2t",
       "sz": "769.00 - 791.95 • 1t",
-      "mdz": "550.35 - 680.06 • 1t",
+      "mdz": "550.35 - 680.07 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -134950,7 +134950,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.06,
+            "hi": 680.07,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -134988,7 +134988,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.06,
+              "hi": 680.07,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -158433,7 +158433,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.72 - 6552.65 • 4t",
+      "sz": "6402.71 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -164856,7 +164856,7 @@
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 5,
       "fresh_badge": "🔴 5 TESTS (WEAK)",
-      "vol_expl": "NORMAL VOL",
+      "vol_expl": "🔥 1.8x HIGH VOL",
       "secBonus": "+0.0 PTS",
       "combo": "4.5 / 10 SUPPLY",
       "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
@@ -165372,7 +165372,7 @@
       "m_strong": true,
       "dz": "16648.23 - 17046.50 • 2t",
       "sz": "23000.00 - 24225.00 • 2t",
-      "mdz": "10163.48 - 12763.22 • 2t",
+      "mdz": "10163.49 - 12763.22 • 2t",
       "msz": "21170.00 - 24225.00 • 1t",
       "bdz": false,
       "bmz": false,
@@ -165457,7 +165457,7 @@
         },
         "m1": {
           "last": {
-            "lo": 10163.48,
+            "lo": 10163.49,
             "hi": 12763.22,
             "pat": "DR DEMAND",
             "score": 4.0,
@@ -165495,7 +165495,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 10163.48,
+              "lo": 10163.49,
               "hi": 12763.22,
               "pat": "DR DEMAND",
               "score": 4.0,
@@ -181570,7 +181570,7 @@
             "born": "2026-11-09",
             "n_base": 0,
             "legout": 0.39,
-            "vol_ratio": 0.9,
+            "vol_ratio": 0.91,
             "strength": {
               "total": 6.8,
               "verdict": "MEDIUM",
@@ -181608,7 +181608,7 @@
               "born": "2026-11-09",
               "n_base": 0,
               "legout": 0.39,
-              "vol_ratio": 0.9,
+              "vol_ratio": 0.91,
               "strength": {
                 "total": 6.8,
                 "verdict": "MEDIUM",
@@ -181935,7 +181935,7 @@
       "rel": "NEAR",
       "sig": "ZONE KE PAAS",
       "z1d": "769.0 - 791.95 RD SUPPLY",
-      "z1m": "550.35 - 680.06 DR DEMAND",
+      "z1m": "550.35 - 680.07 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
@@ -182017,7 +182017,7 @@
         "m1": {
           "last": {
             "lo": 550.35,
-            "hi": 680.06,
+            "hi": 680.07,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -182055,7 +182055,7 @@
           "zones": [
             {
               "lo": 550.35,
-              "hi": 680.06,
+              "hi": 680.07,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -196219,7 +196219,7 @@
       "sym": "HEG",
       "comp": "H.E.G. Ltd.",
       "sector": "INFRA",
-      "ltp": 293.87,
+      "ltp": 289.18,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "700.0 - 743.9 RD SUPPLY",
@@ -199758,7 +199758,7 @@
       "sym": "ICICIPRULI",
       "comp": "ICICI Prudential Life Insurance Company Ltd.",
       "sector": "FINSERVICE",
-      "ltp": 438.9,
+      "ltp": 438.4,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "495.0 - 507.0 RD SUPPLY",
@@ -211710,7 +211710,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101787.0,
+            "lo": 101786.99,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -211784,7 +211784,7 @@
               }
             },
             {
-              "lo": 101787.0,
+              "lo": 101786.99,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -216555,7 +216555,7 @@
         },
         "m1": {
           "last": {
-            "lo": 10163.48,
+            "lo": 10163.49,
             "hi": 12763.22,
             "pat": "DR DEMAND",
             "score": 4.0,
@@ -216593,7 +216593,7 @@
           "next": null,
           "zones": [
             {
-              "lo": 10163.48,
+              "lo": 10163.49,
               "hi": 12763.22,
               "pat": "DR DEMAND",
               "score": 4.0,
@@ -243764,7 +243764,7 @@
       "sym": "DURLAX",
       "comp": "DURLAX",
       "sector": "CONSUMPTION",
-      "ltp": 69.65,
+      "ltp": 70.8,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "57.0 - 64.0 DR DEMAND",
@@ -244866,88 +244866,16 @@
       "sym": "GSMFOILS",
       "comp": "GSMFOILS",
       "sector": "CONSUMPTION",
-      "ltp": 58.6,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "58.5 - 63.65 DR DEMAND",
+      "ltp": 56.45,
+      "rel": "AWAY",
+      "sig": "AWAY — koi active zone 8% band me nahi",
+      "z1d": "63.6 - 68.5 RD SUPPLY",
       "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
-          "last": {
-            "lo": 58.5,
-            "hi": 63.65,
-            "pat": "DR DEMAND",
-            "score": 4.0,
-            "grade": "C",
-            "birth_score": 6.0,
-            "birth_grade": "B",
-            "gtf": {
-              "score": 6,
-              "dep": 1,
-              "fresh": 2,
-              "base": 3,
-              "auth": 1,
-              "best": 0,
-              "et": "CONFIRMATION (Type 2/3)",
-              "ets": "CONF"
-            },
-            "tests": 1,
-            "born": "2026-10-13",
-            "n_base": 2,
-            "legout": 0.69,
-            "vol_ratio": 0.92,
-            "strength": {
-              "total": 5.9,
-              "verdict": "MEDIUM",
-              "parts": {
-                "freshness": 7.0,
-                "base": 10.0,
-                "departure": 6.0,
-                "volume": 4.0,
-                "htf": 3.0,
-                "age": 4.0
-              }
-            }
-          },
+          "last": null,
           "next": null,
-          "zones": [
-            {
-              "lo": 58.5,
-              "hi": 63.65,
-              "pat": "DR DEMAND",
-              "score": 4.0,
-              "grade": "C",
-              "birth_score": 6.0,
-              "birth_grade": "B",
-              "gtf": {
-                "score": 6,
-                "dep": 1,
-                "fresh": 2,
-                "base": 3,
-                "auth": 1,
-                "best": 0,
-                "et": "CONFIRMATION (Type 2/3)",
-                "ets": "CONF"
-              },
-              "tests": 1,
-              "born": "2026-10-13",
-              "n_base": 2,
-              "legout": 0.69,
-              "vol_ratio": 0.92,
-              "strength": {
-                "total": 5.9,
-                "verdict": "MEDIUM",
-                "parts": {
-                  "freshness": 7.0,
-                  "base": 10.0,
-                  "departure": 6.0,
-                  "volume": 4.0,
-                  "htf": 3.0,
-                  "age": 4.0
-                }
-              }
-            }
-          ]
+          "zones": []
         },
         "m1": {
           "last": null,
@@ -245421,7 +245349,7 @@
       "sym": "IRBINVIT",
       "comp": "IRBINVIT",
       "sector": "CONSUMPTION",
-      "ltp": 60.79,
+      "ltp": 61.36,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "60.31 - 61.85 RD SUPPLY",
@@ -245703,7 +245631,7 @@
       "sym": "JALAN",
       "comp": "JALAN",
       "sector": "CONSUMPTION",
-      "ltp": 1.5,
+      "ltp": 1.4,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "— NO ACTIVE ZONE —",
@@ -250240,7 +250168,7 @@
       "sym": "SANGINITA",
       "comp": "SANGINITA",
       "sector": "CONSUMPTION",
-      "ltp": 53.88,
+      "ltp": 53.66,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "51.91 - 56.3 RD SUPPLY",
@@ -252326,7 +252254,7 @@
             "born": "2026-11-30",
             "n_base": 1,
             "legout": 0.78,
-            "vol_ratio": 0.42,
+            "vol_ratio": 0.45,
             "strength": {
               "total": 7.6,
               "verdict": "STRONG",
@@ -252364,7 +252292,7 @@
               "born": "2026-11-30",
               "n_base": 1,
               "legout": 0.78,
-              "vol_ratio": 0.42,
+              "vol_ratio": 0.45,
               "strength": {
                 "total": 7.6,
                 "verdict": "STRONG",
@@ -253172,7 +253100,7 @@
       "sym": "TRANSTEEL",
       "comp": "TRANSTEEL",
       "sector": "CONSUMPTION",
-      "ltp": 86.25,
+      "ltp": 85.3,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "81.0 - 89.1 DR DEMAND",
@@ -253736,10 +253664,10 @@
       "sym": "VISHNUINFR",
       "comp": "VISHNUINFR",
       "sector": "CONSUMPTION",
-      "ltp": 151.7,
-      "rel": "IN",
-      "sig": "ZONE KE PAAS",
-      "z1d": "148.55 - 153.5 RD SUPPLY",
+      "ltp": 138.1,
+      "rel": "WATCH",
+      "sig": "PULLBACK WATCH (AWAY — retest ka wait)",
+      "z1d": "128.18 - 134.14 DR DEMAND",
       "z1m": "163.95 - 197.68 RD SUPPLY",
       "analysis": {
         "d1": {
@@ -253761,20 +253689,20 @@
               "et": "CONFIRMATION (Type 2/3)",
               "ets": "CONF"
             },
-            "tests": 2,
+            "tests": 3,
             "born": "2026-04-01",
             "n_base": 0,
             "legout": 0.82,
             "vol_ratio": 0.66,
             "strength": {
-              "total": 5.2,
+              "total": 4.3,
               "verdict": "WEAK",
               "parts": {
-                "freshness": 4.0,
+                "freshness": 2.0,
                 "base": 10.0,
                 "departure": 6.0,
                 "volume": 3.0,
-                "htf": 6.0,
+                "htf": 3.0,
                 "age": 2.0
               }
             }
@@ -253799,20 +253727,20 @@
                 "et": "CONFIRMATION (Type 2/3)",
                 "ets": "CONF"
               },
-              "tests": 2,
+              "tests": 3,
               "born": "2026-04-01",
               "n_base": 0,
               "legout": 0.82,
               "vol_ratio": 0.66,
               "strength": {
-                "total": 5.2,
+                "total": 4.3,
                 "verdict": "WEAK",
                 "parts": {
-                  "freshness": 4.0,
+                  "freshness": 2.0,
                   "base": 10.0,
                   "departure": 6.0,
                   "volume": 3.0,
-                  "htf": 6.0,
+                  "htf": 3.0,
                   "age": 2.0
                 }
               }
@@ -253830,7 +253758,7 @@
       "sym": "WOMANCART",
       "comp": "WOMANCART",
       "sector": "CONSUMPTION",
-      "ltp": 73.6,
+      "ltp": 73.8,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
       "z1d": "270.0 - 288.0 RD SUPPLY",
