@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-10",
-  "timestamp": "2026-11-10 23:37:38 IST",
+  "date": "2026-11-11",
+  "timestamp": "2026-11-11 01:31:31 IST",
   "passwordRef": "7004602",
   "version": "v5.9.5 All Timeframe Stocks (SECTOR = stock-jaisa analysis: pick_best_side — ek hi side DEMAND ya SUPPLY + 4-criteria quality)",
   "strictFilter": {
@@ -54,7 +54,7 @@
       "type": "NEUTRAL",
       "score": "LIVE",
       "ltp": "NSE 500",
-      "desc": "Only stocks sitting IN/NEAR a valid unmitigated 1D or 1M GTF zone on 2026-11-10.",
+      "desc": "Only stocks sitting IN/NEAR a valid unmitigated 1D or 1M GTF zone on 2026-11-11.",
       "bonus": "AUTO"
     },
     {
@@ -6035,8 +6035,8 @@
       "comp": "Premier Energies Ltd.",
       "sector": "INFRA",
       "type": "SUPPLY",
-      "ltp": 886.0,
-      "z1d": "872.2 - 925.7 RD SUPPLY",
+      "ltp": 885.5,
+      "z1d": "871.71 - 925.18 RD SUPPLY",
       "s1d": "4.0 C",
       "z1m": "— NO ACTIVE ZONE —",
       "s1m": "—",
@@ -6060,8 +6060,8 @@
       "m_sc": 0,
       "d_strong": true,
       "m_strong": false,
-      "dz": "683.05 - 720.47 • 2t",
-      "sz": "872.20 - 925.70 • 1t",
+      "dz": "682.66 - 720.06 • 2t",
+      "sz": "871.71 - 925.18 • 1t",
       "mdz": null,
       "msz": null,
       "bdz": false,
@@ -6070,8 +6070,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 683.05,
-            "hi": 720.47,
+            "lo": 682.66,
+            "hi": 720.06,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -6108,8 +6108,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 683.05,
-              "hi": 720.47,
+              "lo": 682.66,
+              "hi": 720.06,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -14163,7 +14163,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -19364,10 +19364,10 @@
       "comp": "Balrampur Chini Mills Ltd.",
       "sector": "FMCG",
       "type": "DEMAND",
-      "ltp": 658.4,
-      "z1d": "547.65 - 569.0 DR DEMAND",
+      "ltp": 654.4,
+      "z1d": "544.32 - 565.54 DR DEMAND",
       "s1d": "5.5 B",
-      "z1m": "580.7 - 691.4 DR DEMAND",
+      "z1m": "577.17 - 687.2 DR DEMAND",
       "s1m": "7.0 A",
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 0,
@@ -19389,9 +19389,9 @@
       "m_sc": 7,
       "d_strong": true,
       "m_strong": true,
-      "dz": "547.65 - 569.00 • 1t",
+      "dz": "544.32 - 565.54 • 1t",
       "sz": null,
-      "mdz": "580.70 - 691.40 • fresh",
+      "mdz": "577.17 - 687.20 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -19399,8 +19399,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 547.65,
-            "hi": 569.0,
+            "lo": 544.32,
+            "hi": 565.54,
             "pat": "DR DEMAND",
             "score": 5.5,
             "grade": "B",
@@ -19435,8 +19435,8 @@
             }
           },
           "next": {
-            "lo": 513.5,
-            "hi": 536.75,
+            "lo": 510.38,
+            "hi": 533.49,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -19472,8 +19472,8 @@
           },
           "zones": [
             {
-              "lo": 547.65,
-              "hi": 569.0,
+              "lo": 544.32,
+              "hi": 565.54,
               "pat": "DR DEMAND",
               "score": 5.5,
               "grade": "B",
@@ -19508,8 +19508,8 @@
               }
             },
             {
-              "lo": 513.5,
-              "hi": 536.75,
+              "lo": 510.38,
+              "hi": 533.49,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -19544,8 +19544,8 @@
               }
             },
             {
-              "lo": 458.2,
-              "hi": 468.05,
+              "lo": 455.42,
+              "hi": 465.21,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -19583,8 +19583,8 @@
         },
         "m1": {
           "last": {
-            "lo": 580.7,
-            "hi": 691.4,
+            "lo": 577.17,
+            "hi": 687.2,
             "pat": "DR DEMAND",
             "score": 7.0,
             "grade": "A",
@@ -19621,8 +19621,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 580.7,
-              "hi": 691.4,
+              "lo": 577.17,
+              "hi": 687.2,
               "pat": "DR DEMAND",
               "score": 7.0,
               "grade": "A",
@@ -23070,10 +23070,10 @@
       "comp": "Housing & Urban Development Corporation Ltd.",
       "sector": "CPSE",
       "type": "DEMAND",
-      "ltp": 169.14,
+      "ltp": 167.79,
       "z1d": "— NO ACTIVE ZONE —",
       "s1d": "—",
-      "z1m": "142.69 - 170.0 DR DEMAND",
+      "z1m": "141.55 - 168.64 DR DEMAND",
       "s1m": "6.5 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -23097,7 +23097,7 @@
       "m_strong": true,
       "dz": null,
       "sz": null,
-      "mdz": "142.69 - 170.00 • fresh",
+      "mdz": "141.55 - 168.64 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -23110,8 +23110,8 @@
         },
         "m1": {
           "last": {
-            "lo": 142.69,
-            "hi": 170.0,
+            "lo": 141.55,
+            "hi": 168.64,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -23148,8 +23148,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 142.69,
-              "hi": 170.0,
+              "lo": 141.55,
+              "hi": 168.64,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -27232,10 +27232,10 @@
       "comp": "NBCC (India) Ltd.",
       "sector": "CPSE",
       "type": "DEMAND",
-      "ltp": 80.4,
-      "z1d": "74.44 - 77.99 DR DEMAND",
+      "ltp": 80.15,
+      "z1d": "74.21 - 77.75 DR DEMAND",
       "s1d": "6.0 B",
-      "z1m": "70.01 - 81.15 DR DEMAND",
+      "z1m": "69.79 - 80.9 DR DEMAND",
       "s1m": "6.5 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -27257,9 +27257,9 @@
       "m_sc": 7,
       "d_strong": true,
       "m_strong": true,
-      "dz": "74.44 - 77.99 • 1t",
-      "sz": "88.64 - 90.03 • 1t",
-      "mdz": "70.01 - 81.15 • fresh",
+      "dz": "74.21 - 77.75 • 1t",
+      "sz": "88.36 - 89.75 • 1t",
+      "mdz": "69.79 - 80.90 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -27267,8 +27267,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 74.44,
-            "hi": 77.99,
+            "lo": 74.21,
+            "hi": 77.75,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -27305,8 +27305,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 74.44,
-              "hi": 77.99,
+              "lo": 74.21,
+              "hi": 77.75,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -27344,8 +27344,8 @@
         },
         "m1": {
           "last": {
-            "lo": 70.01,
-            "hi": 81.15,
+            "lo": 69.79,
+            "hi": 80.9,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -27382,8 +27382,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 70.01,
-              "hi": 81.15,
+              "lo": 69.79,
+              "hi": 80.9,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -27428,11 +27428,11 @@
         "notes": [
           "elite: 50SMA SIDEWAYS (sirf UP)"
         ],
-        "zlo": 74.44,
-        "zhi": 77.99,
+        "zlo": 74.21,
+        "zhi": 77.75,
         "pat": "DR DEMAND",
-        "mlo": 70.01,
-        "mhi": 81.15,
+        "mlo": 69.79,
+        "mhi": 80.9,
         "mpat": "DR DEMAND",
         "dd": 35.6,
         "gtf": 6.0,
@@ -27830,7 +27830,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -48321,10 +48321,10 @@
       "comp": "Chambal Fertilizers & Chemicals Ltd.",
       "sector": "FMCG",
       "type": "EQUILIBRIUM",
-      "ltp": 389.35,
-      "z1d": "386.85 - 394.75 RD SUPPLY",
+      "ltp": 384.35,
+      "z1d": "381.88 - 389.68 RD SUPPLY",
       "s1d": "2.5 C",
-      "z1m": "355.2 - 403.55 DR DEMAND",
+      "z1m": "350.64 - 398.37 DR DEMAND",
       "s1m": "6.0 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 3,
@@ -48346,18 +48346,18 @@
       "m_sc": 6,
       "d_strong": false,
       "m_strong": true,
-      "dz": "355.20 - 369.75 • 1t",
-      "sz": "386.85 - 394.75 • 3t",
-      "mdz": "355.20 - 403.55 • fresh",
-      "msz": "412.15 - 480.53 • 2t",
+      "dz": "350.64 - 365.00 • 1t",
+      "sz": "381.88 - 389.68 • 3t",
+      "mdz": "350.64 - 398.37 • fresh",
+      "msz": "406.86 - 474.36 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
       "analysis": {
         "d1": {
           "last": {
-            "lo": 355.2,
-            "hi": 369.75,
+            "lo": 350.64,
+            "hi": 365.0,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -48394,8 +48394,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 369.75,
+              "lo": 350.64,
+              "hi": 365.0,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -48433,8 +48433,8 @@
         },
         "m1": {
           "last": {
-            "lo": 355.2,
-            "hi": 403.55,
+            "lo": 350.64,
+            "hi": 398.37,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -48471,8 +48471,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 403.55,
+              "lo": 350.64,
+              "hi": 398.37,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -48517,13 +48517,13 @@
         "notes": [
           "room sirf 1%",
           "book: 50SMA DOWN — counter-trend demand AVOID",
-          "book: HTF supply 359.0 T1 (401.0) se pehle — SL likely"
+          "book: HTF supply 354.4 T1 (395.8) se pehle — SL likely"
         ],
-        "zlo": 355.2,
-        "zhi": 369.75,
+        "zlo": 350.64,
+        "zhi": 365.0,
         "pat": "DR DEMAND",
-        "mlo": 355.2,
-        "mhi": 403.55,
+        "mlo": 350.64,
+        "mhi": 398.37,
         "mpat": "DR DEMAND",
         "dd": 20.7,
         "gtf": 6.0,
@@ -73597,10 +73597,10 @@
       "comp": "Chambal Fertilizers & Chemicals Ltd.",
       "sector": "FMCG",
       "type": "EQUILIBRIUM",
-      "ltp": 389.35,
-      "z1d": "386.85 - 394.75 RD SUPPLY",
+      "ltp": 384.35,
+      "z1d": "381.88 - 389.68 RD SUPPLY",
       "s1d": "2.5 C",
-      "z1m": "355.2 - 403.55 DR DEMAND",
+      "z1m": "350.64 - 398.37 DR DEMAND",
       "s1m": "6.0 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 3,
@@ -73622,18 +73622,18 @@
       "m_sc": 6,
       "d_strong": false,
       "m_strong": true,
-      "dz": "355.20 - 369.75 • 1t",
-      "sz": "386.85 - 394.75 • 3t",
-      "mdz": "355.20 - 403.55 • fresh",
-      "msz": "412.15 - 480.53 • 2t",
+      "dz": "350.64 - 365.00 • 1t",
+      "sz": "381.88 - 389.68 • 3t",
+      "mdz": "350.64 - 398.37 • fresh",
+      "msz": "406.86 - 474.36 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
       "analysis": {
         "d1": {
           "last": {
-            "lo": 355.2,
-            "hi": 369.75,
+            "lo": 350.64,
+            "hi": 365.0,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -73670,8 +73670,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 369.75,
+              "lo": 350.64,
+              "hi": 365.0,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -73709,8 +73709,8 @@
         },
         "m1": {
           "last": {
-            "lo": 355.2,
-            "hi": 403.55,
+            "lo": 350.64,
+            "hi": 398.37,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -73747,8 +73747,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 403.55,
+              "lo": 350.64,
+              "hi": 398.37,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -73793,13 +73793,13 @@
         "notes": [
           "room sirf 1%",
           "book: 50SMA DOWN — counter-trend demand AVOID",
-          "book: HTF supply 359.0 T1 (401.0) se pehle — SL likely"
+          "book: HTF supply 354.4 T1 (395.8) se pehle — SL likely"
         ],
-        "zlo": 355.2,
-        "zhi": 369.75,
+        "zlo": 350.64,
+        "zhi": 365.0,
         "pat": "DR DEMAND",
-        "mlo": 355.2,
-        "mhi": 403.55,
+        "mlo": 350.64,
+        "mhi": 398.37,
         "mpat": "DR DEMAND",
         "dd": 20.7,
         "gtf": 6.0,
@@ -88571,10 +88571,10 @@
       "comp": "Balrampur Chini Mills Ltd.",
       "sector": "FMCG",
       "type": "DEMAND",
-      "ltp": 658.4,
-      "z1d": "547.65 - 569.0 DR DEMAND",
+      "ltp": 654.4,
+      "z1d": "544.32 - 565.54 DR DEMAND",
       "s1d": "5.5 B",
-      "z1m": "580.7 - 691.4 DR DEMAND",
+      "z1m": "577.17 - 687.2 DR DEMAND",
       "s1m": "7.0 A",
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 0,
@@ -88596,9 +88596,9 @@
       "m_sc": 7,
       "d_strong": true,
       "m_strong": true,
-      "dz": "547.65 - 569.00 • 1t",
+      "dz": "544.32 - 565.54 • 1t",
       "sz": null,
-      "mdz": "580.70 - 691.40 • fresh",
+      "mdz": "577.17 - 687.20 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -88606,8 +88606,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 547.65,
-            "hi": 569.0,
+            "lo": 544.32,
+            "hi": 565.54,
             "pat": "DR DEMAND",
             "score": 5.5,
             "grade": "B",
@@ -88642,8 +88642,8 @@
             }
           },
           "next": {
-            "lo": 513.5,
-            "hi": 536.75,
+            "lo": 510.38,
+            "hi": 533.49,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -88679,8 +88679,8 @@
           },
           "zones": [
             {
-              "lo": 547.65,
-              "hi": 569.0,
+              "lo": 544.32,
+              "hi": 565.54,
               "pat": "DR DEMAND",
               "score": 5.5,
               "grade": "B",
@@ -88715,8 +88715,8 @@
               }
             },
             {
-              "lo": 513.5,
-              "hi": 536.75,
+              "lo": 510.38,
+              "hi": 533.49,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -88751,8 +88751,8 @@
               }
             },
             {
-              "lo": 458.2,
-              "hi": 468.05,
+              "lo": 455.42,
+              "hi": 465.21,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -88790,8 +88790,8 @@
         },
         "m1": {
           "last": {
-            "lo": 580.7,
-            "hi": 691.4,
+            "lo": 577.17,
+            "hi": 687.2,
             "pat": "DR DEMAND",
             "score": 7.0,
             "grade": "A",
@@ -88828,8 +88828,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 580.7,
-              "hi": 691.4,
+              "lo": 577.17,
+              "hi": 687.2,
               "pat": "DR DEMAND",
               "score": 7.0,
               "grade": "A",
@@ -89952,10 +89952,10 @@
       "comp": "Container Corporation of India Ltd.",
       "sector": "CPSE",
       "type": "DEMAND",
-      "ltp": 446.0,
-      "z1d": "487.05 - 501.95 RD SUPPLY",
+      "ltp": 444.1,
+      "z1d": "484.98 - 499.81 RD SUPPLY",
       "s1d": "7.5 A",
-      "z1m": "416.0 - 446.35 DR DEMAND",
+      "z1m": "414.23 - 444.45 DR DEMAND",
       "s1m": "6.0 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -89978,9 +89978,9 @@
       "d_strong": true,
       "m_strong": true,
       "dz": null,
-      "sz": "487.05 - 501.95 • 1t",
-      "mdz": "416.00 - 446.35 • fresh",
-      "msz": "457.84 - 534.30 • 2t",
+      "sz": "484.98 - 499.81 • 1t",
+      "mdz": "414.23 - 444.45 • fresh",
+      "msz": "455.89 - 532.03 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -89992,8 +89992,8 @@
         },
         "m1": {
           "last": {
-            "lo": 416.0,
-            "hi": 446.35,
+            "lo": 414.23,
+            "hi": 444.45,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -90030,8 +90030,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 416.0,
-              "hi": 446.35,
+              "lo": 414.23,
+              "hi": 444.45,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -102828,10 +102828,10 @@
       "comp": "Housing & Urban Development Corporation Ltd.",
       "sector": "CPSE",
       "type": "DEMAND",
-      "ltp": 169.14,
+      "ltp": 167.79,
       "z1d": "— NO ACTIVE ZONE —",
       "s1d": "—",
-      "z1m": "142.69 - 170.0 DR DEMAND",
+      "z1m": "141.55 - 168.64 DR DEMAND",
       "s1m": "6.5 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -102855,7 +102855,7 @@
       "m_strong": true,
       "dz": null,
       "sz": null,
-      "mdz": "142.69 - 170.00 • fresh",
+      "mdz": "141.55 - 168.64 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -102868,8 +102868,8 @@
         },
         "m1": {
           "last": {
-            "lo": 142.69,
-            "hi": 170.0,
+            "lo": 141.55,
+            "hi": 168.64,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -102906,8 +102906,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 142.69,
-              "hi": 170.0,
+              "lo": 141.55,
+              "hi": 168.64,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -103584,10 +103584,10 @@
       "comp": "NBCC (India) Ltd.",
       "sector": "CPSE",
       "type": "DEMAND",
-      "ltp": 80.4,
-      "z1d": "74.44 - 77.99 DR DEMAND",
+      "ltp": 80.15,
+      "z1d": "74.21 - 77.75 DR DEMAND",
       "s1d": "6.0 B",
-      "z1m": "70.01 - 81.15 DR DEMAND",
+      "z1m": "69.79 - 80.9 DR DEMAND",
       "s1m": "6.5 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -103609,9 +103609,9 @@
       "m_sc": 7,
       "d_strong": true,
       "m_strong": true,
-      "dz": "74.44 - 77.99 • 1t",
-      "sz": "88.64 - 90.03 • 1t",
-      "mdz": "70.01 - 81.15 • fresh",
+      "dz": "74.21 - 77.75 • 1t",
+      "sz": "88.36 - 89.75 • 1t",
+      "mdz": "69.79 - 80.90 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -103619,8 +103619,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 74.44,
-            "hi": 77.99,
+            "lo": 74.21,
+            "hi": 77.75,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -103657,8 +103657,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 74.44,
-              "hi": 77.99,
+              "lo": 74.21,
+              "hi": 77.75,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -103696,8 +103696,8 @@
         },
         "m1": {
           "last": {
-            "lo": 70.01,
-            "hi": 81.15,
+            "lo": 69.79,
+            "hi": 80.9,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -103734,8 +103734,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 70.01,
-              "hi": 81.15,
+              "lo": 69.79,
+              "hi": 80.9,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -103780,11 +103780,11 @@
         "notes": [
           "elite: 50SMA SIDEWAYS (sirf UP)"
         ],
-        "zlo": 74.44,
-        "zhi": 77.99,
+        "zlo": 74.21,
+        "zhi": 77.75,
         "pat": "DR DEMAND",
-        "mlo": 70.01,
-        "mhi": 81.15,
+        "mlo": 69.79,
+        "mhi": 80.9,
         "mpat": "DR DEMAND",
         "dd": 35.6,
         "gtf": 6.0,
@@ -108492,7 +108492,7 @@
       "dz": null,
       "sz": "132368.97 - 137180.57 • 5t",
       "mdz": "116685.00 - 127245.00 • fresh",
-      "msz": "151235.03 - 159415.42 • 1t",
+      "msz": "151235.03 - 159415.43 • 1t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
@@ -108504,7 +108504,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101786.99,
+            "lo": 101787.0,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -108578,7 +108578,7 @@
               }
             },
             {
-              "lo": 101786.99,
+              "lo": 101787.0,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -117670,10 +117670,10 @@
       "comp": "Sonata Software Ltd.",
       "sector": "IT",
       "type": "DEMAND",
-      "ltp": 256.07,
-      "z1d": "274.1 - 289.0 RD SUPPLY",
+      "ltp": 254.82,
+      "z1d": "272.76 - 287.59 RD SUPPLY",
       "s1d": "5.0 C",
-      "z1m": "223.25 - 260.59 DR DEMAND",
+      "z1m": "222.16 - 259.32 DR DEMAND",
       "s1m": "6.0 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 0,
@@ -117696,8 +117696,8 @@
       "d_strong": true,
       "m_strong": true,
       "dz": null,
-      "sz": "274.10 - 289.00 • 1t",
-      "mdz": "223.25 - 260.59 • fresh",
+      "sz": "272.76 - 287.59 • 1t",
+      "mdz": "222.16 - 259.32 • fresh",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -117710,8 +117710,8 @@
         },
         "m1": {
           "last": {
-            "lo": 223.25,
-            "hi": 260.59,
+            "lo": 222.16,
+            "hi": 259.32,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -117748,8 +117748,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 223.25,
-              "hi": 260.59,
+              "lo": 222.16,
+              "hi": 259.32,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -121112,10 +121112,10 @@
       "comp": "RITES Ltd.",
       "sector": "INFRA",
       "type": "DEMAND",
-      "ltp": 196.8,
-      "z1d": "176.61 - 186.46 DR DEMAND",
+      "ltp": 194.9,
+      "z1d": "174.9 - 184.66 DR DEMAND",
       "s1d": "3.0 C",
-      "z1m": "176.61 - 222.02 DR DEMAND",
+      "z1m": "174.9 - 219.88 DR DEMAND",
       "s1m": "4.5 C",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 1,
@@ -121137,9 +121137,9 @@
       "m_sc": 4,
       "d_strong": true,
       "m_strong": false,
-      "dz": "176.61 - 186.46 • 3t",
-      "sz": "237.19 - 247.95 • 2t",
-      "mdz": "176.61 - 222.02 • 1t",
+      "dz": "174.90 - 184.66 • 3t",
+      "sz": "234.90 - 245.55 • 2t",
+      "mdz": "174.90 - 219.88 • 1t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -121147,8 +121147,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 176.61,
-            "hi": 186.46,
+            "lo": 174.9,
+            "hi": 184.66,
             "pat": "DR DEMAND",
             "score": 3.0,
             "grade": "C",
@@ -121185,8 +121185,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 176.61,
-              "hi": 186.46,
+              "lo": 174.9,
+              "hi": 184.66,
               "pat": "DR DEMAND",
               "score": 3.0,
               "grade": "C",
@@ -121224,8 +121224,8 @@
         },
         "m1": {
           "last": {
-            "lo": 176.61,
-            "hi": 222.02,
+            "lo": 174.9,
+            "hi": 219.88,
             "pat": "DR DEMAND",
             "score": 4.5,
             "grade": "C",
@@ -121262,8 +121262,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 176.61,
-              "hi": 222.02,
+              "lo": 174.9,
+              "hi": 219.88,
               "pat": "DR DEMAND",
               "score": 4.5,
               "grade": "C",
@@ -121901,10 +121901,10 @@
       "comp": "Chambal Fertilizers & Chemicals Ltd.",
       "sector": "FMCG",
       "type": "EQUILIBRIUM",
-      "ltp": 389.35,
-      "z1d": "386.85 - 394.75 RD SUPPLY",
+      "ltp": 384.35,
+      "z1d": "381.88 - 389.68 RD SUPPLY",
       "s1d": "2.5 C",
-      "z1m": "355.2 - 403.55 DR DEMAND",
+      "z1m": "350.64 - 398.37 DR DEMAND",
       "s1m": "6.0 B",
       "w_trend": "1W DOWN • 20 EMA BEARISH",
       "tests_count": 3,
@@ -121926,18 +121926,18 @@
       "m_sc": 6,
       "d_strong": false,
       "m_strong": true,
-      "dz": "355.20 - 369.75 • 1t",
-      "sz": "386.85 - 394.75 • 3t",
-      "mdz": "355.20 - 403.55 • fresh",
-      "msz": "412.15 - 480.53 • 2t",
+      "dz": "350.64 - 365.00 • 1t",
+      "sz": "381.88 - 389.68 • 3t",
+      "mdz": "350.64 - 398.37 • fresh",
+      "msz": "406.86 - 474.36 • 2t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
       "analysis": {
         "d1": {
           "last": {
-            "lo": 355.2,
-            "hi": 369.75,
+            "lo": 350.64,
+            "hi": 365.0,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -121974,8 +121974,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 369.75,
+              "lo": 350.64,
+              "hi": 365.0,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -122013,8 +122013,8 @@
         },
         "m1": {
           "last": {
-            "lo": 355.2,
-            "hi": 403.55,
+            "lo": 350.64,
+            "hi": 398.37,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -122051,8 +122051,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 403.55,
+              "lo": 350.64,
+              "hi": 398.37,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -122097,13 +122097,13 @@
         "notes": [
           "room sirf 1%",
           "book: 50SMA DOWN — counter-trend demand AVOID",
-          "book: HTF supply 359.0 T1 (401.0) se pehle — SL likely"
+          "book: HTF supply 354.4 T1 (395.8) se pehle — SL likely"
         ],
-        "zlo": 355.2,
-        "zhi": 369.75,
+        "zlo": 350.64,
+        "zhi": 365.0,
         "pat": "DR DEMAND",
-        "mlo": 355.2,
-        "mhi": 403.55,
+        "mlo": 350.64,
+        "mhi": 398.37,
         "mpat": "DR DEMAND",
         "dd": 20.7,
         "gtf": 6.0,
@@ -131011,8 +131011,8 @@
       "comp": "JM Financial Ltd.",
       "sector": "FINSERVICE",
       "type": "DEMAND",
-      "ltp": 112.66,
-      "z1d": "107.85 - 113.65 DR DEMAND",
+      "ltp": 111.01,
+      "z1d": "106.27 - 111.99 DR DEMAND",
       "s1d": "2.5 C",
       "z1m": "— NO ACTIVE ZONE —",
       "s1m": "—",
@@ -131036,8 +131036,8 @@
       "m_sc": 0,
       "d_strong": true,
       "m_strong": false,
-      "dz": "107.85 - 113.65 • 2t",
-      "sz": "122.44 - 128.80 • 2t",
+      "dz": "106.27 - 111.99 • 2t",
+      "sz": "120.65 - 126.91 • 2t",
       "mdz": null,
       "msz": null,
       "bdz": false,
@@ -131046,8 +131046,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 107.85,
-            "hi": 113.65,
+            "lo": 106.27,
+            "hi": 111.99,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -131084,8 +131084,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 107.85,
-              "hi": 113.65,
+              "lo": 106.27,
+              "hi": 111.99,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -144608,10 +144608,10 @@
       "comp": "Balkrishna Industries Ltd.",
       "sector": "AUTO",
       "type": "SUPPLY",
-      "ltp": 2343.6,
-      "z1d": "2072.6 - 2136.8 DR DEMAND",
+      "ltp": 2339.6,
+      "z1d": "2069.06 - 2133.15 DR DEMAND",
       "s1d": "5.5 B",
-      "z1m": "2239.55 - 2679.5 RD SUPPLY",
+      "z1m": "2235.73 - 2674.92 RD SUPPLY",
       "s1m": "3.5 C",
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 3,
@@ -144633,18 +144633,18 @@
       "m_sc": 5,
       "d_strong": true,
       "m_strong": true,
-      "dz": "2072.60 - 2136.80 • 1t",
+      "dz": "2069.06 - 2133.15 • 1t",
       "sz": null,
       "mdz": null,
-      "msz": "2239.55 - 2679.50 • 3t",
+      "msz": "2235.73 - 2674.92 • 3t",
       "bdz": false,
       "bmz": false,
       "bsz": false,
       "analysis": {
         "d1": {
           "last": {
-            "lo": 2072.6,
-            "hi": 2136.8,
+            "lo": 2069.06,
+            "hi": 2133.15,
             "pat": "DR DEMAND",
             "score": 5.5,
             "grade": "B",
@@ -144681,8 +144681,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 2072.6,
-              "hi": 2136.8,
+              "lo": 2069.06,
+              "hi": 2133.15,
               "pat": "DR DEMAND",
               "score": 5.5,
               "grade": "B",
@@ -147676,8 +147676,8 @@
       "comp": "Premier Energies Ltd.",
       "sector": "INFRA",
       "type": "SUPPLY",
-      "ltp": 886.0,
-      "z1d": "872.2 - 925.7 RD SUPPLY",
+      "ltp": 885.5,
+      "z1d": "871.71 - 925.18 RD SUPPLY",
       "s1d": "4.0 C",
       "z1m": "— NO ACTIVE ZONE —",
       "s1m": "—",
@@ -147701,8 +147701,8 @@
       "m_sc": 0,
       "d_strong": true,
       "m_strong": false,
-      "dz": "683.05 - 720.47 • 2t",
-      "sz": "872.20 - 925.70 • 1t",
+      "dz": "682.66 - 720.06 • 2t",
+      "sz": "871.71 - 925.18 • 1t",
       "mdz": null,
       "msz": null,
       "bdz": false,
@@ -147711,8 +147711,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 683.05,
-            "hi": 720.47,
+            "lo": 682.66,
+            "hi": 720.06,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -147749,8 +147749,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 683.05,
-              "hi": 720.47,
+              "lo": 682.66,
+              "hi": 720.06,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -152850,10 +152850,10 @@
       "comp": "Dr. Lal Path Labs Ltd.",
       "sector": "HEALTHCARE",
       "type": "SUPPLY",
-      "ltp": 2016.5,
-      "z1d": "1944.5 - 2061.9 RD SUPPLY",
+      "ltp": 2011.5,
+      "z1d": "1939.68 - 2056.79 RD SUPPLY",
       "s1d": "4.0 C",
-      "z1m": "1131.06 - 1295.99 DR DEMAND",
+      "z1m": "1128.25 - 1292.78 DR DEMAND",
       "s1m": "2.5 C",
       "w_trend": "1W UP • 20 EMA BULLISH",
       "tests_count": 1,
@@ -152875,9 +152875,9 @@
       "m_sc": 4,
       "d_strong": true,
       "m_strong": false,
-      "dz": "1797.21 - 1888.57 • 10t",
-      "sz": "1944.50 - 2061.90 • 1t",
-      "mdz": "1131.06 - 1295.99 • 2t",
+      "dz": "1792.76 - 1883.89 • 10t",
+      "sz": "1939.68 - 2056.79 • 1t",
+      "mdz": "1128.25 - 1292.78 • 2t",
       "msz": null,
       "bdz": false,
       "bmz": false,
@@ -152885,8 +152885,8 @@
       "analysis": {
         "d1": {
           "last": {
-            "lo": 1797.21,
-            "hi": 1888.57,
+            "lo": 1792.76,
+            "hi": 1883.89,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -152923,8 +152923,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 1797.21,
-              "hi": 1888.57,
+              "lo": 1792.76,
+              "hi": 1883.89,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -152962,8 +152962,8 @@
         },
         "m1": {
           "last": {
-            "lo": 1131.06,
-            "hi": 1295.99,
+            "lo": 1128.25,
+            "hi": 1292.78,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -153000,8 +153000,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 1131.06,
-              "hi": 1295.99,
+              "lo": 1128.25,
+              "hi": 1292.78,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -158433,7 +158433,7 @@
       "d_strong": true,
       "m_strong": true,
       "dz": "5600.00 - 5873.50 • 1t",
-      "sz": "6402.71 - 6552.65 • 4t",
+      "sz": "6402.72 - 6552.65 • 4t",
       "mdz": "4296.78 - 5698.00 • 1t",
       "msz": null,
       "bdz": false,
@@ -175147,16 +175147,16 @@
       "sym": "AUROPHARMA",
       "comp": "Aurobindo Pharma Ltd.",
       "sector": "PHARMA",
-      "ltp": 1855.3,
+      "ltp": 1848.3,
       "rel": "AWAY",
       "sig": "AWAY — koi active zone 8% band me nahi",
-      "z1d": "1536.8 - 1585.9 DR DEMAND",
-      "z1m": "1016.1 - 1138.0 DR DEMAND",
+      "z1d": "1531.0 - 1579.92 DR DEMAND",
+      "z1m": "1012.27 - 1133.71 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 1536.8,
-            "hi": 1585.9,
+            "lo": 1531.0,
+            "hi": 1579.92,
             "pat": "DR DEMAND",
             "score": 3.0,
             "grade": "C",
@@ -175191,8 +175191,8 @@
             }
           },
           "next": {
-            "lo": 1367.1,
-            "hi": 1401.1,
+            "lo": 1361.94,
+            "hi": 1395.81,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -175228,8 +175228,8 @@
           },
           "zones": [
             {
-              "lo": 1536.8,
-              "hi": 1585.9,
+              "lo": 1531.0,
+              "hi": 1579.92,
               "pat": "DR DEMAND",
               "score": 3.0,
               "grade": "C",
@@ -175264,8 +175264,8 @@
               }
             },
             {
-              "lo": 1367.1,
-              "hi": 1401.1,
+              "lo": 1361.94,
+              "hi": 1395.81,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -175303,8 +175303,8 @@
         },
         "m1": {
           "last": {
-            "lo": 1016.1,
-            "hi": 1138.0,
+            "lo": 1012.27,
+            "hi": 1133.71,
             "pat": "DR DEMAND",
             "score": 3.5,
             "grade": "C",
@@ -175341,8 +175341,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 1016.1,
-              "hi": 1138.0,
+              "lo": 1012.27,
+              "hi": 1133.71,
               "pat": "DR DEMAND",
               "score": 3.5,
               "grade": "C",
@@ -177207,16 +177207,16 @@
       "sym": "BALKRISIND",
       "comp": "Balkrishna Industries Ltd.",
       "sector": "AUTO",
-      "ltp": 2343.6,
+      "ltp": 2339.6,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "2072.6 - 2136.8 DR DEMAND",
-      "z1m": "2239.55 - 2679.5 RD SUPPLY",
+      "z1d": "2069.06 - 2133.15 DR DEMAND",
+      "z1m": "2235.73 - 2674.92 RD SUPPLY",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 2072.6,
-            "hi": 2136.8,
+            "lo": 2069.06,
+            "hi": 2133.15,
             "pat": "DR DEMAND",
             "score": 5.5,
             "grade": "B",
@@ -177253,8 +177253,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 2072.6,
-              "hi": 2136.8,
+              "lo": 2069.06,
+              "hi": 2133.15,
               "pat": "DR DEMAND",
               "score": 5.5,
               "grade": "B",
@@ -177301,16 +177301,16 @@
       "sym": "BALRAMCHIN",
       "comp": "Balrampur Chini Mills Ltd.",
       "sector": "FMCG",
-      "ltp": 658.4,
+      "ltp": 654.4,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "547.65 - 569.0 DR DEMAND",
-      "z1m": "580.7 - 691.4 DR DEMAND",
+      "z1d": "544.32 - 565.54 DR DEMAND",
+      "z1m": "577.17 - 687.2 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 547.65,
-            "hi": 569.0,
+            "lo": 544.32,
+            "hi": 565.54,
             "pat": "DR DEMAND",
             "score": 5.5,
             "grade": "B",
@@ -177345,8 +177345,8 @@
             }
           },
           "next": {
-            "lo": 513.5,
-            "hi": 536.75,
+            "lo": 510.38,
+            "hi": 533.49,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -177382,8 +177382,8 @@
           },
           "zones": [
             {
-              "lo": 547.65,
-              "hi": 569.0,
+              "lo": 544.32,
+              "hi": 565.54,
               "pat": "DR DEMAND",
               "score": 5.5,
               "grade": "B",
@@ -177418,8 +177418,8 @@
               }
             },
             {
-              "lo": 513.5,
-              "hi": 536.75,
+              "lo": 510.38,
+              "hi": 533.49,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -177454,8 +177454,8 @@
               }
             },
             {
-              "lo": 458.2,
-              "hi": 468.05,
+              "lo": 455.42,
+              "hi": 465.21,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -177493,8 +177493,8 @@
         },
         "m1": {
           "last": {
-            "lo": 580.7,
-            "hi": 691.4,
+            "lo": 577.17,
+            "hi": 687.2,
             "pat": "DR DEMAND",
             "score": 7.0,
             "grade": "A",
@@ -177531,8 +177531,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 580.7,
-              "hi": 691.4,
+              "lo": 577.17,
+              "hi": 687.2,
               "pat": "DR DEMAND",
               "score": 7.0,
               "grade": "A",
@@ -183548,16 +183548,16 @@
       "sym": "CHAMBLFERT",
       "comp": "Chambal Fertilizers & Chemicals Ltd.",
       "sector": "FMCG",
-      "ltp": 389.35,
+      "ltp": 384.35,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "386.85 - 394.75 RD SUPPLY",
-      "z1m": "355.2 - 403.55 DR DEMAND",
+      "z1d": "381.88 - 389.68 RD SUPPLY",
+      "z1m": "350.64 - 398.37 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 355.2,
-            "hi": 369.75,
+            "lo": 350.64,
+            "hi": 365.0,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -183594,8 +183594,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 369.75,
+              "lo": 350.64,
+              "hi": 365.0,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -183633,8 +183633,8 @@
         },
         "m1": {
           "last": {
-            "lo": 355.2,
-            "hi": 403.55,
+            "lo": 350.64,
+            "hi": 398.37,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -183671,8 +183671,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 355.2,
-              "hi": 403.55,
+              "lo": 350.64,
+              "hi": 398.37,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -185602,11 +185602,11 @@
       "sym": "CONCOR",
       "comp": "Container Corporation of India Ltd.",
       "sector": "CPSE",
-      "ltp": 446.0,
+      "ltp": 444.1,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "487.05 - 501.95 RD SUPPLY",
-      "z1m": "416.0 - 446.35 DR DEMAND",
+      "z1d": "484.98 - 499.81 RD SUPPLY",
+      "z1m": "414.23 - 444.45 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -185615,8 +185615,8 @@
         },
         "m1": {
           "last": {
-            "lo": 416.0,
-            "hi": 446.35,
+            "lo": 414.23,
+            "hi": 444.45,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -185653,8 +185653,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 416.0,
-              "hi": 446.35,
+              "lo": 414.23,
+              "hi": 444.45,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -187924,16 +187924,16 @@
       "sym": "LALPATHLAB",
       "comp": "Dr. Lal Path Labs Ltd.",
       "sector": "HEALTHCARE",
-      "ltp": 2016.5,
+      "ltp": 2011.5,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "1944.5 - 2061.9 RD SUPPLY",
-      "z1m": "1131.06 - 1295.99 DR DEMAND",
+      "z1d": "1939.68 - 2056.79 RD SUPPLY",
+      "z1m": "1128.25 - 1292.78 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 1797.21,
-            "hi": 1888.57,
+            "lo": 1792.76,
+            "hi": 1883.89,
             "pat": "DR DEMAND",
             "score": 4.0,
             "grade": "C",
@@ -187970,8 +187970,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 1797.21,
-              "hi": 1888.57,
+              "lo": 1792.76,
+              "hi": 1883.89,
               "pat": "DR DEMAND",
               "score": 4.0,
               "grade": "C",
@@ -188009,8 +188009,8 @@
         },
         "m1": {
           "last": {
-            "lo": 1131.06,
-            "hi": 1295.99,
+            "lo": 1128.25,
+            "hi": 1292.78,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -188047,8 +188047,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 1131.06,
-              "hi": 1295.99,
+              "lo": 1128.25,
+              "hi": 1292.78,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -198967,11 +198967,11 @@
       "sym": "HUDCO",
       "comp": "Housing & Urban Development Corporation Ltd.",
       "sector": "CPSE",
-      "ltp": 169.14,
+      "ltp": 167.79,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
       "z1d": "— NO ACTIVE ZONE —",
-      "z1m": "142.69 - 170.0 DR DEMAND",
+      "z1m": "141.55 - 168.64 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -198980,8 +198980,8 @@
         },
         "m1": {
           "last": {
-            "lo": 142.69,
-            "hi": 170.0,
+            "lo": 141.55,
+            "hi": 168.64,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -199018,8 +199018,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 142.69,
-              "hi": 170.0,
+              "lo": 141.55,
+              "hi": 168.64,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -204300,16 +204300,16 @@
       "sym": "JMFINANCIL",
       "comp": "JM Financial Ltd.",
       "sector": "FINSERVICE",
-      "ltp": 112.66,
+      "ltp": 111.01,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "107.85 - 113.65 DR DEMAND",
+      "z1d": "106.27 - 111.99 DR DEMAND",
       "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 107.85,
-            "hi": 113.65,
+            "lo": 106.27,
+            "hi": 111.99,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -204346,8 +204346,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 107.85,
-              "hi": 113.65,
+              "lo": 106.27,
+              "hi": 111.99,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -211710,7 +211710,7 @@
         },
         "m1": {
           "last": {
-            "lo": 101786.99,
+            "lo": 101787.0,
             "hi": 115617.15,
             "pat": "DR DEMAND",
             "score": 3.0,
@@ -211784,7 +211784,7 @@
               }
             },
             {
-              "lo": 101786.99,
+              "lo": 101787.0,
               "hi": 115617.15,
               "pat": "DR DEMAND",
               "score": 3.0,
@@ -214544,16 +214544,16 @@
       "sym": "NBCC",
       "comp": "NBCC (India) Ltd.",
       "sector": "CPSE",
-      "ltp": 80.4,
+      "ltp": 80.15,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "74.44 - 77.99 DR DEMAND",
-      "z1m": "70.01 - 81.15 DR DEMAND",
+      "z1d": "74.21 - 77.75 DR DEMAND",
+      "z1m": "69.79 - 80.9 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 74.44,
-            "hi": 77.99,
+            "lo": 74.21,
+            "hi": 77.75,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -214590,8 +214590,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 74.44,
-              "hi": 77.99,
+              "lo": 74.21,
+              "hi": 77.75,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
@@ -214629,8 +214629,8 @@
         },
         "m1": {
           "last": {
-            "lo": 70.01,
-            "hi": 81.15,
+            "lo": 69.79,
+            "hi": 80.9,
             "pat": "DR DEMAND",
             "score": 6.5,
             "grade": "B",
@@ -214667,8 +214667,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 70.01,
-              "hi": 81.15,
+              "lo": 69.79,
+              "hi": 80.9,
               "pat": "DR DEMAND",
               "score": 6.5,
               "grade": "B",
@@ -222295,16 +222295,16 @@
       "sym": "PREMIERENE",
       "comp": "Premier Energies Ltd.",
       "sector": "INFRA",
-      "ltp": 886.0,
+      "ltp": 885.5,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "872.2 - 925.7 RD SUPPLY",
+      "z1d": "871.71 - 925.18 RD SUPPLY",
       "z1m": "— NO ACTIVE ZONE —",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 683.05,
-            "hi": 720.47,
+            "lo": 682.66,
+            "hi": 720.06,
             "pat": "DR DEMAND",
             "score": 2.5,
             "grade": "C",
@@ -222341,8 +222341,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 683.05,
-              "hi": 720.47,
+              "lo": 682.66,
+              "hi": 720.06,
               "pat": "DR DEMAND",
               "score": 2.5,
               "grade": "C",
@@ -223418,16 +223418,16 @@
       "sym": "RITES",
       "comp": "RITES Ltd.",
       "sector": "INFRA",
-      "ltp": 196.8,
+      "ltp": 194.9,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "176.61 - 186.46 DR DEMAND",
-      "z1m": "176.61 - 222.02 DR DEMAND",
+      "z1d": "174.9 - 184.66 DR DEMAND",
+      "z1m": "174.9 - 219.88 DR DEMAND",
       "analysis": {
         "d1": {
           "last": {
-            "lo": 176.61,
-            "hi": 186.46,
+            "lo": 174.9,
+            "hi": 184.66,
             "pat": "DR DEMAND",
             "score": 3.0,
             "grade": "C",
@@ -223464,8 +223464,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 176.61,
-              "hi": 186.46,
+              "lo": 174.9,
+              "hi": 184.66,
               "pat": "DR DEMAND",
               "score": 3.0,
               "grade": "C",
@@ -223503,8 +223503,8 @@
         },
         "m1": {
           "last": {
-            "lo": 176.61,
-            "hi": 222.02,
+            "lo": 174.9,
+            "hi": 219.88,
             "pat": "DR DEMAND",
             "score": 4.5,
             "grade": "C",
@@ -223541,8 +223541,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 176.61,
-              "hi": 222.02,
+              "lo": 174.9,
+              "hi": 219.88,
               "pat": "DR DEMAND",
               "score": 4.5,
               "grade": "C",
@@ -228309,11 +228309,11 @@
       "sym": "SONATSOFTW",
       "comp": "Sonata Software Ltd.",
       "sector": "IT",
-      "ltp": 256.07,
+      "ltp": 254.82,
       "rel": "IN",
       "sig": "ZONE KE PAAS",
-      "z1d": "274.1 - 289.0 RD SUPPLY",
-      "z1m": "223.25 - 260.59 DR DEMAND",
+      "z1d": "272.76 - 287.59 RD SUPPLY",
+      "z1m": "222.16 - 259.32 DR DEMAND",
       "analysis": {
         "d1": {
           "last": null,
@@ -228322,8 +228322,8 @@
         },
         "m1": {
           "last": {
-            "lo": 223.25,
-            "hi": 260.59,
+            "lo": 222.16,
+            "hi": 259.32,
             "pat": "DR DEMAND",
             "score": 6.0,
             "grade": "B",
@@ -228360,8 +228360,8 @@
           "next": null,
           "zones": [
             {
-              "lo": 223.25,
-              "hi": 260.59,
+              "lo": 222.16,
+              "hi": 259.32,
               "pat": "DR DEMAND",
               "score": 6.0,
               "grade": "B",
